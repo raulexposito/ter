@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset name="whizbang PMD ruleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+    <description>
+        This ruleset defines the PMD rules for project "ter"
+        https://pmd.github.io/pmd-5.6.1/customizing/howtomakearuleset.html
+    </description>
+
+    <rule ref="rulesets/java/basic.xml"/>
+    <rule ref="rulesets/java/braces.xml"/>
+    <rule ref="rulesets/java/naming.xml">
+        <exclude name="ShortMethodName"/>
+        <exclude name="ShortClassName"/>
+        <exclude name="ShortVariable"/>
+        <exclude name="LongVariable"/>
+        <exclude name="AvoidFieldNameMatchingTypeName"/>
+        <exclude name="AbstractNaming"/>
+    </rule>
+    <rule ref="rulesets/java/optimizations.xml">
+        <exclude name="MethodArgumentCouldBeFinal"/>
+    </rule>
+    <rule ref="rulesets/java/unusedcode.xml"/>
+    <rule ref="rulesets/java/unnecessary.xml"/>
+    <rule ref="rulesets/java/imports.xml"/>
+</ruleset>

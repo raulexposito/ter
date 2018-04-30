@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.raulexposito</groupId>
+    <artifactId>ter</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>ter</name>
+    <url>https://raulexposito.com/</url>
+    <properties>
+
+        <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
+        <!--                    PROJECT                    -->
+        <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
+        <!--                    PLUGINS                    -->
+        <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
+
+        <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+        <maven.java.formatter.plugin.version>0.4</maven.java.formatter.plugin.version>
+        <maven.pmd.plugin.version>3.9.0</maven.pmd.plugin.version>
+
+        <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
+        <!--                 DEPENDENCIES                  -->
+        <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
+
+        <!-- Testing -->
+        <junit.version>4.12</junit.version>
+
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- java compilation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+            </plugin>
+
+            <!-- java code formatter -->
+            <plugin>
+                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                <artifactId>maven-java-formatter-plugin</artifactId>
+                <version>${maven.java.formatter.plugin.version}</version>
+                <configuration>
+                    <configFile>${project.basedir}/formatter.xml</configFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>formatter</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- static code analysis. Includes CPD and PMD -->
+            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/examples/multi-module-config.html -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven.pmd.plugin.version}</version>
+                <configuration>
+                    <rulesets>
+                        <ruleset>${project.basedir}/pmd-ruleset.xml</ruleset>
+                    </rulesets>
+                    <printFailingErrors>true</printFailingErrors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>analyze</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
