@@ -14,9 +14,9 @@ public class ChipsCountingTest implements BoardFixture {
         // given
         Board board = createBoard();
         // when
-        board.put(BLACK, TOP_CENTER);
-        board.put(BLACK, CENTER);
-        board.put(BLACK, BOTTOM_CENTER);
+        board.add(BLACK, TOP_CENTER);
+        board.add(BLACK, CENTER);
+        board.add(BLACK, BOTTOM_CENTER);
         // then
         Assert.assertEquals(Integer.valueOf(3), board.count(BLACK));
     }
@@ -26,10 +26,10 @@ public class ChipsCountingTest implements BoardFixture {
         // given
         Board board = createBoard();
         // when
-        board.put(BLACK, TOP_LEFT);
-        board.put(WHITE ,TOP_CENTER);
-        board.put(WHITE, MIDDLE_LEFT);
-        board.put(WHITE, CENTER);
+        board.add(BLACK, TOP_LEFT);
+        board.add(WHITE ,TOP_CENTER);
+        board.add(WHITE, MIDDLE_LEFT);
+        board.add(WHITE, CENTER);
         // then
         Assert.assertEquals(Integer.valueOf(1), board.count(BLACK));
         Assert.assertEquals(Integer.valueOf(3), board.count(WHITE));

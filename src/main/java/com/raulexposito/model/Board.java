@@ -8,15 +8,12 @@ import com.raulexposito.model.cell.FilledCell;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class Board {
 
     // ------------------------------------------------------------------------
     // ATTRIBUTES
     // ------------------------------------------------------------------------
-
-    private static final Integer SAME_CHIP_MAX = 3;
 
     private Map<Placement, Cell> cells;
 
@@ -29,7 +26,7 @@ public class Board {
         Arrays.stream(Placement.values()).forEach(it -> cells.put(it, new EmptyCell()));
     }
 
-    public static Board with() {
+    public static Board empty() {
         return new Board();
     }
 
@@ -41,23 +38,13 @@ public class Board {
         return cells.values().stream().noneMatch(Cell::isFilled);
     }
 
-    // TODO: crear checker específico
-    public MovementResult put(Chip chip, Placement placement) {
-        if (count(chip).equals(SAME_CHIP_MAX)) {
-            return MovementResult.FAILURE;
-        }
-        final Optional<FilledCell> attempt = get(placement).fill(chip);
-        return attempt.map(cell -> updateCell(placement, cell)).orElse(MovementResult.FAILURE);
+    public void add(Chip chip, Placement placement) {
+        cells.put(placement, new FilledCell(chip));
     }
 
-    // TODO: crear checker específico
-    public MovementResult swap(Chip chip, Placement current, Placement candidate) {
-        if (swapIsInvalid(chip, current, candidate)) {
-            return MovementResult.FAILURE;
-        }
-        update(candidate, get(current));
-        update(current, new EmptyCell());
-        return MovementResult.SUCCESS;
+    public void swap(Placement current, Placement candidate) {
+        cells.put(candidate, get(current));
+        cells.put(current, new EmptyCell());
     }
 
     public Integer count(Chip chip) {
@@ -68,28 +55,19 @@ public class Board {
         return get(placement).isChip(chip);
     }
 
+    public boolean isPlacementEmpty(Placement placement) {
+        return get(placement).isEmpty();
+    }
+
+    public boolean isPlacementFilled(Placement placement) {
+        return get(placement).isFilled();
+    }
+
     // ------------------------------------------------------------------------
     // PRIVATE METHODS
     // ------------------------------------------------------------------------
 
     private Cell get(Placement placement) {
         return cells.get(placement);
-    }
-
-    private void update(Placement placement, Cell cell) {
-        cells.put(placement, cell);
-    }
-
-    private MovementResult updateCell(Placement placement, FilledCell cell) {
-        update(placement, cell);
-        return MovementResult.SUCCESS;
-    }
-
-    private boolean swapIsInvalid(Chip chip, Placement current, Placement candidate) {
-        return count(chip) < SAME_CHIP_MAX || invalidChip(current, chip) || get(current).isEmpty() || get(candidate).isFilled();
-    }
-
-    private boolean invalidChip(Placement current, Chip chip) {
-        return !get(current).isChip(chip);
     }
 }

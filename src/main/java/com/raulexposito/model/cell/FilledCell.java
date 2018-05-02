@@ -1,7 +1,5 @@
 package com.raulexposito.model.cell;
 
-import java.util.Optional;
-
 public class FilledCell extends Cell {
 
     // ------------------------------------------------------------------------
@@ -25,16 +23,6 @@ public class FilledCell extends Cell {
     @Override
     public boolean isFilled() {
         return true;
-    }
-
-    @Override
-    public Optional<FilledCell> fill(Chip chip) {
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<EmptyCell> empty() {
-        return Optional.of(new EmptyCell());
     }
 
     @Override

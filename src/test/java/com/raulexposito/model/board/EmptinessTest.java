@@ -22,7 +22,7 @@ public class EmptinessTest implements BoardFixture {
         // given
         Board board = createBoard();
         // when
-        board.put(BLACK, CENTER);
+        board.add(BLACK, CENTER);
         // then
         Assert.assertFalse(board.isEmpty());
     }

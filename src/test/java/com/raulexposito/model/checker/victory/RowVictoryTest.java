@@ -1,7 +1,8 @@
-package com.raulexposito.model.checker;
+package com.raulexposito.model.checker.victory;
 
 import com.raulexposito.model.Board;
 import com.raulexposito.model.board.BoardFixture;
+import com.raulexposito.model.checker.VictoryChecker;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,12 +15,12 @@ public class RowVictoryTest implements VictoryCheckerFixture, BoardFixture {
     @Test
     public void topRowFilled() {
         // given
-        Checker victoryChecker = createVictoryChecker();
+        VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.put(BLACK, TOP_LEFT);
-        board.put(BLACK, TOP_CENTER);
-        board.put(BLACK, TOP_RIGHT);
+        board.add(BLACK, TOP_LEFT);
+        board.add(BLACK, TOP_CENTER);
+        board.add(BLACK, TOP_RIGHT);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }
@@ -27,12 +28,12 @@ public class RowVictoryTest implements VictoryCheckerFixture, BoardFixture {
     @Test
     public void middleRowFilled() {
         // given
-        Checker victoryChecker = createVictoryChecker();
+        VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.put(BLACK, MIDDLE_LEFT);
-        board.put(BLACK, CENTER);
-        board.put(BLACK, MIDDLE_RIGHT);
+        board.add(BLACK, MIDDLE_LEFT);
+        board.add(BLACK, CENTER);
+        board.add(BLACK, MIDDLE_RIGHT);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }
@@ -40,12 +41,12 @@ public class RowVictoryTest implements VictoryCheckerFixture, BoardFixture {
     @Test
     public void bottomRowFilled() {
         // given
-        Checker victoryChecker = createVictoryChecker();
+        VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.put(BLACK, BOTTOM_LEFT);
-        board.put(BLACK, BOTTOM_CENTER);
-        board.put(BLACK, BOTTOM_RIGHT);
+        board.add(BLACK, BOTTOM_LEFT);
+        board.add(BLACK, BOTTOM_CENTER);
+        board.add(BLACK, BOTTOM_RIGHT);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }

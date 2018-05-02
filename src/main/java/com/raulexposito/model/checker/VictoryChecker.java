@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 import static com.raulexposito.model.Placement.*;
 import static com.raulexposito.model.cell.Chip.*;
 
-public class VictoryChecker implements Checker {
+public class VictoryChecker {
 
     // ------------------------------------------------------------------------
     // BUSINESS LOGIC

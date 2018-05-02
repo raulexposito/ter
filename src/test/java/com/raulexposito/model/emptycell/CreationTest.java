@@ -4,9 +4,7 @@ import com.raulexposito.model.cell.EmptyCell;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Optional;
-
-public class EmptinessTest implements EmptyCellFixture {
+public class CreationTest implements EmptyCellFixture {
 
     @Test
     public void cellIsCreatedEmpty() {
@@ -17,12 +15,10 @@ public class EmptinessTest implements EmptyCellFixture {
     }
 
     @Test
-    public void emptyCellCannotBeEmptied() {
-        // given
-        EmptyCell cell = createEmptyCell();
+    public void emptyCellIsNotCreatedFilled() {
         // when
-        Optional<EmptyCell> empty = cell.empty();
+        EmptyCell cell = createEmptyCell();
         // then
-        Assert.assertTrue(!empty.isPresent());
+        Assert.assertTrue(!cell.isFilled());
     }
 }

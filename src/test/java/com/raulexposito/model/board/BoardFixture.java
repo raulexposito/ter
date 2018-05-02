@@ -5,6 +5,6 @@ import com.raulexposito.model.Board;
 public interface BoardFixture {
 
     default Board createBoard(){
-        return Board.with();
+        return Board.empty();
     }
 }
