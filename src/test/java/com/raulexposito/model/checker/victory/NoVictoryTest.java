@@ -18,7 +18,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, CENTER);
+        board = board.add(BLACK, CENTER);
         // then
         Assert.assertEquals(CONTINUE, victoryChecker.check(board));
     }
@@ -29,9 +29,10 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, TOP_RIGHT);
-        board.add(BLACK, CENTER);
-        board.add(WHITE, BOTTOM_LEFT);
+        board = board
+                .add(BLACK, TOP_RIGHT)
+                .add(BLACK, CENTER)
+                .add(WHITE, BOTTOM_LEFT);
         // then
         Assert.assertEquals(CONTINUE, victoryChecker.check(board));
     }
@@ -42,9 +43,10 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, TOP_RIGHT);
-        board.add(BLACK, TOP_CENTER);
-        board.add(BLACK, BOTTOM_LEFT);
+        board = board
+                .add(BLACK, TOP_RIGHT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, BOTTOM_LEFT);
         // then
         Assert.assertEquals(CONTINUE, victoryChecker.check(board));
     }
@@ -55,9 +57,10 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, MIDDLE_LEFT);
-        board.add(BLACK, BOTTOM_RIGHT);
+        board = board
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, MIDDLE_LEFT)
+                .add(BLACK, BOTTOM_RIGHT);
         // then
         Assert.assertEquals(CONTINUE, victoryChecker.check(board));
     }

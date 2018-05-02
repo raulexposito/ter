@@ -18,9 +18,10 @@ public class DiagonalVictoryTest implements VictoryCheckerFixture, BoardFixture 
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, CENTER);
-        board.add(BLACK, BOTTOM_RIGHT);
+        board = board
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, CENTER)
+                .add(BLACK, BOTTOM_RIGHT);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }
@@ -31,9 +32,10 @@ public class DiagonalVictoryTest implements VictoryCheckerFixture, BoardFixture 
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, TOP_RIGHT);
-        board.add(BLACK, CENTER);
-        board.add(BLACK, BOTTOM_LEFT);
+        board = board
+                .add(BLACK, TOP_RIGHT)
+                .add(BLACK, CENTER)
+                .add(BLACK, BOTTOM_LEFT);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }

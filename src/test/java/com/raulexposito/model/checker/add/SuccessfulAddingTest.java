@@ -13,10 +13,10 @@ import static com.raulexposito.model.Color.BLACK;
 public class SuccessfulAddingTest implements AddCheckerFixture, BoardFixture {
 
     @Test
-    public void colorsCanBeAdded() {
+    public void chipsCanBeAdded() {
         // given
-        Board board = createBoard();
         AddChecker putChecker = createPutChecker();
+        Board board = createBoard();
         // when
         Result result = putChecker.check(board, BLACK, CENTER);
         // then

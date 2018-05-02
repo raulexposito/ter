@@ -18,9 +18,10 @@ public class RowVictoryTest implements VictoryCheckerFixture, BoardFixture {
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, TOP_CENTER);
-        board.add(BLACK, TOP_RIGHT);
+        board = board
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, TOP_RIGHT);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }
@@ -31,9 +32,10 @@ public class RowVictoryTest implements VictoryCheckerFixture, BoardFixture {
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, MIDDLE_LEFT);
-        board.add(BLACK, CENTER);
-        board.add(BLACK, MIDDLE_RIGHT);
+        board = board
+                .add(BLACK, MIDDLE_LEFT)
+                .add(BLACK, CENTER)
+                .add(BLACK, MIDDLE_RIGHT);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }
@@ -44,9 +46,10 @@ public class RowVictoryTest implements VictoryCheckerFixture, BoardFixture {
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board.add(BLACK, BOTTOM_LEFT);
-        board.add(BLACK, BOTTOM_CENTER);
-        board.add(BLACK, BOTTOM_RIGHT);
+        board = board
+                .add(BLACK, BOTTOM_LEFT)
+                .add(BLACK, BOTTOM_CENTER)
+                .add(BLACK, BOTTOM_RIGHT);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }

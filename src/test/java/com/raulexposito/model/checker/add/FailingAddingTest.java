@@ -16,9 +16,9 @@ public class FailingAddingTest implements AddCheckerFixture, BoardFixture {
     @Test
     public void colorsCannotBeOverlapped() {
         // given
-        Board board = createBoard();
         AddChecker putChecker = createPutChecker();
-        board.add(BLACK, CENTER);
+        Board board = createBoard()
+                .add(BLACK, CENTER);
         // when
         Result result = putChecker.check(board, WHITE, CENTER);
         // then
@@ -28,11 +28,11 @@ public class FailingAddingTest implements AddCheckerFixture, BoardFixture {
     @Test
     public void fourEqualsColorsCannotBeAdded() {
         // given
-        Board board = createBoard();
         AddChecker putChecker = createPutChecker();
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, TOP_CENTER);
-        board.add(BLACK, TOP_RIGHT);
+        Board board = createBoard()
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, TOP_RIGHT);
         // when
         Result result = putChecker.check(board, BLACK, TOP_LEFT);
         // then

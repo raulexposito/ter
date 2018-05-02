@@ -18,11 +18,11 @@ public class EmptinessTest implements BoardFixture {
     }
 
     @Test
-    public void boardIsntEmptyAfterPutting() {
+    public void boardIsntEmptyAfterAdding() {
         // given
         Board board = createBoard();
         // when
-        board.add(BLACK, CENTER);
+        board = board.add(BLACK, CENTER);
         // then
         Assert.assertFalse(board.isEmpty());
     }

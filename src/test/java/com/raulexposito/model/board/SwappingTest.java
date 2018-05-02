@@ -13,11 +13,12 @@ public class SwappingTest implements BoardFixture {
     public void boardCanSwapPositions() {
         // given
         Board board = createBoard();
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, TOP_CENTER);
-        board.add(BLACK, TOP_RIGHT);
+        board = board
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, TOP_RIGHT);
         // when
-        board.swap(TOP_LEFT, CENTER);
+        board = board.swap(TOP_LEFT, CENTER);
         // then
         Assert.assertTrue(board.isPlacementEmpty(TOP_LEFT));
         Assert.assertTrue(board.isPlacementFilled(TOP_CENTER));

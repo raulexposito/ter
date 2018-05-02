@@ -17,11 +17,11 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
     @Test
     public void cannotSwapDifferentColors() {
         // given
-        Board board = createBoard();
         SwapChecker swapChecker = createSwapChecker();
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, TOP_CENTER);
-        board.add(BLACK, TOP_RIGHT);
+        Board board = createBoard()
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, TOP_RIGHT);
         // when
         Result result = swapChecker.check(board, WHITE, TOP_LEFT, TOP_CENTER);
         // then
@@ -31,10 +31,10 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
     @Test
     public void min3ColorsToSwap() {
         // given
-        Board board = createBoard();
         SwapChecker swapChecker = createSwapChecker();
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, TOP_CENTER);
+        Board board = createBoard()
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER);
         // when
         Result result = swapChecker.check(board, BLACK, TOP_LEFT, CENTER);
         // then
@@ -45,11 +45,11 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
     @Test
     public void emptyPlacementsCannotBeSwapped() {
         // given
-        Board board = createBoard();
         SwapChecker swapChecker = createSwapChecker();
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, TOP_CENTER);
-        board.add(BLACK, TOP_RIGHT);
+        Board board = createBoard()
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, TOP_RIGHT);
         // when
         Result result = swapChecker.check(board, BLACK, CENTER, BOTTOM_CENTER);
         // then
@@ -59,11 +59,11 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
     @Test
     public void cannotSwapToFilledPlacements() {
         // given
-        Board board = createBoard();
         SwapChecker swapChecker = createSwapChecker();
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, TOP_CENTER);
-        board.add(BLACK, TOP_RIGHT);
+        Board board = createBoard()
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, TOP_RIGHT);
         // when
         Result result = swapChecker.check(board, BLACK, TOP_LEFT, TOP_RIGHT);
         // then

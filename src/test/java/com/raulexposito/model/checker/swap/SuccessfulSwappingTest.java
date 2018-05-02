@@ -15,11 +15,11 @@ public class SuccessfulSwappingTest implements SwapCheckerFixture, BoardFixture 
     @Test
     public void sameColorCanBeSwapped() {
         // given
-        Board board = createBoard();
         SwapChecker swapChecker = createSwapChecker();
-        board.add(BLACK, TOP_LEFT);
-        board.add(BLACK, TOP_CENTER);
-        board.add(BLACK, TOP_RIGHT);
+        Board board = createBoard()
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, TOP_RIGHT);
         // when
         Result result = swapChecker.check(board, BLACK, TOP_LEFT, CENTER);
         // then

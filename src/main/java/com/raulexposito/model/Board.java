@@ -14,15 +14,23 @@ public class Board {
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private Map<Placement, Cell> cells;
+    private Map<Placement, Cell> cells = new HashMap<>(Placement.values().length);
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
     private Board() {
-        this.cells = new HashMap<>(Placement.values().length);
         Arrays.stream(Placement.values()).forEach(it -> cells.put(it, new EmptyCell()));
+    }
+
+    private Board(Board original, Map<Placement, Cell> replacements) {
+        Arrays.stream(Placement.values()).forEach(it ->
+            cells.put(it, replacements.keySet()
+                            .stream()
+                            .findFirst()
+                            .map(c -> replacements.get(it))
+                            .orElse(original.get(it))));
     }
 
     public static Board empty() {
@@ -37,13 +45,12 @@ public class Board {
         return cells.values().stream().noneMatch(Cell::isFilled);
     }
 
-    public void add(Color color, Placement placement) {
-        cells.put(placement, new FilledCell(color));
+    public Board add(Color color, Placement placement) {
+        return new Board(this, Map.of(placement, new FilledCell(color)));
     }
 
-    public void swap(Placement current, Placement candidate) {
-        cells.put(candidate, get(current));
-        cells.put(current, new EmptyCell());
+    public Board swap(Placement current, Placement candidate) {
+        return new Board(this, Map.of(candidate, get(current), current, new EmptyCell()));
     }
 
     public Integer count(Color color) {
