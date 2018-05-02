@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.raulexposito.model.Placement.*;
-import static com.raulexposito.model.cell.Chip.BLACK;
+import static com.raulexposito.model.Color.BLACK;
 
 public class SwappingTest implements BoardFixture {
 

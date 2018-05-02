@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.raulexposito.model.Placement.*;
-import static com.raulexposito.model.cell.Chip.*;
+import static com.raulexposito.model.Color.*;
 
 public class EmptinessTest implements BoardFixture {
 

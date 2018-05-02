@@ -1,24 +1,36 @@
 package com.raulexposito.model.checker;
 
 import com.raulexposito.model.Board;
-import com.raulexposito.model.MovementResult;
+import com.raulexposito.model.Result;
 import com.raulexposito.model.Placement;
-import com.raulexposito.model.cell.Chip;
+import com.raulexposito.model.Color;
 
 public class AddChecker {
 
-	private static final Integer SAME_CHIP_MAX = 3;
+	// ------------------------------------------------------------------------
+	// CONSTANT VALUES
+	// ------------------------------------------------------------------------
 
-	public MovementResult check(Board board, Chip chip, Placement placement) {
-		if (topChipsIsReached(board, chip)
+	private static final Integer SAME_COLOR_TOP = 3;
+
+	// ------------------------------------------------------------------------
+	// BUSINESS LOGIC
+	// ------------------------------------------------------------------------
+
+	public Result check(Board board, Color color, Placement placement) {
+		if (topColorIsReached(board, color)
 				|| placementIsFilled(board, placement)) {
-			return MovementResult.FAILURE;
+			return Result.FAILURE;
 		}
-		return MovementResult.SUCCESS;
+		return Result.CONTINUE;
 	}
 
-	private boolean topChipsIsReached(Board board, Chip chip) {
-		return board.count(chip).equals(SAME_CHIP_MAX);
+	// ------------------------------------------------------------------------
+	// PRIVATE METHODS
+	// ------------------------------------------------------------------------
+
+	private boolean topColorIsReached(Board board, Color color) {
+		return board.count(color).equals(SAME_COLOR_TOP);
 	}
 
 	private boolean placementIsFilled(Board board, Placement placement) {

@@ -25,6 +25,7 @@
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
         <maven.java.formatter.plugin.version>0.4</maven.java.formatter.plugin.version>
         <maven.pmd.plugin.version>3.9.0</maven.pmd.plugin.version>
+        <jacoco.plugin.version>0.8.1</jacoco.plugin.version>
 
         <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
         <!--                 DEPENDENCIES                  -->
@@ -70,8 +71,7 @@
                 </executions>
             </plugin>
 
-            <!-- static code analysis. Includes CPD and PMD -->
-            <!-- https://maven.apache.org/plugins/maven-pmd-plugin/examples/multi-module-config.html -->
+            <!-- static code analysis -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -88,6 +88,31 @@
                         <phase>compile</phase>
                         <goals>
                             <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- test code coverage -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.plugin.version}</version>
+                <configuration>
+                    <datafile>${basedir}/target/coverage-reports/jacoco-unit.exec</datafile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>jacoco-initialize</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jacoco-site</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>

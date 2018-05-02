@@ -1,5 +1,7 @@
 package com.raulexposito.model.cell;
 
+import com.raulexposito.model.Color;
+
 public class EmptyCell extends Cell {
 
     @Override
@@ -8,7 +10,7 @@ public class EmptyCell extends Cell {
     }
 
     @Override
-    public boolean isChip(Chip chip) {
+    public boolean hasColor(Color color) {
         return false;
     }
 }

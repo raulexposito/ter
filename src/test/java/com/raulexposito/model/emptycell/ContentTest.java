@@ -4,7 +4,7 @@ import com.raulexposito.model.cell.EmptyCell;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.cell.Chip.*;
+import static com.raulexposito.model.Color.*;
 
 public class ContentTest implements EmptyCellFixture {
 
@@ -13,9 +13,9 @@ public class ContentTest implements EmptyCellFixture {
         // given
         EmptyCell cell = createEmptyCell();
         // when
-        boolean chip = cell.isChip(BLACK);
+        boolean result = cell.hasColor(BLACK);
         // then
-        Assert.assertFalse(chip);
+        Assert.assertFalse(result);
     }
 
     @Test
@@ -23,8 +23,8 @@ public class ContentTest implements EmptyCellFixture {
         // given
         EmptyCell cell = createEmptyCell();
         // when
-        boolean chip = cell.isChip(WHITE);
+        boolean result = cell.hasColor(WHITE);
         // then
-        Assert.assertFalse(chip);
+        Assert.assertFalse(result);
     }
 }

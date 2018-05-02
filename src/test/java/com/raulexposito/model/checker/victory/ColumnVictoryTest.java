@@ -6,9 +6,9 @@ import com.raulexposito.model.checker.VictoryChecker;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.MovementResult.*;
+import static com.raulexposito.model.Result.*;
 import static com.raulexposito.model.Placement.*;
-import static com.raulexposito.model.cell.Chip.*;
+import static com.raulexposito.model.Color.*;
 
 public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
 

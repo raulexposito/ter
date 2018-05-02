@@ -1,7 +1,6 @@
 package com.raulexposito.model;
 
 import com.raulexposito.model.cell.Cell;
-import com.raulexposito.model.cell.Chip;
 import com.raulexposito.model.cell.EmptyCell;
 import com.raulexposito.model.cell.FilledCell;
 
@@ -38,8 +37,8 @@ public class Board {
         return cells.values().stream().noneMatch(Cell::isFilled);
     }
 
-    public void add(Chip chip, Placement placement) {
-        cells.put(placement, new FilledCell(chip));
+    public void add(Color color, Placement placement) {
+        cells.put(placement, new FilledCell(color));
     }
 
     public void swap(Placement current, Placement candidate) {
@@ -47,12 +46,12 @@ public class Board {
         cells.put(current, new EmptyCell());
     }
 
-    public Integer count(Chip chip) {
-        return (int) cells.values().stream().filter(cell -> cell.isChip(chip)).count();
+    public Integer count(Color color) {
+        return (int) cells.values().stream().filter(cell -> cell.hasColor(color)).count();
     }
 
-    public boolean placementHasChip (Placement placement, Chip chip) {
-        return get(placement).isChip(chip);
+    public boolean placementHasColor(Placement placement, Color color) {
+        return get(placement).hasColor(color);
     }
 
     public boolean isPlacementEmpty(Placement placement) {

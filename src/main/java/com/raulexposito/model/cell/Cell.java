@@ -1,5 +1,7 @@
 package com.raulexposito.model.cell;
 
+import com.raulexposito.model.Color;
+
 public abstract class Cell {
 
 	// ------------------------------------------------------------------------
@@ -8,7 +10,7 @@ public abstract class Cell {
 
 	public abstract boolean isFilled();
 
-	public abstract boolean isChip(Chip chip);
+	public abstract boolean hasColor(Color color);
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC

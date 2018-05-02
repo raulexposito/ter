@@ -1,26 +1,38 @@
 package com.raulexposito.model.checker;
 
 import com.raulexposito.model.Board;
-import com.raulexposito.model.MovementResult;
+import com.raulexposito.model.Result;
 import com.raulexposito.model.Placement;
-import com.raulexposito.model.cell.Chip;
+import com.raulexposito.model.Color;
 
 public class SwapChecker {
 
-	private static final Integer SAME_CHIP_MAX = 3;
+	// ------------------------------------------------------------------------
+	// CONSTANT VALUES
+	// ------------------------------------------------------------------------
 
-	public MovementResult check(Board board, Chip chip, Placement current,
+	private static final Integer SAME_COLOR_TOP = 3;
+
+	// ------------------------------------------------------------------------
+	// BUSINESS LOGIC
+	// ------------------------------------------------------------------------
+
+	public Result check(Board board, Color color, Placement current,
 			Placement candidate) {
-		if (swapIsInvalid(board, chip, current, candidate)) {
-			return MovementResult.FAILURE;
+		if (swapIsInvalid(board, color, current, candidate)) {
+			return Result.FAILURE;
 		}
-		return MovementResult.SUCCESS;
+		return Result.CONTINUE;
 	}
 
-	private boolean swapIsInvalid(Board board, Chip chip, Placement current,
+	// ------------------------------------------------------------------------
+	// PRIVATE METHODS
+	// ------------------------------------------------------------------------
+
+	private boolean swapIsInvalid(Board board, Color color, Placement current,
 			Placement candidate) {
-		return board.count(chip) < SAME_CHIP_MAX
-				|| !board.placementHasChip(current, chip)
+		return board.count(color) < SAME_COLOR_TOP
+				|| !board.placementHasColor(current, color)
 				|| board.isPlacementEmpty(current)
 				|| board.isPlacementFilled(candidate);
 	}

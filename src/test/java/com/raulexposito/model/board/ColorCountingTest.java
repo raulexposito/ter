@@ -5,12 +5,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.raulexposito.model.Placement.*;
-import static com.raulexposito.model.cell.Chip.*;
+import static com.raulexposito.model.Color.*;
 
-public class ChipsCountingTest implements BoardFixture {
+public class ColorCountingTest implements BoardFixture {
 
     @Test
-    public void countOneChipType() {
+    public void countOneColorType() {
         // given
         Board board = createBoard();
         // when
@@ -22,7 +22,7 @@ public class ChipsCountingTest implements BoardFixture {
     }
 
     @Test
-    public void countTwoChipTypes() {
+    public void countTwoColorsType() {
         // given
         Board board = createBoard();
         // when

@@ -1,11 +1,9 @@
 package com.raulexposito.model.filledcell;
 
-import static com.raulexposito.model.cell.Chip.BLACK;
-import static com.raulexposito.model.cell.Chip.WHITE;
+import static com.raulexposito.model.Color.BLACK;
+import static com.raulexposito.model.Color.WHITE;
 
 import com.raulexposito.model.cell.Cell;
-import com.raulexposito.model.cell.EmptyCell;
-import com.raulexposito.model.cell.FilledCell;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,9 +14,9 @@ public class ContentTest implements FilledCellFixture {
         // given
         Cell cell = createBlackFilledCell();
         // when
-        boolean chip = cell.isChip(BLACK);
+        boolean result = cell.hasColor(BLACK);
         // then
-        Assert.assertTrue(chip);
+        Assert.assertTrue(result);
     }
 
     @Test
@@ -26,8 +24,8 @@ public class ContentTest implements FilledCellFixture {
         // given
         Cell cell = createWhiteFilledCell();
         // when
-        boolean chip = cell.isChip(WHITE);
+        boolean result = cell.hasColor(WHITE);
         // then
-        Assert.assertTrue(chip);
+        Assert.assertTrue(result);
     }
 }

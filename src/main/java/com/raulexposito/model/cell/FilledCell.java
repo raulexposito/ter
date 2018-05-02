@@ -1,19 +1,21 @@
 package com.raulexposito.model.cell;
 
+import com.raulexposito.model.Color;
+
 public class FilledCell extends Cell {
 
     // ------------------------------------------------------------------------
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private final Chip chip;
+    private final Color color;
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public FilledCell(Chip chip) {
-        this.chip = chip;
+    public FilledCell(Color color) {
+        this.color = color;
     }
 
     // ------------------------------------------------------------------------
@@ -26,7 +28,7 @@ public class FilledCell extends Cell {
     }
 
     @Override
-    public boolean isChip(Chip chip) {
-        return this.chip == chip;
+    public boolean hasColor(Color color) {
+        return this.color == color;
     }
 }
