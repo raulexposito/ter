@@ -2,6 +2,6 @@ package com.raulexposito.model;
 
 public enum Result {
     FAILURE,
-    CONTINUE,
+    VALID,
     VICTORY
 }

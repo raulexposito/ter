@@ -1,8 +1,8 @@
-package com.raulexposito.model.cell;
+package com.raulexposito.model.square;
 
 import com.raulexposito.model.Color;
 
-public class EmptyCell extends Cell {
+public class EmptySquare implements Square {
 
     @Override
     public boolean isFilled() {

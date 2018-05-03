@@ -2,6 +2,7 @@ package com.raulexposito.model.board;
 
 import com.raulexposito.model.Board;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.raulexposito.model.Placement.*;

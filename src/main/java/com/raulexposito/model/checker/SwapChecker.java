@@ -11,7 +11,7 @@ public class SwapChecker {
 	// CONSTANT VALUES
 	// ------------------------------------------------------------------------
 
-	private static final Integer SAME_COLOR_TOP = 3;
+	private static final Integer SAME_COLOR_REQUIRED = 3;
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC
@@ -19,21 +19,31 @@ public class SwapChecker {
 
 	public Result check(Board board, Color color, Placement current,
 			Placement candidate) {
-		if (swapIsInvalid(board, color, current, candidate)) {
+		if (notEnoughFilledSquares(board, color)
+				|| notSwappingMyColor(board, color, current, candidate)
+				|| bothSquaresAreFilled(board, current, candidate)) {
 			return Result.FAILURE;
 		}
-		return Result.CONTINUE;
+		return Result.VALID;
 	}
 
 	// ------------------------------------------------------------------------
 	// PRIVATE METHODS
 	// ------------------------------------------------------------------------
 
-	private boolean swapIsInvalid(Board board, Color color, Placement current,
+	private boolean notEnoughFilledSquares(Board board, Color color) {
+		return board.howMany(color) < SAME_COLOR_REQUIRED;
+	}
+
+	private boolean notSwappingMyColor(Board board, Color color,
+			Placement current, Placement candidate) {
+		return !board.squareHasColor(current, color)
+				&& !board.squareHasColor(candidate, color);
+	}
+
+	private boolean bothSquaresAreFilled(Board board, Placement current,
 			Placement candidate) {
-		return board.count(color) < SAME_COLOR_TOP
-				|| !board.placementHasColor(current, color)
-				|| board.isPlacementEmpty(current)
-				|| board.isPlacementFilled(candidate);
+		return board.isPlacementFilled(current)
+				&& board.isPlacementFilled(candidate);
 	}
 }

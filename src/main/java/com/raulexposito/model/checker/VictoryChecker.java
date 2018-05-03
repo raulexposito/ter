@@ -20,7 +20,7 @@ public class VictoryChecker {
         if (checkPositions(board, WHITE) || checkPositions(board, BLACK)) {
             return Result.VICTORY;
         }
-        return Result.CONTINUE;
+        return Result.VALID;
     }
 
     // ------------------------------------------------------------------------
@@ -71,6 +71,6 @@ public class VictoryChecker {
     }
 
     private boolean check(Board board, Color color, Stream<Placement> placements) {
-        return placements.allMatch(placement -> board.placementHasColor(placement, color));
+        return placements.allMatch(placement -> board.squareHasColor(placement, color));
     }
 }

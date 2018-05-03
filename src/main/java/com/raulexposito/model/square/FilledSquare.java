@@ -1,8 +1,8 @@
-package com.raulexposito.model.cell;
+package com.raulexposito.model.square;
 
 import com.raulexposito.model.Color;
 
-public class FilledCell extends Cell {
+public class FilledSquare implements Square {
 
     // ------------------------------------------------------------------------
     // ATTRIBUTES
@@ -14,7 +14,7 @@ public class FilledCell extends Cell {
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public FilledCell(Color color) {
+    public FilledSquare(Color color) {
         this.color = color;
     }
 

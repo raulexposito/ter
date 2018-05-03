@@ -11,7 +11,7 @@ public class AddChecker {
 	// CONSTANT VALUES
 	// ------------------------------------------------------------------------
 
-	private static final Integer SAME_COLOR_TOP = 3;
+	private static final Integer SAME_COLOR_MAXIMUM = 3;
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC
@@ -22,7 +22,7 @@ public class AddChecker {
 				|| placementIsFilled(board, placement)) {
 			return Result.FAILURE;
 		}
-		return Result.CONTINUE;
+		return Result.VALID;
 	}
 
 	// ------------------------------------------------------------------------
@@ -30,7 +30,7 @@ public class AddChecker {
 	// ------------------------------------------------------------------------
 
 	private boolean topColorIsReached(Board board, Color color) {
-		return board.count(color).equals(SAME_COLOR_TOP);
+		return board.howMany(color).equals(SAME_COLOR_MAXIMUM);
 	}
 
 	private boolean placementIsFilled(Board board, Placement placement) {

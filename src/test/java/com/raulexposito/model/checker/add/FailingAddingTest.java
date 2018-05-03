@@ -34,9 +34,9 @@ public class FailingAddingTest implements AddCheckerFixture, BoardFixture {
                 .add(BLACK, TOP_CENTER)
                 .add(BLACK, TOP_RIGHT);
         // when
-        Result result = putChecker.check(board, BLACK, TOP_LEFT);
+        Result result = putChecker.check(board, BLACK, CENTER);
         // then
-        Assert.assertEquals(Integer.valueOf(3), board.count(BLACK));
+        Assert.assertEquals(Integer.valueOf(3), board.howMany(BLACK));
         Assert.assertEquals(Result.FAILURE, result);
     }
 }

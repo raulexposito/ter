@@ -33,9 +33,9 @@ public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
         Board board = createBoard();
         // when
         board = board
-                .add(BLACK, TOP_CENTER)
-                .add(BLACK, CENTER)
-                .add(BLACK, BOTTOM_CENTER);
+                .add(WHITE, TOP_CENTER)
+                .add(WHITE, CENTER)
+                .add(WHITE, BOTTOM_CENTER);
         // then
         Assert.assertEquals(VICTORY, victoryChecker.check(board));
     }

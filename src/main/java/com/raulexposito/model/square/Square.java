@@ -1,22 +1,22 @@
-package com.raulexposito.model.cell;
+package com.raulexposito.model.square;
 
 import com.raulexposito.model.Color;
 
-public abstract class Cell {
+public interface Square {
 
 	// ------------------------------------------------------------------------
 	// ABSTRACT METHODS
 	// ------------------------------------------------------------------------
 
-	public abstract boolean isFilled();
+	boolean isFilled();
 
-	public abstract boolean hasColor(Color color);
+	boolean hasColor(Color color);
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC
 	// ------------------------------------------------------------------------
 
-	public boolean isEmpty() {
+	default boolean isEmpty() {
 		return !isFilled();
 	}
 }

@@ -13,18 +13,18 @@ import static com.raulexposito.model.Color.*;
 public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
 
     @Test
-    public void onlyOneChip() {
+    public void onlyOneSquare() {
         // given
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
         board = board.add(BLACK, CENTER);
         // then
-        Assert.assertEquals(CONTINUE, victoryChecker.check(board));
+        Assert.assertEquals(VALID, victoryChecker.check(board));
     }
 
     @Test
-    public void notEnoughChips() {
+    public void notEnoughSquares() {
         // given
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
@@ -34,7 +34,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(BLACK, CENTER)
                 .add(WHITE, BOTTOM_LEFT);
         // then
-        Assert.assertEquals(CONTINUE, victoryChecker.check(board));
+        Assert.assertEquals(VALID, victoryChecker.check(board));
     }
 
     @Test
@@ -48,7 +48,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(BLACK, TOP_CENTER)
                 .add(BLACK, BOTTOM_LEFT);
         // then
-        Assert.assertEquals(CONTINUE, victoryChecker.check(board));
+        Assert.assertEquals(VALID, victoryChecker.check(board));
     }
 
     @Test
@@ -62,6 +62,6 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(BLACK, MIDDLE_LEFT)
                 .add(BLACK, BOTTOM_RIGHT);
         // then
-        Assert.assertEquals(CONTINUE, victoryChecker.check(board));
+        Assert.assertEquals(VALID, victoryChecker.check(board));
     }
 }

@@ -13,7 +13,7 @@ import static com.raulexposito.model.Color.*;
 public class SuccessfulSwappingTest implements SwapCheckerFixture, BoardFixture {
 
     @Test
-    public void sameColorCanBeSwapped() {
+    public void myColorCanBeSwappedToEmpty() {
         // given
         SwapChecker swapChecker = createSwapChecker();
         Board board = createBoard()
@@ -23,6 +23,20 @@ public class SuccessfulSwappingTest implements SwapCheckerFixture, BoardFixture 
         // when
         Result result = swapChecker.check(board, BLACK, TOP_LEFT, CENTER);
         // then
-        Assert.assertEquals(Result.CONTINUE, result);
+        Assert.assertEquals(Result.VALID, result);
+    }
+
+    @Test
+    public void emptyCanBeSwappedToMyColor() {
+        // given
+        SwapChecker swapChecker = createSwapChecker();
+        Board board = createBoard()
+                .add(BLACK, TOP_LEFT)
+                .add(BLACK, TOP_CENTER)
+                .add(BLACK, TOP_RIGHT);
+        // when
+        Result result = swapChecker.check(board, BLACK, CENTER, TOP_LEFT);
+        // then
+        Assert.assertEquals(Result.VALID, result);
     }
 }
