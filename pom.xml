@@ -26,6 +26,7 @@
         <maven.java.formatter.plugin.version>0.4</maven.java.formatter.plugin.version>
         <maven.pmd.plugin.version>3.9.0</maven.pmd.plugin.version>
         <jacoco.plugin.version>0.8.1</jacoco.plugin.version>
+        <!-- TODO: uberjar -->
 
         <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
         <!--                 DEPENDENCIES                  -->

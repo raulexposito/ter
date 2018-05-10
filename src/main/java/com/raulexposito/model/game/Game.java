@@ -1,28 +1,36 @@
 package com.raulexposito.model.game;
 
 import com.raulexposito.model.Color;
+import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.movement.Movement;
 import com.raulexposito.model.board.Board;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import static com.raulexposito.model.Color.*;
 
 public class Game {
 
 	// ------------------------------------------------------------------------
+	// CONSTANT VALUES
+	// ------------------------------------------------------------------------
+
+	private static final Integer MAX_ATTEMPTS = 20;
+
+	// ------------------------------------------------------------------------
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
  	private Map<Color, Player> players;
+	private LimitsReachedChecker checker;
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR
 	// ------------------------------------------------------------------------
 
-	public Game(Player white, Player black) {
+	public Game(Player white, Player black, LimitsReachedChecker checker) {
+		this.checker = checker;
 	 	this.players = new HashMap<Color, Player>() {{
 	 		put(WHITE, white);
 			put(BLACK, black);
@@ -33,41 +41,29 @@ public class Game {
 	// BUSINESS LOGIC
 	// ------------------------------------------------------------------------
 
-	public Color play() {
-		return play(Board.empty(), WHITE, Counter.initSteps(), Counter.initAttempts());
+	public GameResult play() {
+		return play(Board.empty(), Steps.empty(), WHITE, Counter.upTo(MAX_ATTEMPTS));
 	}
 
 	// ------------------------------------------------------------------------
 	// PRIVATE METHODS
 	// ------------------------------------------------------------------------
 
-	private Color play (Board board, Color turn, Counter steps, Counter attempts) {
-		return limitsReached(turn, steps, attempts).orElseGet(() -> {
-			final Movement movement = players.get(turn).move(board);
+	// TODO: tests con jugadores mockeados
+	private GameResult play (Board board, Steps steps, Color color, Counter attempts) {
+		return checker.limitsReached(color, steps, attempts).orElseGet(() -> {
+			final Movement movement = players.get(color).move(board);
+			final Steps currentSteps = steps.add(movement);
 
 			if (movement.isVictory()) {
-				return turn;
+				return new GameResult(currentSteps, color);
 			}
 
 			if (movement.isFailure()) {
-				return play(board, turn, steps, attempts.increase());
+				return play(board, steps, color, attempts.increase());
 			}
 
-			return play(movement.getBoard(), turn.getOpposite(), steps.increase(), Counter.initAttempts());
+			return play(movement.getBoard(), currentSteps, color.getOpposite(), attempts.reset());
 		});
-	}
-
-	// TODO: sacar a otra clase tipo checker
-	private Optional<Color> limitsReached(Color turn, Counter steps, Counter attempts) {
-		if (steps.maxReached()) {
-			// TODO: empate
-			return Optional.of(WHITE);
-		}
-
-		if (attempts.maxReached()) {
-			return Optional.of(turn.getOpposite());
-		}
-
-		return Optional.empty();
 	}
 }

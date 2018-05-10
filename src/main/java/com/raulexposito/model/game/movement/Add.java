@@ -7,8 +7,10 @@ import com.raulexposito.model.game.checker.AddChecker;
 
 public class Add extends Movement {
 
+	private static final AddChecker CHECKER = new AddChecker();
+
 	public Add(Board board, Color color, Placement placement) {
-		super(new AddChecker().check(board, color, placement), board.add(color,
+		super(CHECKER.check(board, color, placement), board.add(color,
 				placement));
 	}
 }

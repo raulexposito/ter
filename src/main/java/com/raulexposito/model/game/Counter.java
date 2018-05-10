@@ -1,51 +1,46 @@
 package com.raulexposito.model.game;
 
-class Counter {
+public class Counter {
 
 	// ------------------------------------------------------------------------
-	// CONSTANT VALUES
+	// CONSTANTS
 	// ------------------------------------------------------------------------
 
-	private static final Integer MAX_STEPS = 1000;
-	private static final Integer MAX_ATTEMPTS = 20;
+	private static final Integer INIT = 0;
 
 	// ------------------------------------------------------------------------
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
-	private final Integer max;
+	private final Integer limit;
 	private final Integer value;
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR
 	// ------------------------------------------------------------------------
 
-	private Counter(Integer value, Integer max) {
+	private Counter(Integer value, Integer limit) {
 		this.value = value;
-		this.max = max;
+		this.limit = limit;
 	}
 
-	// ------------------------------------------------------------------------
-	// INITIALIZERS
-	// ------------------------------------------------------------------------
-
-	static Counter initSteps() {
-		return new Counter(0, MAX_STEPS);
-	}
-
-	static Counter initAttempts() {
-		return new Counter(0, MAX_ATTEMPTS);
+	public static Counter upTo(Integer limit) {
+		return new Counter(INIT, limit);
 	}
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC
 	// ------------------------------------------------------------------------
 
-	Counter increase() {
-		return new Counter(value + 1, max);
+	public Counter increase() {
+		return new Counter(value + 1, limit);
 	}
 
-	boolean maxReached() {
-		return value.equals(max);
+	public boolean limitReached() {
+		return value >= limit;
+	}
+
+	public Counter reset() {
+		return upTo(limit);
 	}
 }
