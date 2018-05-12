@@ -52,4 +52,13 @@ public class Steps {
         }
         return counter.limitReached();
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        for (final Board board: steps) {
+            builder.append(board.toString());
+        }
+        return builder.toString();
+    }
 }

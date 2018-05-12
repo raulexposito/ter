@@ -1,13 +1,13 @@
 package com.raulexposito.model.game.checker;
 
-import com.raulexposito.model.Color;
+import com.raulexposito.model.game.Color;
 import com.raulexposito.model.game.Counter;
 import com.raulexposito.model.game.GameResult;
 import com.raulexposito.model.game.Steps;
 
 import java.util.Optional;
 
-import static com.raulexposito.model.Color.WHITE;
+import static com.raulexposito.model.game.Color.WHITE;
 
 public class LimitsReachedChecker {
 

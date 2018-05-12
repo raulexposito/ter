@@ -8,7 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.raulexposito.model.board.Placement.CENTER;
-import static com.raulexposito.model.Color.BLACK;
+import static com.raulexposito.model.game.Color.BLACK;
 
 public class SuccessfulAddingTest implements AddCheckerFixture, BoardFixture {
 

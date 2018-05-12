@@ -3,12 +3,12 @@ package com.raulexposito.model.game.checker;
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.Result;
 import com.raulexposito.model.board.Placement;
-import com.raulexposito.model.Color;
+import com.raulexposito.model.game.Color;
 
 import java.util.stream.Stream;
 
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.Color.*;
+import static com.raulexposito.model.game.Color.*;
 
 public class VictoryChecker {
 

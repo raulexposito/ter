@@ -3,7 +3,7 @@ package com.raulexposito.model.game.checker;
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.Result;
 import com.raulexposito.model.board.Placement;
-import com.raulexposito.model.Color;
+import com.raulexposito.model.game.Color;
 
 public class SwapChecker {
 
@@ -43,7 +43,7 @@ public class SwapChecker {
 
 	private boolean bothSquaresAreFilled(Board board, Placement current,
 			Placement candidate) {
-		return board.isPlacementFilled(current)
-				&& board.isPlacementFilled(candidate);
+		return board.isSquareFilled(current)
+				&& board.isSquareFilled(candidate);
 	}
 }

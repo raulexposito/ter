@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import static com.raulexposito.model.Result.*;
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.Color.*;
+import static com.raulexposito.model.game.Color.*;
 
 public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
 

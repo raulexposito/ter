@@ -4,7 +4,7 @@ import com.raulexposito.model.board.EmptySquare;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.Color.*;
+import static com.raulexposito.model.game.Color.*;
 
 public class ContentTest implements EmptySquareFixture {
 

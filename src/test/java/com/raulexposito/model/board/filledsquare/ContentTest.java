@@ -1,7 +1,7 @@
 package com.raulexposito.model.board.filledsquare;
 
-import static com.raulexposito.model.Color.BLACK;
-import static com.raulexposito.model.Color.WHITE;
+import static com.raulexposito.model.game.Color.BLACK;
+import static com.raulexposito.model.game.Color.WHITE;
 
 import com.raulexposito.model.board.Square;
 import org.junit.Assert;

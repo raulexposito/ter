@@ -1,6 +1,6 @@
 package com.raulexposito.model.board;
 
-import com.raulexposito.model.Color;
+import com.raulexposito.model.game.Color;
 
 public class EmptySquare implements Square {
 
@@ -12,5 +12,10 @@ public class EmptySquare implements Square {
     @Override
     public boolean hasColor(Color color) {
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "· ";
     }
 }

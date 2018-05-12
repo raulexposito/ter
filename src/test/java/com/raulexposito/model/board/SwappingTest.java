@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.Color.BLACK;
+import static com.raulexposito.model.game.Color.BLACK;
 
 public class SwappingTest implements BoardFixture {
 
@@ -19,9 +19,9 @@ public class SwappingTest implements BoardFixture {
         // when
         board = board.swap(TOP_LEFT, CENTER);
         // then
-        Assert.assertTrue(board.isPlacementEmpty(TOP_LEFT));
-        Assert.assertTrue(board.isPlacementFilled(TOP_CENTER));
-        Assert.assertTrue(board.isPlacementFilled(TOP_RIGHT));
-        Assert.assertTrue(board.isPlacementFilled(CENTER));
+        Assert.assertTrue(board.isSquareEmpty(TOP_LEFT));
+        Assert.assertTrue(board.isSquareFilled(TOP_CENTER));
+        Assert.assertTrue(board.isSquareFilled(TOP_RIGHT));
+        Assert.assertTrue(board.isSquareFilled(CENTER));
     }
 }

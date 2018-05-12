@@ -1,6 +1,5 @@
 package com.raulexposito.model.game;
 
-import com.raulexposito.model.Color;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.movement.Movement;
 import com.raulexposito.model.board.Board;
@@ -8,7 +7,7 @@ import com.raulexposito.model.board.Board;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.raulexposito.model.Color.*;
+import static com.raulexposito.model.game.Color.*;
 
 public class Game {
 
@@ -22,7 +21,7 @@ public class Game {
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
- 	private Map<Color, Player> players;
+ 	private Map<Color, Player> players = new HashMap<>();
 	private LimitsReachedChecker checker;
 
 	// ------------------------------------------------------------------------
@@ -31,10 +30,8 @@ public class Game {
 
 	public Game(Player white, Player black, LimitsReachedChecker checker) {
 		this.checker = checker;
-	 	this.players = new HashMap<Color, Player>() {{
-	 		put(WHITE, white);
-			put(BLACK, black);
-		}};
+	 	this.players.put(WHITE, white);
+		this.players.put(BLACK, black);
 	 }
 
 	// ------------------------------------------------------------------------

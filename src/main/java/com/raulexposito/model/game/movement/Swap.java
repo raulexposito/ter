@@ -1,7 +1,7 @@
 package com.raulexposito.model.game.movement;
 
 import com.raulexposito.model.board.Board;
-import com.raulexposito.model.Color;
+import com.raulexposito.model.game.Color;
 import com.raulexposito.model.board.Placement;
 import com.raulexposito.model.game.checker.SwapChecker;
 

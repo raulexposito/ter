@@ -1,6 +1,6 @@
 package com.raulexposito.model.board;
 
-import com.raulexposito.model.Color;
+import com.raulexposito.model.game.Color;
 
 public class FilledSquare implements Square {
 
@@ -30,5 +30,10 @@ public class FilledSquare implements Square {
     @Override
     public boolean hasColor(Color color) {
         return this.color == color;
+    }
+
+    @Override
+    public String toString() {
+        return color.toString();
     }
 }

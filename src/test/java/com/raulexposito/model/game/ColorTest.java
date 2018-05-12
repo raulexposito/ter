@@ -1,10 +1,9 @@
 package com.raulexposito.model.game;
 
-import com.raulexposito.model.Color;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.Color.*;
+import static com.raulexposito.model.game.Color.*;
 
 public class ColorTest {
 

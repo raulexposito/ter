@@ -1,7 +1,5 @@
 package com.raulexposito.model.game;
 
-import com.raulexposito.model.Color;
-
 // Contemplar el empate
 public class GameResult {
 
@@ -20,5 +18,10 @@ public class GameResult {
 
 	public Color getWinner() {
 		return winner;
+	}
+
+	@Override
+	public String toString() {
+		return steps.toString();
 	}
 }
