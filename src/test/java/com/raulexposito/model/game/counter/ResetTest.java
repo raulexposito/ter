@@ -4,15 +4,14 @@ import com.raulexposito.model.game.Counter;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ResetTest {
+public class ResetTest implements CounterFixture {
 
-    private static final Integer TOP = 10;
     private static final Integer PENULTIMATE = TOP - 1;
 
     @Test
     public void resetAvoidsReachingLimit() {
         // given
-        Counter counter = Counter.upTo(TOP);
+        Counter counter = createCounter();
 
         // when
         counter = countUntilPenultimate(counter);

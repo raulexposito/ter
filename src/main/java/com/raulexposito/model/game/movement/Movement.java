@@ -21,7 +21,7 @@ public abstract class Movement {
     // ------------------------------------------------------------------------
 
     // TODO: esto deberia ser inmutable
-    Movement(Result result, Board board) {
+    public Movement(Result result, Board board) {
         if (result == FAILURE) {
             this.result = result;
         }
@@ -41,7 +41,7 @@ public abstract class Movement {
     }
 
     public boolean isVictory() {
-        return result== VICTORY;
+        return result == VICTORY;
     }
 
     public Board getBoard() {

@@ -43,7 +43,6 @@ public class SwapChecker {
 
 	private boolean bothSquaresAreFilled(Board board, Placement current,
 			Placement candidate) {
-		return board.isSquareFilled(current)
-				&& board.isSquareFilled(candidate);
+		return board.isSquareFilled(current) && board.isSquareFilled(candidate);
 	}
 }

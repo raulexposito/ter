@@ -13,14 +13,21 @@ import java.util.List;
 public abstract class Player {
 
 	// ------------------------------------------------------------------------
+	// CONSTANTS
+	// ------------------------------------------------------------------------
+
+	private static final Integer MAX_SAME_COLOR_PIECES = 3;
+	private static final Integer BOARD_SIZE = 9;
+
+	// ------------------------------------------------------------------------
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
 	private Color color;
 	private Board board;
-	private List<Placement> mine = new ArrayList<>(3);
-	private List<Placement> rival = new ArrayList<>(3);
-	private List<Placement> empty = new ArrayList<>(9);
+	private List<Placement> mine = new ArrayList<>(MAX_SAME_COLOR_PIECES);
+	private List<Placement> rival = new ArrayList<>(MAX_SAME_COLOR_PIECES);
+	private List<Placement> empty = new ArrayList<>(BOARD_SIZE);
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR
@@ -34,7 +41,7 @@ public abstract class Player {
 	// BUSINESS LOGIC
 	// ------------------------------------------------------------------------
 
-	Movement move(Board board) {
+	public Movement move(Board board) {
 		this.board = board;
 		this.fillLists(board);
 		return move();
@@ -55,18 +62,18 @@ public abstract class Player {
 	}
 
 	protected boolean canAdd () {
-		return mine.size() < 3;
+		return mine.size() < MAX_SAME_COLOR_PIECES;
 	}
 
-	protected List<Placement> mySquares() {
+	public List<Placement> mySquares() {
 		return new ArrayList<>(mine);
 	}
 
-	protected List<Placement> rivalSquares() {
+	public List<Placement> rivalSquares() {
 		return new ArrayList<>(rival);
 	}
 
-	protected List<Placement> emptySquares() {
+	public List<Placement> emptySquares() {
 		return new ArrayList<>(empty);
 	}
 

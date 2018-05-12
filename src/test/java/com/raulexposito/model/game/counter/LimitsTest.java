@@ -4,14 +4,12 @@ import com.raulexposito.model.game.Counter;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class LimitsTest {
-
-    private static final Integer TOP = 10;
+public class LimitsTest implements CounterFixture {
 
     @Test
     public void limitIsReached() {
         // given
-        Counter counter = Counter.upTo(TOP);
+        Counter counter = createCounter();
 
         // when
         for (int i = 0; i < TOP; i++) {
@@ -25,7 +23,7 @@ public class LimitsTest {
     @Test
     public void limitIsNotReached() {
         // given
-        Counter counter = Counter.upTo(TOP);
+        Counter counter = createCounter();
 
         // when
         for (int i = 0; i < TOP - 1; i++) {
