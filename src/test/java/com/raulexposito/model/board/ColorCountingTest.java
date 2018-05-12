@@ -18,7 +18,7 @@ public class ColorCountingTest implements BoardFixture {
                 .add(BLACK, CENTER)
                 .add(BLACK, BOTTOM_CENTER);
         // then
-        Assert.assertEquals(Integer.valueOf(3), board.howMany(BLACK));
+        Assert.assertEquals(Long.valueOf(3), board.howMany(BLACK));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class ColorCountingTest implements BoardFixture {
                 .add(WHITE, MIDDLE_LEFT)
                 .add(WHITE, CENTER);
         // then
-        Assert.assertEquals(Integer.valueOf(1), board.howMany(BLACK));
-        Assert.assertEquals(Integer.valueOf(3), board.howMany(WHITE));
+        Assert.assertEquals(Long.valueOf(1), board.howMany(BLACK));
+        Assert.assertEquals(Long.valueOf(3), board.howMany(WHITE));
     }
 }

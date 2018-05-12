@@ -22,14 +22,13 @@ public class Game {
 	// ------------------------------------------------------------------------
 
  	private Map<Color, Player> players = new HashMap<>();
-	private LimitsReachedChecker checker;
+	private LimitsReachedChecker checker = new LimitsReachedChecker();
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR
 	// ------------------------------------------------------------------------
 
-	public Game(Player white, Player black, LimitsReachedChecker checker) {
-		this.checker = checker;
+	public Game(Player white, Player black) {
 	 	this.players.put(WHITE, white);
 		this.players.put(BLACK, black);
 	 }

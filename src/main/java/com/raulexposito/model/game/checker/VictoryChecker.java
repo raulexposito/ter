@@ -71,6 +71,6 @@ public class VictoryChecker {
     }
 
     private boolean check(Board board, Color color, Stream<Placement> placements) {
-        return placements.allMatch(placement -> board.squareHasColor(placement, color));
+        return placements.allMatch(placement -> board.hasColor(placement, color));
     }
 }

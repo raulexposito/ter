@@ -37,12 +37,12 @@ public class SwapChecker {
 
 	private boolean notSwappingMyColor(Board board, Color color,
 			Placement current, Placement candidate) {
-		return !board.squareHasColor(current, color)
-				&& !board.squareHasColor(candidate, color);
+		return !board.hasColor(current, color)
+				&& !board.hasColor(candidate, color);
 	}
 
 	private boolean bothSquaresAreFilled(Board board, Placement current,
 			Placement candidate) {
-		return board.isSquareFilled(current) && board.isSquareFilled(candidate);
+		return board.isFilled(current) && board.isFilled(candidate);
 	}
 }

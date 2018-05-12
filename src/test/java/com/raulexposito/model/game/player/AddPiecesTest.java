@@ -21,7 +21,7 @@ public class AddPiecesTest implements PlayerFixture, BoardFixture {
         // when
         Movement movement = player.move(board);
         // then
-        Assert.assertEquals(Integer.valueOf(1), movement.getBoard().howMany(WHITE));
-        Assert.assertTrue(movement.getBoard().squareHasColor(CENTER, WHITE));
+        Assert.assertEquals(Long.valueOf(1), movement.getBoard().howMany(WHITE));
+        Assert.assertTrue(movement.getBoard().hasColor(CENTER, WHITE));
     }
 }

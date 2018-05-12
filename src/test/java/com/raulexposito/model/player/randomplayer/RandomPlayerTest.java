@@ -28,7 +28,7 @@ public class RandomPlayerTest implements PlayerFixture, BoardFixture {
         Board board = createBoard();
         Player randomPlayer = new RandomPlayer(Color.WHITE);
         // when
-        board = move(board, randomPlayer, 500);
+        board = move(board, randomPlayer, 500L);
         // then
         Assert.assertEquals(MAX_SAME_COLOR_PIECES, board.howMany(Color.WHITE));
     }

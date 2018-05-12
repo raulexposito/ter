@@ -24,7 +24,7 @@ public class SwappingIsDoneTest implements BoardFixture {
         // then
         Assert.assertFalse(movement.isFailure());
         Assert.assertFalse(movement.isVictory());
-        Assert.assertTrue(movement.getBoard().squareHasColor(TOP_LEFT, BLACK));
-        Assert.assertTrue(movement.getBoard().isSquareEmpty(CENTER));
+        Assert.assertTrue(movement.getBoard().hasColor(TOP_LEFT, BLACK));
+        Assert.assertTrue(movement.getBoard().isEmpty(CENTER));
     }
 }

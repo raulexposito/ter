@@ -24,7 +24,7 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         // when
         Result result = swapChecker.check(board, BLACK, TOP_LEFT, CENTER);
         // then
-        Assert.assertEquals(Integer.valueOf(2), board.howMany(BLACK));
+        Assert.assertEquals(Long.valueOf(2), board.howMany(BLACK));
         Assert.assertEquals(Result.FAILURE, result);
     }
 

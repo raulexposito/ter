@@ -21,6 +21,6 @@ public class AdditionIsDoneTest implements BoardFixture {
         // then
         Assert.assertFalse(movement.isFailure());
         Assert.assertFalse(movement.isVictory());
-        Assert.assertTrue(movement.getBoard().squareHasColor(CENTER, BLACK));
+        Assert.assertTrue(movement.getBoard().hasColor(CENTER, BLACK));
     }
 }

@@ -22,8 +22,8 @@ public class SwapPiecesTest implements PlayerFixture, BoardFixture {
         // when
         Movement movement = player.move(board);
         // then
-        Assert.assertEquals(Integer.valueOf(1), movement.getBoard().howMany(WHITE));
-        Assert.assertTrue(movement.getBoard().squareHasColor(TOP_LEFT, WHITE));
-        Assert.assertTrue(movement.getBoard().isSquareEmpty(CENTER));
+        Assert.assertEquals(Long.valueOf(1), movement.getBoard().howMany(WHITE));
+        Assert.assertTrue(movement.getBoard().hasColor(TOP_LEFT, WHITE));
+        Assert.assertTrue(movement.getBoard().isEmpty(CENTER));
     }
 }

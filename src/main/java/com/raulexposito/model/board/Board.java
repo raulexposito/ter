@@ -6,30 +6,28 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.raulexposito.model.board.Placement.*;
-
 public class Board {
 
     // ------------------------------------------------------------------------
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private Map<Placement, Square> squares = new HashMap<>(values().length);
+    private Map<Placement, Content> squares = new HashMap<>(Placement.values().length);
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
     private Board() {
-        Arrays.stream(values()).forEach(it -> squares.put(it, new EmptySquare()));
+        Arrays.stream(Placement.values()).forEach(it -> squares.put(it, new NoContent()));
     }
 
-    private Board(Board original, PlacementSquare ... placementSquares) {
-        Arrays.stream(values()).forEach(placement ->
-            squares.put(placement, Arrays.stream(placementSquares)
-                    .filter(placementSquare -> placement == placementSquare.placement)
+    private Board(Board original, Square... squares) {
+        Arrays.stream(Placement.values()).forEach(placement ->
+            this.squares.put(placement, Arrays.stream(squares)
+                    .filter(square -> placement == square.placement)
                     .findFirst()
-                    .map(placementSquare -> placementSquare.square)
+                    .map(square -> square.content)
                     .orElse(original.get(placement))));
     }
 
@@ -43,53 +41,49 @@ public class Board {
 
     public Board add(Color color, Placement placement) {
         return new Board(this,
-                new PlacementSquare(placement, new FilledSquare(color)));
+                new Square(placement, new Filled(color)));
     }
 
     public Board swap(Placement current, Placement candidate) {
         return new Board(this,
-                new PlacementSquare(candidate, get(current)),
-                new PlacementSquare(current, new EmptySquare()));
+                new Square(candidate, get(current)),
+                new Square(current, new NoContent()));
     }
 
     // ------------------------------------------------------------------------
     // PUBLIC METHODS
     // ------------------------------------------------------------------------
 
-    public boolean isEmpty() {
-        return squares.values().stream().noneMatch(Square::isFilled);
+    public Long howMany(Color color) {
+        return squares.values().stream().filter(content -> content.hasColor(color)).count();
     }
 
-    public Integer howMany(Color color) {
-        return (int) squares.values().stream().filter(cell -> cell.hasColor(color)).count();
-    }
-
-    public boolean squareHasColor(Placement placement, Color color) {
+    public boolean hasColor(Placement placement, Color color) {
         return get(placement).hasColor(color);
     }
 
-    public boolean isSquareEmpty(Placement placement) {
+    public boolean isEmpty(Placement placement) {
         return get(placement).isEmpty();
     }
 
-    public boolean isSquareFilled(Placement placement) {
+    public boolean isFilled(Placement placement) {
         return get(placement).isFilled();
     }
 
     @Override
     public String toString() {
         return "\n" +
-                squares.get(TOP_LEFT) +
-                squares.get(TOP_CENTER) +
-                squares.get(TOP_RIGHT) +
+                squares.get(Placement.TOP_LEFT) +
+                squares.get(Placement.TOP_CENTER) +
+                squares.get(Placement.TOP_RIGHT) +
                 "\n" +
-                squares.get(MIDDLE_LEFT) +
-                squares.get(CENTER) +
-                squares.get(MIDDLE_RIGHT) +
+                squares.get(Placement.MIDDLE_LEFT) +
+                squares.get(Placement.CENTER) +
+                squares.get(Placement.MIDDLE_RIGHT) +
                 "\n" +
-                squares.get(BOTTOM_LEFT) +
-                squares.get(BOTTOM_CENTER) +
-                squares.get(BOTTOM_RIGHT) +
+                squares.get(Placement.BOTTOM_LEFT) +
+                squares.get(Placement.BOTTOM_CENTER) +
+                squares.get(Placement.BOTTOM_RIGHT) +
                 "\n" +
                 "-----";
     }
@@ -98,7 +92,7 @@ public class Board {
     // PRIVATE METHODS
     // ------------------------------------------------------------------------
 
-    private Square get(Placement placement) {
+    private Content get(Placement placement) {
         return squares.get(placement);
     }
 
@@ -106,13 +100,13 @@ public class Board {
     // INNER CLASS
     // ------------------------------------------------------------------------
 
-    private class PlacementSquare {
+    private class Square {
         Placement placement;
-        Square square;
+        Content content;
 
-        PlacementSquare(Placement placement, Square square) {
+        Square(Placement placement, Content content) {
             this.placement = placement;
-            this.square = square;
+            this.content = content;
         }
     }
 }

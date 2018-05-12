@@ -2,7 +2,7 @@ package com.raulexposito.model.board;
 
 import com.raulexposito.model.game.Color;
 
-public interface Square {
+public interface Content {
 
 	// ------------------------------------------------------------------------
 	// ABSTRACT METHODS

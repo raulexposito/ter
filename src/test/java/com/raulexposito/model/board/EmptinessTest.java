@@ -13,7 +13,8 @@ public class EmptinessTest implements BoardFixture {
         // when
         Board board = createBoard();
         // then
-        Assert.assertTrue(board.isEmpty());
+        Assert.assertEquals(Long.valueOf(0), board.howMany(BLACK));
+        Assert.assertEquals(Long.valueOf(0), board.howMany(WHITE));
     }
 
     @Test
@@ -23,6 +24,7 @@ public class EmptinessTest implements BoardFixture {
         // when
         board = board.add(BLACK, CENTER);
         // then
-        Assert.assertFalse(board.isEmpty());
+        Assert.assertEquals(Long.valueOf(1), board.howMany(BLACK));
+        Assert.assertEquals(Long.valueOf(0), board.howMany(WHITE));
     }
 }

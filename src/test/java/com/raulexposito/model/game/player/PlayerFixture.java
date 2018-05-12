@@ -5,9 +5,9 @@ import com.raulexposito.model.game.Player;
 
 public interface PlayerFixture {
 
-    Integer MAX_SAME_COLOR_PIECES = 3;
+    Long MAX_SAME_COLOR_PIECES = 3L;
 
-    default Board move (Board board, Player player, Integer times) {
+    default Board move (Board board, Player player, Long times) {
         for (int i = 0; i < times; i++) {
             board = player.move(board).getBoard();
         }

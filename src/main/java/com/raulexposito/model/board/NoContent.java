@@ -2,7 +2,7 @@ package com.raulexposito.model.board;
 
 import com.raulexposito.model.game.Color;
 
-public class EmptySquare implements Square {
+public class NoContent implements Content {
 
     @Override
     public boolean isFilled() {

@@ -84,9 +84,9 @@ public abstract class Player {
 	private void fillLists(Board board) {
 		resetLists();
 		Arrays.stream(Placement.values()).forEach(placement -> {
-			if (board.isSquareEmpty(placement)) {
+			if (board.isEmpty(placement)) {
 				empty.add(placement);
-			} else if (board.squareHasColor(placement, color)) {
+			} else if (board.hasColor(placement, color)) {
 				mine.add(placement);
 			} else {
 				rival.add(placement);

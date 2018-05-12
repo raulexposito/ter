@@ -19,9 +19,9 @@ public class SwappingTest implements BoardFixture {
         // when
         board = board.swap(TOP_LEFT, CENTER);
         // then
-        Assert.assertTrue(board.isSquareEmpty(TOP_LEFT));
-        Assert.assertTrue(board.isSquareFilled(TOP_CENTER));
-        Assert.assertTrue(board.isSquareFilled(TOP_RIGHT));
-        Assert.assertTrue(board.isSquareFilled(CENTER));
+        Assert.assertTrue(board.isEmpty(TOP_LEFT));
+        Assert.assertTrue(board.isFilled(TOP_CENTER));
+        Assert.assertTrue(board.isFilled(TOP_RIGHT));
+        Assert.assertTrue(board.isFilled(CENTER));
     }
 }

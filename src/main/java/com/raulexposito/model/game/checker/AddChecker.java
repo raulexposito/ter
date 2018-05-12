@@ -11,7 +11,7 @@ public class AddChecker {
 	// CONSTANT VALUES
 	// ------------------------------------------------------------------------
 
-	private static final Integer SAME_COLOR_MAXIMUM = 3;
+	private static final Long SAME_COLOR_MAXIMUM = 3L;
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC
@@ -34,6 +34,6 @@ public class AddChecker {
 	}
 
 	private boolean placementIsFilled(Board board, Placement placement) {
-		return board.isSquareFilled(placement);
+		return board.isFilled(placement);
 	}
 }

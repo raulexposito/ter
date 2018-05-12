@@ -2,7 +2,7 @@ package com.raulexposito.model.board;
 
 import com.raulexposito.model.game.Color;
 
-public class FilledSquare implements Square {
+public class Filled implements Content {
 
     // ------------------------------------------------------------------------
     // ATTRIBUTES
@@ -14,7 +14,7 @@ public class FilledSquare implements Square {
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public FilledSquare(Color color) {
+    public Filled(Color color) {
         this.color = color;
     }
 
