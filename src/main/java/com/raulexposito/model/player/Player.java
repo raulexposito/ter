@@ -7,28 +7,17 @@ import com.raulexposito.model.movement.Movement;
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.movement.Swap;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class Player {
 
 	// ------------------------------------------------------------------------
-	// CONSTANTS
-	// ------------------------------------------------------------------------
-
-	private static final Integer MAX_SAME_COLOR_PIECES = 3;
-	private static final Integer BOARD_SIZE = 9;
-
-	// ------------------------------------------------------------------------
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
-	private Color color;
+	private final Color color;
 	private Board board;
-	private List<Placement> mine = new ArrayList<>(MAX_SAME_COLOR_PIECES);
-	private List<Placement> rival = new ArrayList<>(MAX_SAME_COLOR_PIECES);
-	private List<Placement> empty = new ArrayList<>(BOARD_SIZE);
+	private Knowledge knowledge;
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR
@@ -44,7 +33,7 @@ public abstract class Player {
 
 	public Movement move(Board board) {
 		this.board = board;
-		this.fillLists(board);
+		this.knowledge = new Knowledge(board, color);
 		return move();
 	}
 
@@ -63,42 +52,18 @@ public abstract class Player {
 	}
 
 	boolean canAdd () {
-		return mine.size() < MAX_SAME_COLOR_PIECES;
+		return knowledge.canAdd();
 	}
 
 	List<Placement> mySquares() {
-		return new ArrayList<>(mine);
+		return knowledge.mySquares();
 	}
 
 	List<Placement> rivalSquares() {
-		return new ArrayList<>(rival);
+		return knowledge.rivalSquares();
 	}
 
 	List<Placement> emptySquares() {
-		return new ArrayList<>(empty);
-	}
-
-	// ------------------------------------------------------------------------
-	// PRIVATE METHODS
-	// ------------------------------------------------------------------------
-
-	// TODO: tal vez el jugador deberia mantener una estructura inmutable con esta informacion
-	private void fillLists(Board board) {
-		resetLists();
-		Arrays.stream(Placement.values()).forEach(placement -> {
-			if (board.isEmpty(placement)) {
-				empty.add(placement);
-			} else if (board.hasColor(placement, color)) {
-				mine.add(placement);
-			} else {
-				rival.add(placement);
-			}
-		});
-	}
-
-	private void resetLists() {
-		mine.clear();
-		rival.clear();
-		empty.clear();
+		return knowledge.emptySquares();
 	}
 }

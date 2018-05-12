@@ -12,7 +12,7 @@ public class Board {
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private Map<Placement, Content> squares = new HashMap<>(Placement.values().length);
+    private final Map<Placement, Content> squares = new HashMap<>(Placement.values().length);
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
@@ -101,8 +101,8 @@ public class Board {
     // ------------------------------------------------------------------------
 
     private class Square {
-        Placement placement;
-        Content content;
+        final Placement placement;
+        final Content content;
 
         Square(Placement placement, Content content) {
             this.placement = placement;

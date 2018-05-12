@@ -9,7 +9,7 @@ public class Victory extends Result {
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private Color winner;
+    private final Color winner;
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR

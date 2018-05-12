@@ -18,7 +18,7 @@ public class Steps {
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private List<Board> steps;
+    private final List<Board> steps;
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR

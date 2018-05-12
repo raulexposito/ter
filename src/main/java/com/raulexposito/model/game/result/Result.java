@@ -8,7 +8,7 @@ public abstract class Result {
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
-	private Steps steps;
+	private final Steps steps;
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR

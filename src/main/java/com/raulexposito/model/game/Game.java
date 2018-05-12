@@ -25,8 +25,8 @@ public class Game {
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
- 	private Map<Color, Player> players = new HashMap<>();
-	private LimitsReachedChecker checker = new LimitsReachedChecker();
+ 	private final Map<Color, Player> players = new HashMap<>();
+	private final LimitsReachedChecker checker = new LimitsReachedChecker();
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR

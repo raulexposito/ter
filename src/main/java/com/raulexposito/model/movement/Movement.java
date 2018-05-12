@@ -10,9 +10,9 @@ public abstract class Movement {
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
-	private Board board;
+	private final Board board;
 
-	private Execution execution;
+	private final Execution execution;
 
 	private boolean victory;
 
@@ -20,7 +20,7 @@ public abstract class Movement {
 	// CONSTRUCTOR
 	// ------------------------------------------------------------------------
 
-	public Movement(Execution execution, Board board) {
+	Movement(Execution execution, Board board) {
 		this.execution = execution;
 		this.board = board;
 		if (execution.isValid()) {
