@@ -6,16 +6,15 @@ import com.raulexposito.model.game.checker.VictoryChecker;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.Result.*;
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.game.Color.*;
+import static com.raulexposito.model.Color.*;
 
 public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
 
     @Test
     public void leftColumnFilled() {
         // given
-        VictoryChecker victoryChecker = createVictoryChecker();
+        VictoryChecker checker = createVictoryChecker();
         Board board = createBoard();
         // when
         board = board
@@ -23,13 +22,13 @@ public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(BLACK, MIDDLE_LEFT)
                 .add(BLACK, BOTTOM_LEFT);
         // then
-        Assert.assertEquals(VICTORY, victoryChecker.check(board));
+        Assert.assertTrue(checker.isVictory(board));
     }
 
     @Test
     public void middleColumnFilled() {
         // given
-        VictoryChecker victoryChecker = createVictoryChecker();
+        VictoryChecker checker = createVictoryChecker();
         Board board = createBoard();
         // when
         board = board
@@ -37,13 +36,13 @@ public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(WHITE, CENTER)
                 .add(WHITE, BOTTOM_CENTER);
         // then
-        Assert.assertEquals(VICTORY, victoryChecker.check(board));
+        Assert.assertTrue(checker.isVictory(board));
     }
 
     @Test
     public void rightColumnFilled() {
         // given
-        VictoryChecker victoryChecker = createVictoryChecker();
+        VictoryChecker checker = createVictoryChecker();
         Board board = createBoard();
         // when
         board = board
@@ -51,6 +50,6 @@ public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(BLACK, MIDDLE_RIGHT)
                 .add(BLACK, BOTTOM_RIGHT);
         // then
-        Assert.assertEquals(VICTORY, victoryChecker.check(board));
+        Assert.assertTrue(checker.isVictory(board));
     }
 }

@@ -2,9 +2,9 @@ package com.raulexposito.model.player.randomplayer;
 
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
-import com.raulexposito.model.game.Color;
-import com.raulexposito.model.game.Player;
-import com.raulexposito.model.game.player.PlayerFixture;
+import com.raulexposito.model.Color;
+import com.raulexposito.model.player.Player;
+import com.raulexposito.model.player.PlayerFixture;
 import com.raulexposito.model.player.RandomPlayer;
 import org.junit.Assert;
 import org.junit.Test;

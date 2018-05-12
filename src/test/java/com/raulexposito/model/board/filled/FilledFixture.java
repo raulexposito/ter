@@ -2,7 +2,7 @@ package com.raulexposito.model.board.filled;
 
 import com.raulexposito.model.board.Filled;
 
-import static com.raulexposito.model.game.Color.*;
+import static com.raulexposito.model.Color.*;
 
 public interface FilledFixture {
 

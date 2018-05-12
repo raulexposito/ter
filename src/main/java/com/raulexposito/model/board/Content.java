@@ -1,6 +1,6 @@
 package com.raulexposito.model.board;
 
-import com.raulexposito.model.game.Color;
+import com.raulexposito.model.Color;
 
 public interface Content {
 

@@ -1,24 +1,23 @@
 package com.raulexposito.model.game.checker;
 
-import com.raulexposito.model.game.Color;
+import com.raulexposito.model.Color;
 import com.raulexposito.model.game.Counter;
-import com.raulexposito.model.game.GameResult;
 import com.raulexposito.model.game.Steps;
+import com.raulexposito.model.game.result.Draw;
+import com.raulexposito.model.game.result.Result;
+import com.raulexposito.model.game.result.Victory;
 
 import java.util.Optional;
 
-import static com.raulexposito.model.game.Color.WHITE;
-
 public class LimitsReachedChecker {
 
-    public Optional<GameResult> limitsReached(Color color, Steps steps, Counter attempts) {
+    public Optional<Result> limitsReached(Color color, Steps steps, Counter attempts) {
         if (steps.limitReached()) {
-            // TODO: empate
-            return Optional.of(new GameResult(steps, WHITE));
+            return Optional.of(new Draw(steps));
         }
 
         if (attempts.limitReached()) {
-            return Optional.of(new GameResult(steps, color.getOpposite()));
+            return Optional.of(new Victory(steps, color.getOpposite()));
         }
 
         return Optional.empty();

@@ -1,13 +1,17 @@
 package com.raulexposito.model.game;
 
+import com.raulexposito.model.Color;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
-import com.raulexposito.model.game.movement.Movement;
+import com.raulexposito.model.game.result.Result;
+import com.raulexposito.model.game.result.Victory;
+import com.raulexposito.model.movement.Movement;
 import com.raulexposito.model.board.Board;
+import com.raulexposito.model.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.raulexposito.model.game.Color.*;
+import static com.raulexposito.model.Color.*;
 
 public class Game {
 
@@ -37,7 +41,7 @@ public class Game {
 	// BUSINESS LOGIC
 	// ------------------------------------------------------------------------
 
-	public GameResult play() {
+	public Result play() {
 		return play(Board.empty(), Steps.empty(), WHITE, Counter.upTo(MAX_ATTEMPTS));
 	}
 
@@ -46,16 +50,16 @@ public class Game {
 	// ------------------------------------------------------------------------
 
 	// TODO: tests con jugadores mockeados
-	private GameResult play (Board board, Steps steps, Color color, Counter attempts) {
+	private Result play (Board board, Steps steps, Color color, Counter attempts) {
 		return checker.limitsReached(color, steps, attempts).orElseGet(() -> {
 			final Movement movement = players.get(color).move(board);
 			final Steps currentSteps = steps.add(movement);
 
 			if (movement.isVictory()) {
-				return new GameResult(currentSteps, color);
+				return new Victory(currentSteps, color);
 			}
 
-			if (movement.isFailure()) {
+			if (movement.isFailed()) {
 				return play(board, steps, color, attempts.increase());
 			}
 

@@ -4,12 +4,12 @@ import com.raulexposito.model.board.NoContent;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.game.Color.*;
+import static com.raulexposito.model.Color.*;
 
 public class ContentTest implements NoContentFixture {
 
     @Test
-    public void emptyContentCannotIncludeBlackSquares() {
+    public void emptyContentCannotIncludeBlackPieces() {
         // given
         NoContent content = createNoContent();
         // when
@@ -19,7 +19,7 @@ public class ContentTest implements NoContentFixture {
     }
 
     @Test
-    public void emptyContentCannotIncludeWhiteSquares() {
+    public void emptyContentCannotIncludeWhitePieces() {
         // given
         NoContent content = createNoContent();
         // when

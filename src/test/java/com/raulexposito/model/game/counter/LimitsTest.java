@@ -12,9 +12,7 @@ public class LimitsTest implements CounterFixture {
         Counter counter = createCounter();
 
         // when
-        for (int i = 0; i < TOP; i++) {
-            counter = counter.increase();
-        }
+        counter = increase(counter, TOP);
 
         // then
         Assert.assertTrue(counter.limitReached());
@@ -26,9 +24,7 @@ public class LimitsTest implements CounterFixture {
         Counter counter = createCounter();
 
         // when
-        for (int i = 0; i < TOP - 1; i++) {
-            counter = counter.increase();
-        }
+        counter = increase(counter, TOP - 1);
 
         // then
         Assert.assertFalse(counter.limitReached());

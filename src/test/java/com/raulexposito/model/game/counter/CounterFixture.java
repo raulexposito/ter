@@ -17,4 +17,11 @@ public interface CounterFixture {
         when(steps.limitReached()).thenReturn(true);
         return steps;
     }
+
+    default Counter increase (Counter counter, Integer times) {
+        for (int i = 0; i < times; i++) {
+            counter = counter.increase();
+        }
+        return counter;
+    }
 }

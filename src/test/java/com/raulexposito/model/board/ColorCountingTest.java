@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.game.Color.*;
+import static com.raulexposito.model.Color.*;
 
 public class ColorCountingTest implements BoardFixture {
 

@@ -1,14 +1,13 @@
 package com.raulexposito.model.game.checker;
 
 import com.raulexposito.model.board.Board;
-import com.raulexposito.model.Result;
 import com.raulexposito.model.board.Placement;
-import com.raulexposito.model.game.Color;
+import com.raulexposito.model.Color;
 
 import java.util.stream.Stream;
 
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.game.Color.*;
+import static com.raulexposito.model.Color.*;
 
 public class VictoryChecker {
 
@@ -16,18 +15,15 @@ public class VictoryChecker {
     // BUSINESS LOGIC
     // ------------------------------------------------------------------------
 
-    public Result check (Board board) {
-        if (checkPositions(board, WHITE) || checkPositions(board, BLACK)) {
-            return Result.VICTORY;
-        }
-        return Result.VALID;
+    public boolean isVictory(Board board) {
+        return winnerPositions(board, WHITE) || winnerPositions(board, BLACK);
     }
 
     // ------------------------------------------------------------------------
     // PRIVATE METHODS
     // ------------------------------------------------------------------------
 
-    private boolean checkPositions (Board board, Color color) {
+    private boolean winnerPositions(Board board, Color color) {
         return topRow(board, color) ||
                 middleRow(board, color) ||
                 bottomRow(board, color) ||

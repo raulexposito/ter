@@ -1,9 +1,8 @@
 package com.raulexposito.model.player;
 
 import com.raulexposito.model.board.Placement;
-import com.raulexposito.model.game.Color;
-import com.raulexposito.model.game.Player;
-import com.raulexposito.model.game.movement.Movement;
+import com.raulexposito.model.Color;
+import com.raulexposito.model.movement.Movement;
 
 import java.util.List;
 import java.util.Random;

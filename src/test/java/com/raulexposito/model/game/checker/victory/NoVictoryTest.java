@@ -6,25 +6,24 @@ import com.raulexposito.model.game.checker.VictoryChecker;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.Result.*;
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.game.Color.*;
+import static com.raulexposito.model.Color.*;
 
 public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
 
     @Test
-    public void onlyOneSquare() {
+    public void onlyOnePiece() {
         // given
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
         board = board.add(BLACK, CENTER);
         // then
-        Assert.assertEquals(VALID, victoryChecker.check(board));
+        Assert.assertFalse(victoryChecker.isVictory(board));
     }
 
     @Test
-    public void notEnoughSquares() {
+    public void notEnoughPieces() {
         // given
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
@@ -34,7 +33,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(BLACK, CENTER)
                 .add(WHITE, BOTTOM_LEFT);
         // then
-        Assert.assertEquals(VALID, victoryChecker.check(board));
+        Assert.assertFalse(victoryChecker.isVictory(board));
     }
 
     @Test
@@ -48,7 +47,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(BLACK, TOP_CENTER)
                 .add(BLACK, BOTTOM_LEFT);
         // then
-        Assert.assertEquals(VALID, victoryChecker.check(board));
+        Assert.assertFalse(victoryChecker.isVictory(board));
     }
 
     @Test
@@ -62,6 +61,6 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(BLACK, MIDDLE_LEFT)
                 .add(BLACK, BOTTOM_RIGHT);
         // then
-        Assert.assertEquals(VALID, victoryChecker.check(board));
+        Assert.assertFalse(victoryChecker.isVictory(board));
     }
 }

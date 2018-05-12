@@ -1,11 +1,11 @@
 package com.raulexposito.model;
 
 import com.raulexposito.model.game.Game;
-import com.raulexposito.model.game.GameResult;
-import com.raulexposito.model.game.Player;
+import com.raulexposito.model.game.result.Result;
+import com.raulexposito.model.player.Player;
 import com.raulexposito.model.player.RandomPlayer;
 
-import static com.raulexposito.model.game.Color.*;
+import static com.raulexposito.model.Color.*;
 
 public class Main {
 
@@ -15,7 +15,7 @@ public class Main {
 
 		final Game game = new Game(white, black);
 
-		final GameResult result = game.play();
+		final Result result = game.play();
 		System.out.println(result);
 	}
 }

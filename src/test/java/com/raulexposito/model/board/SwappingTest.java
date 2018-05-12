@@ -4,15 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.game.Color.BLACK;
+import static com.raulexposito.model.Color.BLACK;
 
 public class SwappingTest implements BoardFixture {
 
     @Test
-    public void boardCanSwapPositions() {
+    public void boardCanSwapPieces() {
         // given
-        Board board = createBoard();
-        board = board
+        Board board = createBoard()
                 .add(BLACK, TOP_LEFT)
                 .add(BLACK, TOP_CENTER)
                 .add(BLACK, TOP_RIGHT);

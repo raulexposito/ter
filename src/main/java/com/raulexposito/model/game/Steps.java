@@ -1,7 +1,7 @@
 package com.raulexposito.model.game;
 
 import com.raulexposito.model.board.Board;
-import com.raulexposito.model.game.movement.Movement;
+import com.raulexposito.model.movement.Movement;
 
 import java.util.ArrayList;
 import java.util.List;
