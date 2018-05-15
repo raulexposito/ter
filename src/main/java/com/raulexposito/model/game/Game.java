@@ -1,17 +1,18 @@
 package com.raulexposito.model.game;
 
+import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.Color;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.game.result.Victory;
 import com.raulexposito.model.movement.Movement;
-import com.raulexposito.model.board.Board;
 import com.raulexposito.model.player.Player;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.raulexposito.model.board.Color.*;
+import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Color.WHITE;
 
 public class Game {
 

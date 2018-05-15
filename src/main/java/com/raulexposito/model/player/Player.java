@@ -1,10 +1,10 @@
 package com.raulexposito.model.player;
 
-import com.raulexposito.model.board.Placement;
+import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.Color;
+import com.raulexposito.model.board.Placement;
 import com.raulexposito.model.movement.Add;
 import com.raulexposito.model.movement.Movement;
-import com.raulexposito.model.board.Board;
 import com.raulexposito.model.movement.Swap;
 
 import java.util.List;

@@ -11,7 +11,8 @@ import org.junit.Test;
 
 import java.util.Optional;
 
-import static com.raulexposito.model.board.Color.*;
+import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Color.WHITE;
 
 public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, CounterFixture, StepsFixture {
 

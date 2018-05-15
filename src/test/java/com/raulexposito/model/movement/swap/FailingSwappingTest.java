@@ -7,10 +7,9 @@ import com.raulexposito.model.movement.execution.Execution;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.board.Placement.TOP_RIGHT;
 import static com.raulexposito.model.board.Color.BLACK;
 import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Placement.*;
 
 public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
 

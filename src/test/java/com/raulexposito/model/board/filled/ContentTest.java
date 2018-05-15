@@ -1,11 +1,11 @@
 package com.raulexposito.model.board.filled;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
-
 import com.raulexposito.model.board.Content;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Color.WHITE;
 
 public class ContentTest implements FilledFixture {
 

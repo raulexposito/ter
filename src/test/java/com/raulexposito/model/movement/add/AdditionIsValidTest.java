@@ -7,8 +7,8 @@ import com.raulexposito.model.movement.Movement;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Placement.CENTER;
 import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Placement.CENTER;
 
 public class AdditionIsValidTest implements BoardFixture {
 

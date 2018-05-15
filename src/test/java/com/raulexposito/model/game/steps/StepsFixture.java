@@ -1,7 +1,9 @@
 package com.raulexposito.model.game.steps;
 
 import com.raulexposito.model.game.Steps;
-import static org.mockito.Mockito.*;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public interface StepsFixture {
 

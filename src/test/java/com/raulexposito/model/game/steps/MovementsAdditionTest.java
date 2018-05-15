@@ -6,8 +6,9 @@ import com.raulexposito.model.movement.Swap;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.*;
-import static com.raulexposito.model.board.Placement.*;
+import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Placement.CENTER;
+import static com.raulexposito.model.board.Placement.TOP_LEFT;
 
 
 public class MovementsAdditionTest implements StepsFixture {

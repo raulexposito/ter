@@ -2,7 +2,8 @@ package com.raulexposito.model.game.counter;
 
 import com.raulexposito.model.game.Counter;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public interface CounterFixture {
 

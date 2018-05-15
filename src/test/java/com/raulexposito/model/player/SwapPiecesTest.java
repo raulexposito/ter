@@ -7,9 +7,9 @@ import com.raulexposito.model.player.fake.FakeSwapPlayer;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static com.raulexposito.model.board.Color.WHITE;
 import static com.raulexposito.model.board.Placement.CENTER;
 import static com.raulexposito.model.board.Placement.TOP_LEFT;
-import static com.raulexposito.model.board.Color.WHITE;
 
 public class SwapPiecesTest implements PlayerFixture, BoardFixture {
 

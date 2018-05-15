@@ -1,7 +1,6 @@
 package com.raulexposito.model.player;
 
 import com.raulexposito.model.board.Board;
-import com.raulexposito.model.player.Player;
 
 public interface PlayerFixture {
 

@@ -3,8 +3,9 @@ package com.raulexposito.model.board;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.board.Color.*;
+import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Placement.CENTER;
 
 public class EmptinessTest implements BoardFixture {
 

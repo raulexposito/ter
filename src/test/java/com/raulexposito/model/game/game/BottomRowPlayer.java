@@ -5,9 +5,7 @@ import com.raulexposito.model.board.Placement;
 import com.raulexposito.model.movement.Movement;
 import com.raulexposito.model.player.Player;
 
-import static com.raulexposito.model.board.Placement.BOTTOM_CENTER;
-import static com.raulexposito.model.board.Placement.BOTTOM_LEFT;
-import static com.raulexposito.model.board.Placement.BOTTOM_RIGHT;
+import static com.raulexposito.model.board.Placement.*;
 
 public class BottomRowPlayer extends Player {
 

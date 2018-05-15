@@ -3,8 +3,8 @@ package com.raulexposito.model.board;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Placement.*;
 import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Placement.*;
 
 public class SwappingTest implements BoardFixture {
 

@@ -7,7 +7,8 @@ import com.raulexposito.model.player.Player;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.*;
+import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Color.WHITE;
 
 public class PlayerLooseAttemptsReachedTest implements BoardFixture {
 
