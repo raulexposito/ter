@@ -5,7 +5,7 @@ import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.player.Player;
 import com.raulexposito.model.player.RandomPlayer;
 
-import static com.raulexposito.model.Color.*;
+import static com.raulexposito.model.board.Color.*;
 
 public class Main {
 

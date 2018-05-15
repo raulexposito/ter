@@ -5,14 +5,13 @@ import com.raulexposito.model.game.Steps;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.counter.CounterFixture;
 import com.raulexposito.model.game.result.Result;
-import com.raulexposito.model.game.result.Victory;
 import com.raulexposito.model.game.steps.StepsFixture;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Optional;
 
-import static com.raulexposito.model.Color.*;
+import static com.raulexposito.model.board.Color.*;
 
 public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, CounterFixture, StepsFixture {
 
@@ -28,13 +27,14 @@ public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, Counte
         Assert.assertTrue(gameResult.isPresent());
         Assert.assertTrue(gameResult.get().isDraw());
         Assert.assertFalse(gameResult.get().isVictory());
+        Assert.assertFalse(gameResult.get().getWinner().isPresent());
     }
 
     @Test
     public void counterLimitIsReached () {
         // given
         LimitsReachedChecker checker = createLimitsReachedChecker();
-        Steps steps = createSteps();
+        Steps steps = createUnlimitedSteps();
         // when
         Counter counter = createReachedCounter();
         Optional<Result> gameResult = checker.limitsReached(WHITE, steps, counter);
@@ -42,6 +42,7 @@ public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, Counte
         Assert.assertTrue(gameResult.isPresent());
         Assert.assertFalse(gameResult.get().isDraw());
         Assert.assertTrue(gameResult.get().isVictory());
-        Assert.assertEquals(BLACK, ((Victory) gameResult.get()).getWinner());
+        Assert.assertTrue(gameResult.get().getWinner().isPresent());
+        Assert.assertEquals(BLACK, gameResult.get().getWinner().get());
     }
 }

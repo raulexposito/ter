@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import java.util.Optional;
 
-import static com.raulexposito.model.Color.WHITE;
+import static com.raulexposito.model.board.Color.WHITE;
 
 public class LimitsAreNoReachedTest implements LimitsReachedCheckerFixture, CounterFixture, StepsFixture {
 
@@ -20,7 +20,7 @@ public class LimitsAreNoReachedTest implements LimitsReachedCheckerFixture, Coun
         // given
         LimitsReachedChecker checker = createLimitsReachedChecker();
         Counter counter = createCounter();
-        Steps steps = createSteps();
+        Steps steps = createUnlimitedSteps();
         // when
         Optional<Result> gameResult = checker.limitsReached(WHITE, steps, counter);
         // then

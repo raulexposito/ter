@@ -1,6 +1,9 @@
 package com.raulexposito.model.game.result;
 
+import com.raulexposito.model.board.Color;
 import com.raulexposito.model.game.Steps;
+
+import java.util.Optional;
 
 public abstract class Result {
 
@@ -21,6 +24,8 @@ public abstract class Result {
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC
 	// ------------------------------------------------------------------------
+
+	public abstract Optional<Color> getWinner();
 
 	public Steps getSteps() {
 		return steps;

@@ -1,7 +1,5 @@
 package com.raulexposito.model.board;
 
-import com.raulexposito.model.Color;
-
 public class Filled implements Content {
 
     // ------------------------------------------------------------------------

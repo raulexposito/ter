@@ -1,6 +1,6 @@
 package com.raulexposito.model.game;
 
-import com.raulexposito.model.Color;
+import com.raulexposito.model.board.Color;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.game.result.Victory;
@@ -11,7 +11,7 @@ import com.raulexposito.model.player.Player;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.raulexposito.model.Color.*;
+import static com.raulexposito.model.board.Color.*;
 
 public class Game {
 
@@ -20,6 +20,7 @@ public class Game {
 	// ------------------------------------------------------------------------
 
 	private static final Integer MAX_ATTEMPTS = 20;
+	private static final Integer MAX_STEPS = 1000;
 
 	// ------------------------------------------------------------------------
 	// ATTRIBUTES
@@ -42,7 +43,7 @@ public class Game {
 	// ------------------------------------------------------------------------
 
 	public Result play() {
-		return play(Board.empty(), Steps.empty(), WHITE, Counter.upTo(MAX_ATTEMPTS));
+		return play(Board.empty(), Steps.upTo(MAX_STEPS), WHITE, Counter.upTo(MAX_ATTEMPTS));
 	}
 
 	// ------------------------------------------------------------------------

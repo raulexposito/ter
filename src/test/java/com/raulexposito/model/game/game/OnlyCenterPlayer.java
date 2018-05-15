@@ -1,14 +1,15 @@
-package com.raulexposito.model.player.fake;
+package com.raulexposito.model.game.game;
 
 import com.raulexposito.model.board.Color;
-import com.raulexposito.model.player.Player;
+import com.raulexposito.model.board.Placement;
 import com.raulexposito.model.movement.Movement;
+import com.raulexposito.model.player.Player;
 
 import static com.raulexposito.model.board.Placement.*;
 
-public class DoNothingPlayer extends Player {
+public class OnlyCenterPlayer extends Player {
 
-    public DoNothingPlayer (Color color) {
+    OnlyCenterPlayer(Color color) {
         super(color);
     }
 

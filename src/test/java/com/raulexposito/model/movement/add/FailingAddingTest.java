@@ -8,8 +8,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import static com.raulexposito.model.board.Placement.*;
-import static com.raulexposito.model.Color.BLACK;
-import static com.raulexposito.model.Color.WHITE;
+import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Color.WHITE;
 
 public class FailingAddingTest implements AddCheckerFixture, BoardFixture {
 

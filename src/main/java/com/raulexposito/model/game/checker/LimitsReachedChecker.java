@@ -1,6 +1,6 @@
 package com.raulexposito.model.game.checker;
 
-import com.raulexposito.model.Color;
+import com.raulexposito.model.board.Color;
 import com.raulexposito.model.game.Counter;
 import com.raulexposito.model.game.Steps;
 import com.raulexposito.model.game.result.Draw;

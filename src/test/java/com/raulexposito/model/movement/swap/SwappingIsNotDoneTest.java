@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import static com.raulexposito.model.board.Placement.CENTER;
 import static com.raulexposito.model.board.Placement.TOP_LEFT;
-import static com.raulexposito.model.Color.BLACK;
+import static com.raulexposito.model.board.Color.BLACK;
 
 public class SwappingIsNotDoneTest implements BoardFixture {
 

@@ -5,8 +5,12 @@ import static org.mockito.Mockito.*;
 
 public interface StepsFixture {
 
-    default Steps createSteps () {
-        return Steps.empty();
+    default Steps createUnlimitedSteps () {
+        return Steps.upTo(Integer.MAX_VALUE);
+    }
+
+    default Steps createLimitedSteps (Integer maxSteps) {
+        return Steps.upTo(maxSteps);
     }
 
     default Steps createReachedSteps () {

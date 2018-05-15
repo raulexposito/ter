@@ -8,11 +8,6 @@ import java.util.List;
 
 public class Steps {
 
-    // ------------------------------------------------------------------------
-    // CONSTANT VALUES
-    // ------------------------------------------------------------------------
-
-	private static final Integer MAX_STEPS = 1000;
 
     // ------------------------------------------------------------------------
     // ATTRIBUTES
@@ -20,20 +15,24 @@ public class Steps {
 
     private final List<Board> steps;
 
+    private final Integer maxSteps;
+
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    private Steps() {
+    private Steps(Integer maxSteps) {
         this.steps = new ArrayList<>();
+        this.maxSteps = maxSteps;
     }
 
-    private Steps(List<Board> steps) {
+    private Steps(Integer maxSteps, List<Board> steps) {
         this.steps = new ArrayList<>(steps);
+        this.maxSteps = maxSteps;
     }
 
-    public static Steps empty() {
-        return new Steps();
+    public static Steps upTo(Integer maxSteps) {
+        return new Steps(maxSteps);
     }
 
     // ------------------------------------------------------------------------
@@ -42,11 +41,11 @@ public class Steps {
 
     public Steps add(Movement movement) {
         steps.add(movement.getBoard());
-        return new Steps(steps);
+        return new Steps(maxSteps, steps);
     }
 
     public boolean limitReached() {
-        Counter counter = Counter.upTo(MAX_STEPS);
+        Counter counter = Counter.upTo(maxSteps);
         for (int i = 0; i < steps.size(); i++) {
             counter = counter.increase();
         }

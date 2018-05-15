@@ -1,7 +1,5 @@
 package com.raulexposito.model.board;
 
-import com.raulexposito.model.Color;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;

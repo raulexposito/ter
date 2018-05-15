@@ -1,4 +1,4 @@
-package com.raulexposito.model;
+package com.raulexposito.model.board;
 
 public enum Color {
     BLACK,

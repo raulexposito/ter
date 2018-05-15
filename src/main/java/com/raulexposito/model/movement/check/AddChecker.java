@@ -2,7 +2,7 @@ package com.raulexposito.model.movement.check;
 
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.Placement;
-import com.raulexposito.model.Color;
+import com.raulexposito.model.board.Color;
 import com.raulexposito.model.movement.execution.Failed;
 import com.raulexposito.model.movement.execution.Execution;
 import com.raulexposito.model.movement.execution.Valid;
