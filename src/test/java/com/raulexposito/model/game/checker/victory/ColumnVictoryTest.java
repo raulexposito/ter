@@ -6,8 +6,8 @@ import com.raulexposito.model.game.checker.VictoryChecker;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
 
 public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
@@ -19,9 +19,9 @@ public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
         Board board = createBoard();
         // when
         board = board
-                .add(BLACK, TOP_LEFT)
-                .add(BLACK, MIDDLE_LEFT)
-                .add(BLACK, BOTTOM_LEFT);
+                .add(CIRCLE, TOP_LEFT)
+                .add(CIRCLE, MIDDLE_LEFT)
+                .add(CIRCLE, BOTTOM_LEFT);
         // then
         Assert.assertTrue(checker.isVictory(board));
     }
@@ -33,9 +33,9 @@ public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
         Board board = createBoard();
         // when
         board = board
-                .add(WHITE, TOP_CENTER)
-                .add(WHITE, CENTER)
-                .add(WHITE, BOTTOM_CENTER);
+                .add(CROSS, TOP_CENTER)
+                .add(CROSS, CENTER)
+                .add(CROSS, BOTTOM_CENTER);
         // then
         Assert.assertTrue(checker.isVictory(board));
     }
@@ -47,9 +47,9 @@ public class ColumnVictoryTest implements VictoryCheckerFixture, BoardFixture {
         Board board = createBoard();
         // when
         board = board
-                .add(BLACK, TOP_RIGHT)
-                .add(BLACK, MIDDLE_RIGHT)
-                .add(BLACK, BOTTOM_RIGHT);
+                .add(CIRCLE, TOP_RIGHT)
+                .add(CIRCLE, MIDDLE_RIGHT)
+                .add(CIRCLE, BOTTOM_RIGHT);
         // then
         Assert.assertTrue(checker.isVictory(board));
     }

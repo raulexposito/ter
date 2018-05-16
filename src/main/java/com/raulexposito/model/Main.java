@@ -5,16 +5,16 @@ import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.player.Player;
 import com.raulexposito.model.player.RandomPlayer;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 
 public class Main {
 
 	public static void main(String[] args) {
-		final Player white = new RandomPlayer(WHITE);
-		final Player black = new RandomPlayer(BLACK);
+		final Player cross = new RandomPlayer(CROSS);
+		final Player circle = new RandomPlayer(CIRCLE);
 
-		final Game game = new Game(white, black);
+		final Game game = new Game(cross, circle);
 
 		final Result result = game.play();
 		System.out.println(result);

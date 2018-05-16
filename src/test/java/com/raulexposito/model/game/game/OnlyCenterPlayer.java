@@ -1,6 +1,6 @@
 package com.raulexposito.model.game.game;
 
-import com.raulexposito.model.board.Color;
+import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.movement.Movement;
 import com.raulexposito.model.player.Player;
 
@@ -8,8 +8,8 @@ import static com.raulexposito.model.board.Placement.CENTER;
 
 public class OnlyCenterPlayer extends Player {
 
-    OnlyCenterPlayer(Color color) {
-        super(color);
+    OnlyCenterPlayer(Piece piece) {
+        super(piece);
     }
 
     @Override

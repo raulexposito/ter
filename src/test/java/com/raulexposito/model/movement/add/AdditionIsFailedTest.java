@@ -7,7 +7,7 @@ import com.raulexposito.model.movement.Movement;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.CENTER;
 
 public class AdditionIsFailedTest implements BoardFixture {
@@ -15,9 +15,9 @@ public class AdditionIsFailedTest implements BoardFixture {
     @Test
     public void additionIsNotDone () {
         // given
-        Board board = createBoard().add(BLACK, CENTER);
+        Board board = createBoard().add(CIRCLE, CENTER);
         // when
-        Movement movement = new Add(board, BLACK, CENTER);
+        Movement movement = new Add(board, CIRCLE, CENTER);
         // then
         Assert.assertTrue(movement.isFailed());
     }

@@ -6,8 +6,8 @@ import com.raulexposito.model.game.checker.VictoryChecker;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
 
 public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
@@ -18,7 +18,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         VictoryChecker victoryChecker = createVictoryChecker();
         Board board = createBoard();
         // when
-        board = board.add(BLACK, CENTER);
+        board = board.add(CIRCLE, CENTER);
         // then
         Assert.assertFalse(victoryChecker.isVictory(board));
     }
@@ -30,9 +30,9 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         Board board = createBoard();
         // when
         board = board
-                .add(BLACK, TOP_RIGHT)
-                .add(BLACK, CENTER)
-                .add(WHITE, BOTTOM_LEFT);
+                .add(CIRCLE, TOP_RIGHT)
+                .add(CIRCLE, CENTER)
+                .add(CROSS, BOTTOM_LEFT);
         // then
         Assert.assertFalse(victoryChecker.isVictory(board));
     }
@@ -44,9 +44,9 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         Board board = createBoard();
         // when
         board = board
-                .add(BLACK, TOP_RIGHT)
-                .add(BLACK, TOP_CENTER)
-                .add(BLACK, BOTTOM_LEFT);
+                .add(CIRCLE, TOP_RIGHT)
+                .add(CIRCLE, TOP_CENTER)
+                .add(CIRCLE, BOTTOM_LEFT);
         // then
         Assert.assertFalse(victoryChecker.isVictory(board));
     }
@@ -58,9 +58,9 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         Board board = createBoard();
         // when
         board = board
-                .add(BLACK, TOP_LEFT)
-                .add(BLACK, MIDDLE_LEFT)
-                .add(BLACK, BOTTOM_RIGHT);
+                .add(CIRCLE, TOP_LEFT)
+                .add(CIRCLE, MIDDLE_LEFT)
+                .add(CIRCLE, BOTTOM_RIGHT);
         // then
         Assert.assertFalse(victoryChecker.isVictory(board));
     }

@@ -1,7 +1,7 @@
 package com.raulexposito.model.game.result;
 
-import com.raulexposito.model.board.Color;
-import com.raulexposito.model.game.Steps;
+import com.raulexposito.model.board.Piece;
+import com.raulexposito.model.game.Movements;
 
 import java.util.Optional;
 
@@ -11,14 +11,14 @@ public class Victory extends Result {
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private final Color winner;
+    private final Piece winner;
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public Victory(Steps steps, Color winner) {
-        super(steps);
+    public Victory(Movements movements, Piece winner) {
+        super(movements);
         this.winner = winner;
     }
 
@@ -27,7 +27,7 @@ public class Victory extends Result {
     // ------------------------------------------------------------------------
 
     @Override
-    public Optional<Color> getWinner() {
+    public Optional<Piece> getWinner() {
         return Optional.of(winner);
     }
 

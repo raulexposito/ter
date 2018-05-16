@@ -7,8 +7,8 @@ import com.raulexposito.model.movement.execution.Execution;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
 
 public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
@@ -18,28 +18,28 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         // given
         SwapChecker swapChecker = createSwapChecker();
         Board board = createBoard()
-                .add(BLACK, TOP_LEFT)
-                .add(BLACK, TOP_CENTER);
+                .add(CIRCLE, TOP_LEFT)
+                .add(CIRCLE, TOP_CENTER);
         // when
-        Execution result = swapChecker.check(board, BLACK, TOP_LEFT, CENTER);
+        Execution result = swapChecker.check(board, CIRCLE, TOP_LEFT, CENTER);
         // then
-        Assert.assertEquals(Long.valueOf(2), board.howMany(BLACK));
+        Assert.assertEquals(Long.valueOf(2), board.howMany(CIRCLE));
         Assert.assertTrue(result.isFailed());
     }
 
     @Test
-    public void onlyCanSwapMyColor() {
+    public void onlyCanSwapMyPieces() {
         // given
         SwapChecker swapChecker = createSwapChecker();
         Board board = createBoard()
-                .add(BLACK, TOP_LEFT)
-                .add(BLACK, TOP_CENTER)
-                .add(BLACK, TOP_RIGHT)
-                .add(WHITE, MIDDLE_LEFT)
-                .add(WHITE, CENTER)
-                .add(WHITE, MIDDLE_RIGHT);
+                .add(CIRCLE, TOP_LEFT)
+                .add(CIRCLE, TOP_CENTER)
+                .add(CIRCLE, TOP_RIGHT)
+                .add(CROSS, MIDDLE_LEFT)
+                .add(CROSS, CENTER)
+                .add(CROSS, MIDDLE_RIGHT);
         // when
-        Execution result = swapChecker.check(board, WHITE, TOP_LEFT, BOTTOM_LEFT);
+        Execution result = swapChecker.check(board, CROSS, TOP_LEFT, BOTTOM_LEFT);
         // then
         Assert.assertTrue(result.isFailed());
     }
@@ -49,11 +49,11 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         // given
         SwapChecker swapChecker = createSwapChecker();
         Board board = createBoard()
-                .add(BLACK, TOP_LEFT)
-                .add(BLACK, TOP_CENTER)
-                .add(BLACK, TOP_RIGHT);
+                .add(CIRCLE, TOP_LEFT)
+                .add(CIRCLE, TOP_CENTER)
+                .add(CIRCLE, TOP_RIGHT);
         // when
-        Execution result = swapChecker.check(board, BLACK, BOTTOM_LEFT, BOTTOM_RIGHT);
+        Execution result = swapChecker.check(board, CIRCLE, BOTTOM_LEFT, BOTTOM_RIGHT);
         // then
         Assert.assertTrue(result.isFailed());
     }
@@ -63,11 +63,11 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         // given
         SwapChecker swapChecker = createSwapChecker();
         Board board = createBoard()
-                .add(BLACK, TOP_LEFT)
-                .add(BLACK, TOP_CENTER)
-                .add(BLACK, TOP_RIGHT);
+                .add(CIRCLE, TOP_LEFT)
+                .add(CIRCLE, TOP_CENTER)
+                .add(CIRCLE, TOP_RIGHT);
         // when
-        Execution result = swapChecker.check(board, BLACK, TOP_LEFT, TOP_RIGHT);
+        Execution result = swapChecker.check(board, CIRCLE, TOP_LEFT, TOP_RIGHT);
         // then
         Assert.assertTrue(result.isFailed());
     }

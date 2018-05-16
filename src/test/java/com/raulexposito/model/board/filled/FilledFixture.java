@@ -2,16 +2,16 @@ package com.raulexposito.model.board.filled;
 
 import com.raulexposito.model.board.Filled;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 
 public interface FilledFixture {
 
-    default Filled createBlackFilled(){
-        return new Filled(BLACK);
+    default Filled createCircleFilled(){
+        return new Filled(CIRCLE);
     }
 
-    default Filled createWhiteFilled(){
-        return new Filled(WHITE);
+    default Filled createCrossFilled(){
+        return new Filled(CROSS);
     }
 }

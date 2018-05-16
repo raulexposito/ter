@@ -1,52 +1,50 @@
 package com.raulexposito.model.game;
 
-import com.raulexposito.model.board.Board;
 import com.raulexposito.model.movement.Movement;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Steps {
-
+public class Movements {
 
     // ------------------------------------------------------------------------
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private final List<Board> steps;
+    private final List<Movement> movements;
 
-    private final Integer maxSteps;
+    private final Integer maxMovements;
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    private Steps(Integer maxSteps) {
-        this.steps = new ArrayList<>();
-        this.maxSteps = maxSteps;
+    private Movements(Integer maxMovements) {
+        this.movements = new ArrayList<>();
+        this.maxMovements = maxMovements;
     }
 
-    private Steps(Integer maxSteps, List<Board> steps) {
-        this.steps = new ArrayList<>(steps);
-        this.maxSteps = maxSteps;
+    private Movements(Integer maxMovements, List<Movement> movements) {
+        this.movements = new ArrayList<>(movements);
+        this.maxMovements = maxMovements;
     }
 
-    public static Steps upTo(Integer maxSteps) {
-        return new Steps(maxSteps);
+    public static Movements upTo(Integer maxSteps) {
+        return new Movements(maxSteps);
     }
 
     // ------------------------------------------------------------------------
     // BUSINESS LOGIC
     // ------------------------------------------------------------------------
 
-    public Steps add(Movement movement) {
-        steps.add(movement.getBoard());
-        return new Steps(maxSteps, steps);
+    public Movements add(Movement movement) {
+        movements.add(movement);
+        return new Movements(maxMovements, movements);
     }
 
     public boolean limitReached() {
-        Counter counter = Counter.upTo(maxSteps);
-        for (int i = 0; i < steps.size(); i++) {
+        Counter counter = Counter.upTo(maxMovements);
+        for (int i = 0; i < movements.size(); i++) {
             counter = counter.increase();
         }
         return counter.limitReached();
@@ -55,9 +53,9 @@ public class Steps {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        for (final Board board: steps) {
-            builder.append(board.toString());
-        }
+//        for (final Board board: movements) {
+//            builder.append(board.toString());
+//        }
         return builder.toString();
     }
 }

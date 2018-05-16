@@ -1,6 +1,6 @@
 package com.raulexposito.model.game.game;
 
-import com.raulexposito.model.board.Color;
+import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.board.Placement;
 import com.raulexposito.model.movement.Movement;
 import com.raulexposito.model.player.Player;
@@ -9,8 +9,8 @@ import static com.raulexposito.model.board.Placement.*;
 
 public class BottomRowPlayer extends Player {
 
-    BottomRowPlayer(Color color) {
-        super(color);
+    BottomRowPlayer(Piece piece) {
+        super(piece);
     }
 
     @Override

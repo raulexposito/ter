@@ -1,7 +1,7 @@
 package com.raulexposito.model.player;
 
 import com.raulexposito.model.board.Board;
-import com.raulexposito.model.board.Color;
+import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.board.Placement;
 import com.raulexposito.model.movement.Add;
 import com.raulexposito.model.movement.Movement;
@@ -15,7 +15,7 @@ public abstract class Player {
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
-	private final Color color;
+	private final Piece piece;
 	private Board board;
 	private Knowledge knowledge;
 
@@ -23,8 +23,8 @@ public abstract class Player {
 	// CONSTRUCTOR
 	// ------------------------------------------------------------------------
 
-	public Player(Color color) {
-		this.color = color;
+	public Player(Piece piece) {
+		this.piece = piece;
 	}
 
 	// ------------------------------------------------------------------------
@@ -33,7 +33,7 @@ public abstract class Player {
 
 	public Movement move(Board board) {
 		this.board = board;
-		this.knowledge = new Knowledge(board, color);
+		this.knowledge = new Knowledge(board, piece);
 		return move();
 	}
 
@@ -44,11 +44,11 @@ public abstract class Player {
 	// ------------------------------------------------------------------------
 
 	protected Movement add(Placement placement) {
-		return new Add(board, color, placement);
+		return new Add(board, piece, placement);
 	}
 
 	protected Movement swap(Placement current, Placement candidate) {
-		return new Swap(board, color, current, candidate);
+		return new Swap(board, piece, current, candidate);
 	}
 
 	protected boolean canAdd () {

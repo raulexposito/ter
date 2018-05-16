@@ -6,14 +6,14 @@ public class Filled implements Content {
     // ATTRIBUTES
     // ------------------------------------------------------------------------
 
-    private final Color color;
+    private final Piece piece;
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public Filled(Color color) {
-        this.color = color;
+    public Filled(Piece piece) {
+        this.piece = piece;
     }
 
     // ------------------------------------------------------------------------
@@ -26,12 +26,12 @@ public class Filled implements Content {
     }
 
     @Override
-    public boolean hasColor(Color color) {
-        return this.color == color;
+    public boolean hasPiece(Piece piece) {
+        return this.piece == piece;
     }
 
     @Override
     public String toString() {
-        return color.toString();
+        return piece.toString();
     }
 }

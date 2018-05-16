@@ -7,7 +7,7 @@ import com.raulexposito.model.movement.Swap;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.*;
 
 public class SwappingIsVictoryTest implements BoardFixture {
@@ -16,11 +16,11 @@ public class SwappingIsVictoryTest implements BoardFixture {
     public void swappingIsVictory() {
         // given
         Board board = createBoard()
-                .add(BLACK, TOP_LEFT)
-                .add(BLACK, TOP_CENTER)
-                .add(BLACK, CENTER);
+                .add(CIRCLE, TOP_LEFT)
+                .add(CIRCLE, TOP_CENTER)
+                .add(CIRCLE, CENTER);
         // when
-        Movement movement = new Swap(board, BLACK, CENTER, TOP_RIGHT);
+        Movement movement = new Swap(board, CIRCLE, CENTER, TOP_RIGHT);
         // then
         Assert.assertTrue(movement.isVictory());
     }

@@ -4,27 +4,27 @@ import com.raulexposito.model.board.Content;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 
 public class ContentTest implements FilledFixture {
 
     @Test
-    public void blackContentMatch() {
+    public void circleContentMatch() {
         // given
-        Content content = createBlackFilled();
+        Content content = createCircleFilled();
         // when
-        boolean result = content.hasColor(BLACK);
+        boolean result = content.hasPiece(CIRCLE);
         // then
         Assert.assertTrue(result);
     }
 
     @Test
-    public void whiteContentMatch() {
+    public void crossContentMatch() {
         // given
-        Content content = createWhiteFilled();
+        Content content = createCrossFilled();
         // when
-        boolean result = content.hasColor(WHITE);
+        boolean result = content.hasPiece(CROSS);
         // then
         Assert.assertTrue(result);
     }

@@ -1,13 +1,13 @@
 package com.raulexposito.model.game.checker;
 
 import com.raulexposito.model.board.Board;
-import com.raulexposito.model.board.Color;
+import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.board.Placement;
 
 import java.util.stream.Stream;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
 
 public class VictoryChecker {
@@ -17,57 +17,57 @@ public class VictoryChecker {
     // ------------------------------------------------------------------------
 
     public boolean isVictory(Board board) {
-        return winnerPositions(board, WHITE) || winnerPositions(board, BLACK);
+        return winnerPositions(board, CROSS) || winnerPositions(board, CIRCLE);
     }
 
     // ------------------------------------------------------------------------
     // PRIVATE METHODS
     // ------------------------------------------------------------------------
 
-    private boolean winnerPositions(Board board, Color color) {
-        return topRow(board, color) ||
-                middleRow(board, color) ||
-                bottomRow(board, color) ||
-                leftColumn(board, color) ||
-                middleColumn(board, color) ||
-                rightColumn(board, color) ||
-                topLeftToBottomRight(board, color) ||
-                topRightToBottomLeft(board, color);
+    private boolean winnerPositions(Board board, Piece piece) {
+        return topRow(board, piece) ||
+                middleRow(board, piece) ||
+                bottomRow(board, piece) ||
+                leftColumn(board, piece) ||
+                middleColumn(board, piece) ||
+                rightColumn(board, piece) ||
+                topLeftToBottomRight(board, piece) ||
+                topRightToBottomLeft(board, piece);
     }
 
-    private boolean topRow (Board board, Color color) {
-        return check(board, color, Stream.of(TOP_LEFT, TOP_CENTER, TOP_RIGHT));
+    private boolean topRow (Board board, Piece piece) {
+        return check(board, piece, Stream.of(TOP_LEFT, TOP_CENTER, TOP_RIGHT));
     }
 
-    private boolean middleRow (Board board, Color color) {
-        return check(board, color, Stream.of(MIDDLE_LEFT, CENTER, MIDDLE_RIGHT));
+    private boolean middleRow (Board board, Piece piece) {
+        return check(board, piece, Stream.of(MIDDLE_LEFT, CENTER, MIDDLE_RIGHT));
     }
 
-    private boolean bottomRow (Board board, Color color) {
-        return check(board, color, Stream.of(BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT));
+    private boolean bottomRow (Board board, Piece piece) {
+        return check(board, piece, Stream.of(BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT));
     }
 
-    private boolean leftColumn (Board board, Color color) {
-        return check(board, color, Stream.of(TOP_LEFT, MIDDLE_LEFT, BOTTOM_LEFT));
+    private boolean leftColumn (Board board, Piece piece) {
+        return check(board, piece, Stream.of(TOP_LEFT, MIDDLE_LEFT, BOTTOM_LEFT));
     }
 
-    private boolean middleColumn (Board board, Color color) {
-        return check(board, color, Stream.of(TOP_CENTER, CENTER, BOTTOM_CENTER));
+    private boolean middleColumn (Board board, Piece piece) {
+        return check(board, piece, Stream.of(TOP_CENTER, CENTER, BOTTOM_CENTER));
     }
 
-    private boolean rightColumn (Board board, Color color) {
-        return check(board, color, Stream.of(TOP_RIGHT, MIDDLE_RIGHT, BOTTOM_RIGHT));
+    private boolean rightColumn (Board board, Piece piece) {
+        return check(board, piece, Stream.of(TOP_RIGHT, MIDDLE_RIGHT, BOTTOM_RIGHT));
     }
 
-    private boolean topLeftToBottomRight(Board board, Color color) {
-        return check(board, color, Stream.of(TOP_LEFT, CENTER, BOTTOM_RIGHT));
+    private boolean topLeftToBottomRight(Board board, Piece piece) {
+        return check(board, piece, Stream.of(TOP_LEFT, CENTER, BOTTOM_RIGHT));
     }
 
-    private boolean topRightToBottomLeft(Board board, Color color) {
-        return check(board, color, Stream.of(TOP_RIGHT, CENTER, BOTTOM_LEFT));
+    private boolean topRightToBottomLeft(Board board, Piece piece) {
+        return check(board, piece, Stream.of(TOP_RIGHT, CENTER, BOTTOM_LEFT));
     }
 
-    private boolean check(Board board, Color color, Stream<Placement> placements) {
-        return placements.allMatch(placement -> board.hasColor(placement, color));
+    private boolean check(Board board, Piece piece, Stream<Placement> placements) {
+        return placements.allMatch(placement -> board.hasPiece(placement, piece));
     }
 }

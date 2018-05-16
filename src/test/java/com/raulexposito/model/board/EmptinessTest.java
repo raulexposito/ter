@@ -3,8 +3,8 @@ package com.raulexposito.model.board;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.CENTER;
 
 public class EmptinessTest implements BoardFixture {
@@ -14,8 +14,8 @@ public class EmptinessTest implements BoardFixture {
         // when
         Board board = createBoard();
         // then
-        Assert.assertEquals(Long.valueOf(0), board.howMany(BLACK));
-        Assert.assertEquals(Long.valueOf(0), board.howMany(WHITE));
+        Assert.assertEquals(Long.valueOf(0), board.howMany(CIRCLE));
+        Assert.assertEquals(Long.valueOf(0), board.howMany(CROSS));
     }
 
     @Test
@@ -23,9 +23,9 @@ public class EmptinessTest implements BoardFixture {
         // given
         Board board = createBoard();
         // when
-        board = board.add(BLACK, CENTER);
+        board = board.add(CIRCLE, CENTER);
         // then
-        Assert.assertEquals(Long.valueOf(1), board.howMany(BLACK));
-        Assert.assertEquals(Long.valueOf(0), board.howMany(WHITE));
+        Assert.assertEquals(Long.valueOf(1), board.howMany(CIRCLE));
+        Assert.assertEquals(Long.valueOf(0), board.howMany(CROSS));
     }
 }

@@ -7,7 +7,7 @@ import com.raulexposito.model.movement.Swap;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.CENTER;
 import static com.raulexposito.model.board.Placement.TOP_LEFT;
 
@@ -18,7 +18,7 @@ public class SwappingIsNotDoneTest implements BoardFixture {
         // given
         Board board = createBoard();
         // when
-        Movement movement = new Swap(board, BLACK, CENTER, TOP_LEFT);
+        Movement movement = new Swap(board, CIRCLE, CENTER, TOP_LEFT);
         // then
         Assert.assertTrue(movement.isFailed());
     }

@@ -7,16 +7,16 @@ import com.raulexposito.model.player.Player;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 
 public class PlayerLooseAttemptsReachedTest implements BoardFixture {
 
     @Test
     public void playerLooseAttemptsReached() {
         // given
-        Player winner = new TopRowPlayer(BLACK);
-        Player looser = new OnlyCenterPlayer(WHITE);
+        Player winner = new TopRowPlayer(CIRCLE);
+        Player looser = new OnlyCenterPlayer(CROSS);
         Game game = new Game(looser, winner);
 
         // when
@@ -25,6 +25,6 @@ public class PlayerLooseAttemptsReachedTest implements BoardFixture {
         // then
         Assert.assertTrue(result.isVictory());
         Assert.assertTrue(result.getWinner().isPresent());
-        Assert.assertEquals(BLACK, result.getWinner().get());
+        Assert.assertEquals(CIRCLE, result.getWinner().get());
     }
 }

@@ -9,7 +9,7 @@ public class CreationTest implements FilledFixture {
     @Test
     public void contentIsNotCreatedEmpty() {
         // when
-        Content content = createBlackFilled();
+        Content content = createCircleFilled();
         // then
         Assert.assertFalse(content.isEmpty());
     }
@@ -17,7 +17,7 @@ public class CreationTest implements FilledFixture {
     @Test
     public void filledContentsCreatedFilled() {
         // when
-        Content content = createBlackFilled();
+        Content content = createCircleFilled();
         // then
         Assert.assertTrue(content.isFilled());
     }

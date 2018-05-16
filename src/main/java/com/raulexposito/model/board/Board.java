@@ -37,9 +37,9 @@ public class Board {
     // BUSINESS LOGIC
     // ------------------------------------------------------------------------
 
-    public Board add(Color color, Placement placement) {
+    public Board add(Piece piece, Placement placement) {
         return new Board(this,
-                new Square(placement, new Filled(color)));
+                new Square(placement, new Filled(piece)));
     }
 
     public Board swap(Placement current, Placement candidate) {
@@ -52,12 +52,12 @@ public class Board {
     // PUBLIC METHODS
     // ------------------------------------------------------------------------
 
-    public Long howMany(Color color) {
-        return squares.values().stream().filter(content -> content.hasColor(color)).count();
+    public Long howMany(Piece piece) {
+        return squares.values().stream().filter(content -> content.hasPiece(piece)).count();
     }
 
-    public boolean hasColor(Placement placement, Color color) {
-        return get(placement).hasColor(color);
+    public boolean hasPiece(Placement placement, Piece piece) {
+        return get(placement).hasPiece(piece);
     }
 
     public boolean isEmpty(Placement placement) {

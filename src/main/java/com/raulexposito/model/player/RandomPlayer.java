@@ -1,6 +1,6 @@
 package com.raulexposito.model.player;
 
-import com.raulexposito.model.board.Color;
+import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.board.Placement;
 import com.raulexposito.model.movement.Movement;
 
@@ -13,8 +13,8 @@ public class RandomPlayer extends Player {
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public RandomPlayer(Color color) {
-        super(color);
+    public RandomPlayer(Piece piece) {
+        super(piece);
     }
 
     // ------------------------------------------------------------------------

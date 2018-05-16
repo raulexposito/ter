@@ -1,7 +1,7 @@
 package com.raulexposito.model.movement.check;
 
 import com.raulexposito.model.board.Board;
-import com.raulexposito.model.board.Color;
+import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.board.Placement;
 import com.raulexposito.model.movement.execution.Execution;
 import com.raulexposito.model.movement.execution.Failed;
@@ -13,14 +13,14 @@ public class AddChecker {
 	// CONSTANT VALUES
 	// ------------------------------------------------------------------------
 
-	private static final Long SAME_COLOR_MAXIMUM = 3L;
+	private static final Long SAME_PIECES_MAXIMUM = 3L;
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC
 	// ------------------------------------------------------------------------
 
-	public Execution check(Board board, Color color, Placement placement) {
-		if (topColorIsReached(board, color)
+	public Execution check(Board board, Piece piece, Placement placement) {
+		if (topPiecesIsReached(board, piece)
 				|| placementIsFilled(board, placement)) {
 			return new Failed();
 		}
@@ -31,8 +31,8 @@ public class AddChecker {
 	// PRIVATE METHODS
 	// ------------------------------------------------------------------------
 
-	private boolean topColorIsReached(Board board, Color color) {
-		return board.howMany(color).equals(SAME_COLOR_MAXIMUM);
+	private boolean topPiecesIsReached(Board board, Piece piece) {
+		return board.howMany(piece).equals(SAME_PIECES_MAXIMUM);
 	}
 
 	private boolean placementIsFilled(Board board, Placement placement) {

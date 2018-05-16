@@ -14,9 +14,9 @@ public interface CounterFixture {
     }
 
     default Counter createReachedCounter () {
-        Counter steps = mock(Counter.class);
-        when(steps.limitReached()).thenReturn(true);
-        return steps;
+        Counter movements = mock(Counter.class);
+        when(movements.limitReached()).thenReturn(true);
+        return movements;
     }
 
     default Counter increase (Counter counter, Integer times) {

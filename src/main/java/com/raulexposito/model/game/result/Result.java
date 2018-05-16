@@ -1,7 +1,7 @@
 package com.raulexposito.model.game.result;
 
-import com.raulexposito.model.board.Color;
-import com.raulexposito.model.game.Steps;
+import com.raulexposito.model.board.Piece;
+import com.raulexposito.model.game.Movements;
 
 import java.util.Optional;
 
@@ -11,24 +11,24 @@ public abstract class Result {
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
-	private final Steps steps;
+	private final Movements movements;
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR
 	// ------------------------------------------------------------------------
 
-	Result(Steps steps) {
-		this.steps = steps;
+	Result(Movements movements) {
+		this.movements = movements;
 	}
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC
 	// ------------------------------------------------------------------------
 
-	public abstract Optional<Color> getWinner();
+	public abstract Optional<Piece> getWinner();
 
-	public Steps getSteps() {
-		return steps;
+	public Movements getMovements() {
+		return movements;
 	}
 
 	public boolean isVictory() {

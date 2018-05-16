@@ -6,7 +6,7 @@ import com.raulexposito.model.game.checker.VictoryChecker;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.*;
 
 public class DiagonalVictoryTest implements VictoryCheckerFixture, BoardFixture {
@@ -18,9 +18,9 @@ public class DiagonalVictoryTest implements VictoryCheckerFixture, BoardFixture 
         Board board = createBoard();
         // when
         board = board
-                .add(BLACK, TOP_LEFT)
-                .add(BLACK, CENTER)
-                .add(BLACK, BOTTOM_RIGHT);
+                .add(CIRCLE, TOP_LEFT)
+                .add(CIRCLE, CENTER)
+                .add(CIRCLE, BOTTOM_RIGHT);
         // then
         Assert.assertTrue(checker.isVictory(board));
     }
@@ -32,9 +32,9 @@ public class DiagonalVictoryTest implements VictoryCheckerFixture, BoardFixture 
         Board board = createBoard();
         // when
         board = board
-                .add(BLACK, TOP_RIGHT)
-                .add(BLACK, CENTER)
-                .add(BLACK, BOTTOM_LEFT);
+                .add(CIRCLE, TOP_RIGHT)
+                .add(CIRCLE, CENTER)
+                .add(CIRCLE, BOTTOM_LEFT);
         // then
         Assert.assertTrue(checker.isVictory(board));
     }

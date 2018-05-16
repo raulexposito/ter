@@ -1,7 +1,7 @@
 package com.raulexposito.model.game;
 
 import com.raulexposito.model.board.Board;
-import com.raulexposito.model.board.Color;
+import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.game.result.Victory;
@@ -11,8 +11,8 @@ import com.raulexposito.model.player.Player;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 
 public class Game {
 
@@ -27,16 +27,16 @@ public class Game {
 	// ATTRIBUTES
 	// ------------------------------------------------------------------------
 
- 	private final Map<Color, Player> players = new HashMap<>();
+ 	private final Map<Piece, Player> players = new HashMap<>();
 	private final LimitsReachedChecker checker = new LimitsReachedChecker();
 
 	// ------------------------------------------------------------------------
 	// CONSTRUCTOR
 	// ------------------------------------------------------------------------
 
-	public Game(Player white, Player black) {
-	 	this.players.put(WHITE, white);
-		this.players.put(BLACK, black);
+	public Game(Player cross, Player circle) {
+	 	this.players.put(CROSS, cross);
+		this.players.put(CIRCLE, circle);
 	 }
 
 	// ------------------------------------------------------------------------
@@ -44,28 +44,27 @@ public class Game {
 	// ------------------------------------------------------------------------
 
 	public Result play() {
-		return play(Board.empty(), Steps.upTo(MAX_STEPS), WHITE, Counter.upTo(MAX_ATTEMPTS));
+		return play(Board.empty(), Movements.upTo(MAX_STEPS), CROSS, Counter.upTo(MAX_ATTEMPTS));
 	}
 
 	// ------------------------------------------------------------------------
 	// PRIVATE METHODS
 	// ------------------------------------------------------------------------
 
-	// TODO: tests con jugadores mockeados
-	private Result play (Board board, Steps steps, Color color, Counter attempts) {
-		return checker.limitsReached(color, steps, attempts).orElseGet(() -> {
-			final Movement movement = players.get(color).move(board);
-			final Steps currentSteps = steps.add(movement);
+	private Result play (Board board, Movements movements, Piece piece, Counter attempts) {
+		return checker.limitsReached(piece, movements, attempts).orElseGet(() -> {
+			final Movement movement = players.get(piece).move(board);
+			final Movements currentMovements = movements.add(movement);
 
 			if (movement.isVictory()) {
-				return new Victory(currentSteps, color);
+				return new Victory(currentMovements, piece);
 			}
 
 			if (movement.isFailed()) {
-				return play(board, steps, color, attempts.increase());
+				return play(board, movements, piece, attempts.increase());
 			}
 
-			return play(movement.getBoard(), currentSteps, color.getOpposite(), attempts.reset());
+			return play(movement.getBoard(), currentMovements, piece.getOpposite(), attempts.reset());
 		});
 	}
 }

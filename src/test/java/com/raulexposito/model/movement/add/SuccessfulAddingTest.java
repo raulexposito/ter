@@ -7,7 +7,7 @@ import com.raulexposito.model.movement.execution.Execution;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
+import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.CENTER;
 
 public class SuccessfulAddingTest implements AddCheckerFixture, BoardFixture {
@@ -18,7 +18,7 @@ public class SuccessfulAddingTest implements AddCheckerFixture, BoardFixture {
         AddChecker addChecker = createAddChecker();
         Board board = createBoard();
         // when
-        Execution result = addChecker.check(board, BLACK, CENTER);
+        Execution result = addChecker.check(board, CIRCLE, CENTER);
         // then
         Assert.assertTrue(result.isValid());
     }

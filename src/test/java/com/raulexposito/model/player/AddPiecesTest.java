@@ -7,7 +7,7 @@ import com.raulexposito.model.player.fake.FakeAddPlayer;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.CENTER;
 
 public class AddPiecesTest implements PlayerFixture, BoardFixture {
@@ -16,11 +16,11 @@ public class AddPiecesTest implements PlayerFixture, BoardFixture {
     public void addPieces () {
         // given
         Board board = createBoard();
-        Player player = new FakeAddPlayer(WHITE, CENTER);
+        Player player = new FakeAddPlayer(CROSS, CENTER);
         // when
         Movement movement = player.move(board);
         // then
-        Assert.assertEquals(Long.valueOf(1), movement.getBoard().howMany(WHITE));
-        Assert.assertTrue(movement.getBoard().hasColor(CENTER, WHITE));
+        Assert.assertEquals(Long.valueOf(1), movement.getBoard().howMany(CROSS));
+        Assert.assertTrue(movement.getBoard().hasPiece(CENTER, CROSS));
     }
 }

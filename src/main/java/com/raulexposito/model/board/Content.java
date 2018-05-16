@@ -8,7 +8,7 @@ public interface Content {
 
 	boolean isFilled();
 
-	boolean hasColor(Color color);
+	boolean hasPiece(Piece piece);
 
 	// ------------------------------------------------------------------------
 	// BUSINESS LOGIC

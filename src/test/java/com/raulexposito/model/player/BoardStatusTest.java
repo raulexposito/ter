@@ -6,8 +6,8 @@ import com.raulexposito.model.player.fake.DoNothingPlayer;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
 
 public class BoardStatusTest implements PlayerFixture, BoardFixture {
@@ -16,10 +16,10 @@ public class BoardStatusTest implements PlayerFixture, BoardFixture {
     public void addPieces () {
         // given
         Board board = createBoard()
-                .add(WHITE, TOP_LEFT)
-                .add(WHITE, TOP_CENTER)
-                .add(BLACK, CENTER);
-        Player player = new DoNothingPlayer(BLACK);
+                .add(CROSS, TOP_LEFT)
+                .add(CROSS, TOP_CENTER)
+                .add(CIRCLE, CENTER);
+        Player player = new DoNothingPlayer(CIRCLE);
         // when
         player.move(board);
         // then

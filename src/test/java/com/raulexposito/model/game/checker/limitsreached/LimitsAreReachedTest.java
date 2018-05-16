@@ -1,20 +1,20 @@
 package com.raulexposito.model.game.checker.limitsreached;
 
 import com.raulexposito.model.game.Counter;
-import com.raulexposito.model.game.Steps;
+import com.raulexposito.model.game.Movements;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.counter.CounterFixture;
 import com.raulexposito.model.game.result.Result;
-import com.raulexposito.model.game.steps.StepsFixture;
+import com.raulexposito.model.game.movements.MovementsFixture;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Optional;
 
-import static com.raulexposito.model.board.Color.BLACK;
-import static com.raulexposito.model.board.Color.WHITE;
+import static com.raulexposito.model.board.Piece.CIRCLE;
+import static com.raulexposito.model.board.Piece.CROSS;
 
-public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, CounterFixture, StepsFixture {
+public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, CounterFixture, MovementsFixture {
 
     @Test
     public void stepsLimitIsReached () {
@@ -22,8 +22,8 @@ public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, Counte
         LimitsReachedChecker checker = createLimitsReachedChecker();
         Counter counter = createCounter();
         // when
-        Steps steps = createReachedSteps();
-        Optional<Result> gameResult = checker.limitsReached(WHITE, steps, counter);
+        Movements movements = createReachedSteps();
+        Optional<Result> gameResult = checker.limitsReached(CROSS, movements, counter);
         // then
         Assert.assertTrue(gameResult.isPresent());
         Assert.assertTrue(gameResult.get().isDraw());
@@ -35,15 +35,15 @@ public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, Counte
     public void counterLimitIsReached () {
         // given
         LimitsReachedChecker checker = createLimitsReachedChecker();
-        Steps steps = createUnlimitedSteps();
+        Movements movements = createUnlimitedSteps();
         // when
         Counter counter = createReachedCounter();
-        Optional<Result> gameResult = checker.limitsReached(WHITE, steps, counter);
+        Optional<Result> gameResult = checker.limitsReached(CROSS, movements, counter);
         // then
         Assert.assertTrue(gameResult.isPresent());
         Assert.assertFalse(gameResult.get().isDraw());
         Assert.assertTrue(gameResult.get().isVictory());
         Assert.assertTrue(gameResult.get().getWinner().isPresent());
-        Assert.assertEquals(BLACK, gameResult.get().getWinner().get());
+        Assert.assertEquals(CIRCLE, gameResult.get().getWinner().get());
     }
 }
