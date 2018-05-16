@@ -1,5 +1,7 @@
 package com.raulexposito.model.board;
 
+import com.raulexposito.model.board.renderer.BoardRenderer;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -70,20 +72,7 @@ public class Board {
 
     @Override
     public String toString() {
-        return "\n" +
-                squares.get(Placement.TOP_LEFT) +
-                squares.get(Placement.TOP_CENTER) +
-                squares.get(Placement.TOP_RIGHT) +
-                "\n" +
-                squares.get(Placement.MIDDLE_LEFT) +
-                squares.get(Placement.CENTER) +
-                squares.get(Placement.MIDDLE_RIGHT) +
-                "\n" +
-                squares.get(Placement.BOTTOM_LEFT) +
-                squares.get(Placement.BOTTOM_CENTER) +
-                squares.get(Placement.BOTTOM_RIGHT) +
-                "\n" +
-                "-----";
+        return new BoardRenderer(this.squares).toJSON();
     }
 
     // ------------------------------------------------------------------------

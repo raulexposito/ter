@@ -3,7 +3,7 @@ package com.raulexposito.model.game.checker;
 import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.game.Counter;
 import com.raulexposito.model.game.Movements;
-import com.raulexposito.model.game.result.Draw;
+import com.raulexposito.model.game.result.Drawn;
 import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.game.result.Victory;
 
@@ -13,7 +13,7 @@ public class LimitsReachedChecker {
 
     public Optional<Result> limitsReached(Piece piece, Movements movements, Counter attempts) {
         if (movements.limitReached()) {
-            return Optional.of(new Draw(movements));
+            return Optional.of(new Drawn(movements));
         }
 
         if (attempts.limitReached()) {

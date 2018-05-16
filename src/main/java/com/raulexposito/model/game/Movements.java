@@ -4,6 +4,7 @@ import com.raulexposito.model.movement.Movement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Movements {
 
@@ -52,10 +53,7 @@ public class Movements {
 
     @Override
     public String toString() {
-        final StringBuilder builder = new StringBuilder();
-//        for (final Board board: movements) {
-//            builder.append(board.toString());
-//        }
-        return builder.toString();
+        return "\"movements\": [" + String.join(",", movements.stream().map(
+                e -> e.getBoard().toString()).collect(Collectors.toList())) + "]";
     }
 }

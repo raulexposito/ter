@@ -2,7 +2,7 @@ package com.raulexposito.model.board;
 
 public class NoContent implements Content {
 
-    public static final String EMPTY = "·";
+    public static final String EMPTY = "";
 
     @Override
     public boolean isFilled() {

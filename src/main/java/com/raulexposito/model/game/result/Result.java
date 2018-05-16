@@ -27,15 +27,15 @@ public abstract class Result {
 
 	public abstract Optional<Piece> getWinner();
 
-	public Movements getMovements() {
-		return movements;
-	}
-
 	public boolean isVictory() {
 		return false;
 	}
 
-	public boolean isDraw() {
+	public boolean isDrawn() {
 		return false;
+	}
+
+	public String movementsAsJSON() {
+		return movements.toString();
 	}
 }

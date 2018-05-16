@@ -4,8 +4,8 @@ import com.raulexposito.model.game.Counter;
 import com.raulexposito.model.game.Movements;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.counter.CounterFixture;
-import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.game.movements.MovementsFixture;
+import com.raulexposito.model.game.result.Result;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,7 +26,8 @@ public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, Counte
         Optional<Result> gameResult = checker.limitsReached(CROSS, movements, counter);
         // then
         Assert.assertTrue(gameResult.isPresent());
-        Assert.assertTrue(gameResult.get().isDraw());
+        Assert.assertTrue(gameResult.get().isDrawn());
+        Assert.assertTrue(gameResult.get().toString().contains("\"result\": \"DRAWN\""));
         Assert.assertFalse(gameResult.get().isVictory());
         Assert.assertFalse(gameResult.get().getWinner().isPresent());
     }
@@ -41,8 +42,9 @@ public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, Counte
         Optional<Result> gameResult = checker.limitsReached(CROSS, movements, counter);
         // then
         Assert.assertTrue(gameResult.isPresent());
-        Assert.assertFalse(gameResult.get().isDraw());
+        Assert.assertFalse(gameResult.get().isDrawn());
         Assert.assertTrue(gameResult.get().isVictory());
+        Assert.assertTrue(gameResult.get().toString().contains("\"result\": \"VICTORY\""));
         Assert.assertTrue(gameResult.get().getWinner().isPresent());
         Assert.assertEquals(CIRCLE, gameResult.get().getWinner().get());
     }

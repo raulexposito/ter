@@ -4,8 +4,8 @@ import com.raulexposito.model.game.Counter;
 import com.raulexposito.model.game.Movements;
 import com.raulexposito.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.model.game.counter.CounterFixture;
-import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.game.movements.MovementsFixture;
+import com.raulexposito.model.game.result.Result;
 import org.junit.Assert;
 import org.junit.Test;
 

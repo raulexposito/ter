@@ -35,4 +35,15 @@ public class Victory extends Result {
     public boolean isVictory() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+        builder.append("{");
+        builder.append("\"result\": \"VICTORY\",");
+        builder.append("\"winner\": \"" + winner.name() + "\",");
+        builder.append(movementsAsJSON());
+        builder.append("}");
+        return builder.toString();
+    }
 }
