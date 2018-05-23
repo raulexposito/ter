@@ -13,15 +13,17 @@ import static com.raulexposito.model.board.Placement.*;
 public class BoardStatusTest implements PlayerFixture, BoardFixture {
 
     @Test
-    public void addPieces () {
+    public void addPieces() {
         // given
         Board board = createBoard()
                 .add(CROSS, TOP_LEFT)
                 .add(CROSS, TOP_CENTER)
                 .add(CIRCLE, CENTER);
         Player player = new DoNothingPlayer(CIRCLE);
+
         // when
         player.move(board);
+
         // then
         Assert.assertEquals(1L, player.mySquares().size());
         Assert.assertEquals(2L, player.rivalSquares().size());

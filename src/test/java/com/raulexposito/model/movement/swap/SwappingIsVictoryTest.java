@@ -19,8 +19,10 @@ public class SwappingIsVictoryTest implements BoardFixture {
                 .add(CIRCLE, TOP_LEFT)
                 .add(CIRCLE, TOP_CENTER)
                 .add(CIRCLE, CENTER);
+
         // when
         Movement movement = new Swap(board, CIRCLE, CENTER, TOP_RIGHT);
+
         // then
         Assert.assertTrue(movement.isVictory());
     }

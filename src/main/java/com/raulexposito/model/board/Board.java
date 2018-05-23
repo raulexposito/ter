@@ -24,11 +24,11 @@ public class Board {
 
     private Board(Board original, Square... squares) {
         Arrays.stream(Placement.values()).forEach(placement ->
-            this.squares.put(placement, Arrays.stream(squares)
-                    .filter(square -> placement == square.placement)
-                    .findFirst()
-                    .map(square -> square.content)
-                    .orElse(original.get(placement))));
+                this.squares.put(placement, Arrays.stream(squares)
+                        .filter(square -> placement == square.placement)
+                        .findFirst()
+                        .map(square -> square.content)
+                        .orElse(original.get(placement))));
     }
 
     public static Board empty() {
@@ -70,8 +70,7 @@ public class Board {
         return get(placement).isFilled();
     }
 
-    @Override
-    public String toString() {
+    public String toJSON() {
         return new BoardRenderer(this.squares).toJSON();
     }
 

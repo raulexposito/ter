@@ -9,7 +9,7 @@ import static com.raulexposito.model.board.Placement.CENTER;
 public class OnlyCenterPlayer extends Player {
 
     OnlyCenterPlayer(Piece piece) {
-        super(piece);
+        super(piece, "OnlyCenterPlayer");
     }
 
     @Override

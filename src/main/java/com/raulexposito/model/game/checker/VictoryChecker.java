@@ -13,10 +13,24 @@ import static com.raulexposito.model.board.Placement.*;
 public class VictoryChecker {
 
     // ------------------------------------------------------------------------
+    // ATTRIBUTES
+    // ------------------------------------------------------------------------
+
+    private final Board board;
+
+    // ------------------------------------------------------------------------
+    // CONSTRUCTOR
+    // ------------------------------------------------------------------------
+
+    public VictoryChecker(Board board) {
+        this.board = board;
+    }
+
+    // ------------------------------------------------------------------------
     // BUSINESS LOGIC
     // ------------------------------------------------------------------------
 
-    public boolean isVictory(Board board) {
+    public boolean isVictory() {
         return winnerPositions(board, CROSS) || winnerPositions(board, CIRCLE);
     }
 
@@ -35,27 +49,27 @@ public class VictoryChecker {
                 topRightToBottomLeft(board, piece);
     }
 
-    private boolean topRow (Board board, Piece piece) {
+    private boolean topRow(Board board, Piece piece) {
         return check(board, piece, Stream.of(TOP_LEFT, TOP_CENTER, TOP_RIGHT));
     }
 
-    private boolean middleRow (Board board, Piece piece) {
+    private boolean middleRow(Board board, Piece piece) {
         return check(board, piece, Stream.of(MIDDLE_LEFT, CENTER, MIDDLE_RIGHT));
     }
 
-    private boolean bottomRow (Board board, Piece piece) {
+    private boolean bottomRow(Board board, Piece piece) {
         return check(board, piece, Stream.of(BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT));
     }
 
-    private boolean leftColumn (Board board, Piece piece) {
+    private boolean leftColumn(Board board, Piece piece) {
         return check(board, piece, Stream.of(TOP_LEFT, MIDDLE_LEFT, BOTTOM_LEFT));
     }
 
-    private boolean middleColumn (Board board, Piece piece) {
+    private boolean middleColumn(Board board, Piece piece) {
         return check(board, piece, Stream.of(TOP_CENTER, CENTER, BOTTOM_CENTER));
     }
 
-    private boolean rightColumn (Board board, Piece piece) {
+    private boolean rightColumn(Board board, Piece piece) {
         return check(board, piece, Stream.of(TOP_RIGHT, MIDDLE_RIGHT, BOTTOM_RIGHT));
     }
 

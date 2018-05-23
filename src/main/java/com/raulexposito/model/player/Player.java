@@ -11,59 +11,65 @@ import java.util.List;
 
 public abstract class Player {
 
-	// ------------------------------------------------------------------------
-	// ATTRIBUTES
-	// ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // ATTRIBUTES
+    // ------------------------------------------------------------------------
 
-	private final Piece piece;
-	private Board board;
-	private Knowledge knowledge;
+    private final Piece piece;
+    private final String name;
+    private Board board;
+    private Knowledge knowledge;
 
-	// ------------------------------------------------------------------------
-	// CONSTRUCTOR
-	// ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // CONSTRUCTOR
+    // ------------------------------------------------------------------------
 
-	public Player(Piece piece) {
-		this.piece = piece;
-	}
+    public Player(Piece piece, String name) {
+        this.piece = piece;
+        this.name = name;
+    }
 
-	// ------------------------------------------------------------------------
-	// BUSINESS LOGIC
-	// ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // BUSINESS LOGIC
+    // ------------------------------------------------------------------------
 
-	public Movement move(Board board) {
-		this.board = board;
-		this.knowledge = new Knowledge(board, piece);
-		return move();
-	}
+    public Movement move(Board board) {
+        this.board = board;
+        this.knowledge = new Knowledge(board, piece);
+        return move();
+    }
 
-	public abstract Movement move();
+    public abstract Movement move();
 
-	// ------------------------------------------------------------------------
-	// PROTECTED METHODS
-	// ------------------------------------------------------------------------
+    public String getName() {
+        return name;
+    }
 
-	protected Movement add(Placement placement) {
-		return new Add(board, piece, placement);
-	}
+    // ------------------------------------------------------------------------
+    // PROTECTED METHODS
+    // ------------------------------------------------------------------------
 
-	protected Movement swap(Placement current, Placement candidate) {
-		return new Swap(board, piece, current, candidate);
-	}
+    protected Movement add(Placement placement) {
+        return new Add(board, piece, placement);
+    }
 
-	protected boolean canAdd () {
-		return knowledge.canAdd();
-	}
+    protected Movement swap(Placement current, Placement candidate) {
+        return new Swap(board, piece, current, candidate);
+    }
 
-	protected List<Placement> mySquares() {
-		return knowledge.mySquares();
-	}
+    protected boolean canAdd() {
+        return knowledge.canAdd();
+    }
 
-	protected List<Placement> rivalSquares() {
-		return knowledge.rivalSquares();
-	}
+    protected List<Placement> mySquares() {
+        return knowledge.mySquares();
+    }
 
-	protected List<Placement> emptySquares() {
-		return knowledge.emptySquares();
-	}
+    protected List<Placement> rivalSquares() {
+        return knowledge.rivalSquares();
+    }
+
+    protected List<Placement> emptySquares() {
+        return knowledge.emptySquares();
+    }
 }

@@ -17,8 +17,10 @@ public class SuccessfulAddingTest implements AddCheckerFixture, BoardFixture {
         // given
         AddChecker addChecker = createAddChecker();
         Board board = createBoard();
+
         // when
         Execution result = addChecker.check(board, CIRCLE, CENTER);
+
         // then
         Assert.assertTrue(result.isValid());
     }

@@ -12,8 +12,6 @@ import static com.raulexposito.model.board.Piece.CROSS;
 
 public class PlayerWinAfterMovementTest implements BoardFixture {
 
-    private static final String OUTPUT = "{\"result\": \"VICTORY\",\"winner\": \"CROSS\",\"movements\": [{\"TL\":\"X\",\"TC\":\"\",\"TR\":\"\",\"ML\":\"\",\"C\":\"\",\"MR\":\"\",\"BL\":\"\",\"BC\":\"\",\"BR\":\"\"},{\"TL\":\"X\",\"TC\":\"\",\"TR\":\"\",\"ML\":\"\",\"C\":\"\",\"MR\":\"\",\"BL\":\"O\",\"BC\":\"\",\"BR\":\"\"},{\"TL\":\"X\",\"TC\":\"X\",\"TR\":\"\",\"ML\":\"\",\"C\":\"\",\"MR\":\"\",\"BL\":\"O\",\"BC\":\"\",\"BR\":\"\"},{\"TL\":\"X\",\"TC\":\"X\",\"TR\":\"\",\"ML\":\"\",\"C\":\"\",\"MR\":\"\",\"BL\":\"O\",\"BC\":\"O\",\"BR\":\"\"},{\"TL\":\"X\",\"TC\":\"X\",\"TR\":\"X\",\"ML\":\"\",\"C\":\"\",\"MR\":\"\",\"BL\":\"O\",\"BC\":\"O\",\"BR\":\"\"}]}";
-
     @Test
     public void playerWinAfterMovement() {
         // given
@@ -28,6 +26,5 @@ public class PlayerWinAfterMovementTest implements BoardFixture {
         Assert.assertTrue(result.isVictory());
         Assert.assertTrue(result.getWinner().isPresent());
         Assert.assertEquals(CROSS, result.getWinner().get());
-        Assert.assertEquals(OUTPUT, result.toString());
     }
 }

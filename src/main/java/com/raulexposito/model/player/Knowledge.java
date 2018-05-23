@@ -45,7 +45,7 @@ class Knowledge {
     // PRIVATE METHODS
     // ------------------------------------------------------------------------
 
-    boolean canAdd () {
+    boolean canAdd() {
         return mine.size() < MAX_SAME_PIECES;
     }
 

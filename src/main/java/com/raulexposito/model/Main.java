@@ -10,13 +10,13 @@ import static com.raulexposito.model.board.Piece.CROSS;
 
 public class Main {
 
-	public static void main(String[] args) {
-		final Player cross = new RandomPlayer(CROSS);
-		final Player circle = new RandomPlayer(CIRCLE);
+    public static void main(String[] args) {
+        final Player cross = new RandomPlayer(CROSS);
+        final Player circle = new RandomPlayer(CIRCLE);
 
-		final Game game = new Game(cross, circle);
+        final Game game = new Game(cross, circle);
 
-		final Result result = game.play();
-		System.out.println(result);
-	}
+        final Result result = game.play();
+        System.out.println(result.toJSON());
+    }
 }

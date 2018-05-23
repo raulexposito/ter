@@ -2,13 +2,14 @@ package com.raulexposito.model.game.result;
 
 import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.game.Movements;
+import com.raulexposito.model.player.Player;
 
 import java.util.Optional;
 
 public class Drawn extends Result {
 
-    public Drawn(Movements movements) {
-        super(movements);
+    public Drawn(Movements movements, Player cross, Player circle) {
+        super(movements, cross, circle);
     }
 
     @Override
@@ -19,15 +20,5 @@ public class Drawn extends Result {
     @Override
     public Optional<Piece> getWinner() {
         return Optional.empty();
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append("{");
-        builder.append("\"result\": \"DRAWN\",");
-        builder.append(movementsAsJSON());
-        builder.append("}");
-        return builder.toString();
     }
 }

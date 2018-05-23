@@ -9,17 +9,23 @@ import static com.raulexposito.model.board.Placement.*;
 
 public class BottomRowPlayer extends Player {
 
-    BottomRowPlayer(Piece piece) {
-        super(piece);
+    public BottomRowPlayer(Piece piece) {
+        super(piece, "BottomRowPlayer");
     }
 
     @Override
     public Movement move() {
         Placement placement;
         switch (this.mySquares().size()) {
-            case 0: placement = BOTTOM_LEFT; break;
-            case 1: placement = BOTTOM_CENTER; break;
-            default: placement = BOTTOM_RIGHT; break;
+            case 0:
+                placement = BOTTOM_LEFT;
+                break;
+            case 1:
+                placement = BOTTOM_CENTER;
+                break;
+            default:
+                placement = BOTTOM_RIGHT;
+                break;
         }
         return add(placement);
     }

@@ -14,11 +14,13 @@ import static com.raulexposito.model.board.Placement.TOP_LEFT;
 public class SwappingIsNotDoneTest implements BoardFixture {
 
     @Test
-    public void swappingIsNotDone () {
+    public void swappingIsNotDone() {
         // given
         Board board = createBoard();
+
         // when
         Movement movement = new Swap(board, CIRCLE, CENTER, TOP_LEFT);
+
         // then
         Assert.assertTrue(movement.isFailed());
     }

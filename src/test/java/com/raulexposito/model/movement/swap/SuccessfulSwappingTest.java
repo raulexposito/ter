@@ -20,8 +20,10 @@ public class SuccessfulSwappingTest implements SwapCheckerFixture, BoardFixture 
                 .add(CIRCLE, TOP_LEFT)
                 .add(CIRCLE, TOP_CENTER)
                 .add(CIRCLE, TOP_RIGHT);
+
         // when
         Execution result = swapChecker.check(board, CIRCLE, TOP_LEFT, CENTER);
+
         // then
         Assert.assertTrue(result.isValid());
     }
@@ -34,8 +36,10 @@ public class SuccessfulSwappingTest implements SwapCheckerFixture, BoardFixture 
                 .add(CIRCLE, TOP_LEFT)
                 .add(CIRCLE, TOP_CENTER)
                 .add(CIRCLE, TOP_RIGHT);
+
         // when
         Execution result = swapChecker.check(board, CIRCLE, CENTER, TOP_LEFT);
+
         // then
         Assert.assertTrue(result.isValid());
     }

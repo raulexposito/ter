@@ -2,6 +2,7 @@ package com.raulexposito.model.game.result;
 
 import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.game.Movements;
+import com.raulexposito.model.player.Player;
 
 import java.util.Optional;
 
@@ -17,8 +18,8 @@ public class Victory extends Result {
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public Victory(Movements movements, Piece winner) {
-        super(movements);
+    public Victory(Movements movements, Piece winner, Player cross, Player circle) {
+        super(movements, cross, circle);
         this.winner = winner;
     }
 
@@ -34,16 +35,5 @@ public class Victory extends Result {
     @Override
     public boolean isVictory() {
         return true;
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder builder = new StringBuilder();
-        builder.append("{");
-        builder.append("\"result\": \"VICTORY\",");
-        builder.append("\"winner\": \"" + winner.name() + "\",");
-        builder.append(movementsAsJSON());
-        builder.append("}");
-        return builder.toString();
     }
 }

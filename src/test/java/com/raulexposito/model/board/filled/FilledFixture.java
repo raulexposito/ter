@@ -7,11 +7,11 @@ import static com.raulexposito.model.board.Piece.CROSS;
 
 public interface FilledFixture {
 
-    default Filled createCircleFilled(){
+    default Filled createCircleFilled() {
         return new Filled(CIRCLE);
     }
 
-    default Filled createCrossFilled(){
+    default Filled createCrossFilled() {
         return new Filled(CROSS);
     }
 }

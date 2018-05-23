@@ -14,12 +14,14 @@ import static com.raulexposito.model.board.Placement.TOP_LEFT;
 public class SwapPiecesTest implements PlayerFixture, BoardFixture {
 
     @Test
-    public void swapPieces () {
+    public void swapPieces() {
         // given
         Board board = createBoard().add(CROSS, CENTER);
         Player player = new FakeSwapPlayer(CROSS, CENTER, TOP_LEFT);
+
         // when
         Movement movement = player.move(board);
+
         // then
         Assert.assertEquals(Long.valueOf(1), movement.getBoard().howMany(CROSS));
         Assert.assertTrue(movement.getBoard().hasPiece(TOP_LEFT, CROSS));

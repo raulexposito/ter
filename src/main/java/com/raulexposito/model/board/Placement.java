@@ -1,13 +1,24 @@
 package com.raulexposito.model.board;
 
 public enum Placement {
-    TOP_LEFT,
-    TOP_CENTER,
-    TOP_RIGHT,
-    MIDDLE_LEFT,
-    CENTER,
-    MIDDLE_RIGHT,
-    BOTTOM_LEFT,
-    BOTTOM_CENTER,
-    BOTTOM_RIGHT
+    TOP_LEFT("TL"),
+    TOP_CENTER("TC"),
+    TOP_RIGHT("TR"),
+    MIDDLE_LEFT("ML"),
+    CENTER("CE"),
+    MIDDLE_RIGHT("MR"),
+    BOTTOM_LEFT("BL"),
+    BOTTOM_CENTER("BC"),
+    BOTTOM_RIGHT("BR");
+
+    private final String acronym;
+
+    Placement(String acronym) {
+        this.acronym = acronym;
+    }
+
+    @Override
+    public String toString() {
+        return acronym;
+    }
 }

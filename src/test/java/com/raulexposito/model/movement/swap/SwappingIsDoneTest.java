@@ -19,8 +19,10 @@ public class SwappingIsDoneTest implements BoardFixture {
                 .add(CIRCLE, MIDDLE_LEFT)
                 .add(CIRCLE, CENTER)
                 .add(CIRCLE, MIDDLE_RIGHT);
+
         // when
         Movement movement = new Swap(board, CIRCLE, CENTER, TOP_LEFT);
+
         // then
         Assert.assertFalse(movement.isFailed());
         Assert.assertFalse(movement.isVictory());

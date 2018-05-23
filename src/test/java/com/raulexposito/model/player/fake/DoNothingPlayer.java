@@ -8,8 +8,8 @@ import static com.raulexposito.model.board.Placement.CENTER;
 
 public class DoNothingPlayer extends Player {
 
-    public DoNothingPlayer (Piece piece) {
-        super(piece);
+    public DoNothingPlayer(Piece piece) {
+        super(piece, "DoNothingPlayer");
     }
 
     @Override

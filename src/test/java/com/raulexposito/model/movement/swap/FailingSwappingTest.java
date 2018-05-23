@@ -20,8 +20,10 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         Board board = createBoard()
                 .add(CIRCLE, TOP_LEFT)
                 .add(CIRCLE, TOP_CENTER);
+
         // when
         Execution result = swapChecker.check(board, CIRCLE, TOP_LEFT, CENTER);
+
         // then
         Assert.assertEquals(Long.valueOf(2), board.howMany(CIRCLE));
         Assert.assertTrue(result.isFailed());
@@ -38,8 +40,10 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
                 .add(CROSS, MIDDLE_LEFT)
                 .add(CROSS, CENTER)
                 .add(CROSS, MIDDLE_RIGHT);
+
         // when
         Execution result = swapChecker.check(board, CROSS, TOP_LEFT, BOTTOM_LEFT);
+
         // then
         Assert.assertTrue(result.isFailed());
     }
@@ -52,8 +56,10 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
                 .add(CIRCLE, TOP_LEFT)
                 .add(CIRCLE, TOP_CENTER)
                 .add(CIRCLE, TOP_RIGHT);
+
         // when
         Execution result = swapChecker.check(board, CIRCLE, BOTTOM_LEFT, BOTTOM_RIGHT);
+
         // then
         Assert.assertTrue(result.isFailed());
     }
@@ -66,8 +72,10 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
                 .add(CIRCLE, TOP_LEFT)
                 .add(CIRCLE, TOP_CENTER)
                 .add(CIRCLE, TOP_RIGHT);
+
         // when
         Execution result = swapChecker.check(board, CIRCLE, TOP_LEFT, TOP_RIGHT);
+
         // then
         Assert.assertTrue(result.isFailed());
     }

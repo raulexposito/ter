@@ -10,6 +10,7 @@ public class CreationTest implements NoContentFixture {
     public void contentIsCreatedEmpty() {
         // when
         NoContent content = createNoContent();
+
         // then
         Assert.assertTrue(content.isEmpty());
     }
@@ -18,6 +19,7 @@ public class CreationTest implements NoContentFixture {
     public void emptyContentIsNotCreatedFilled() {
         // when
         NoContent content = createNoContent();
+
         // then
         Assert.assertFalse(content.isFilled());
     }

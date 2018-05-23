@@ -4,7 +4,7 @@ import com.raulexposito.model.game.checker.LimitsReachedChecker;
 
 public interface LimitsReachedCheckerFixture {
 
-    default LimitsReachedChecker createLimitsReachedChecker(){
+    default LimitsReachedChecker createLimitsReachedChecker() {
         return new LimitsReachedChecker();
     }
 }

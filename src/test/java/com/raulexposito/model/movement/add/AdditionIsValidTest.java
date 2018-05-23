@@ -13,11 +13,13 @@ import static com.raulexposito.model.board.Placement.CENTER;
 public class AdditionIsValidTest implements BoardFixture {
 
     @Test
-    public void additionIsDone () {
+    public void additionIsDone() {
         // given
         Board board = createBoard();
+
         // when
         Movement movement = new Add(board, CIRCLE, CENTER);
+
         // then
         Assert.assertFalse(movement.isFailed());
         Assert.assertFalse(movement.isVictory());

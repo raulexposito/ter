@@ -13,8 +13,10 @@ public class ContentTest implements FilledFixture {
     public void circleContentMatch() {
         // given
         Content content = createCircleFilled();
+
         // when
         boolean result = content.hasPiece(CIRCLE);
+
         // then
         Assert.assertTrue(result);
     }
@@ -23,8 +25,10 @@ public class ContentTest implements FilledFixture {
     public void crossContentMatch() {
         // given
         Content content = createCrossFilled();
+
         // when
         boolean result = content.hasPiece(CROSS);
+
         // then
         Assert.assertTrue(result);
     }

@@ -12,23 +12,27 @@ import org.junit.Test;
 public class RandomPlayerTest implements PlayerFixture, BoardFixture {
 
     @Test
-    public void addsThreeTimes () {
+    public void addsThreeTimes() {
         // given
         Board board = createBoard();
         Player randomPlayer = new RandomPlayer(Piece.CROSS);
+
         // when
         board = move(board, randomPlayer, MAX_SAME_PIECES);
+
         // then
         Assert.assertEquals(MAX_SAME_PIECES, board.howMany(Piece.CROSS));
     }
 
     @Test
-    public void swapsTheRestOfTimes () {
+    public void swapsTheRestOfTimes() {
         // given
         Board board = createBoard();
         Player randomPlayer = new RandomPlayer(Piece.CROSS);
+
         // when
         board = move(board, randomPlayer, 500L);
+
         // then
         Assert.assertEquals(MAX_SAME_PIECES, board.howMany(Piece.CROSS));
     }

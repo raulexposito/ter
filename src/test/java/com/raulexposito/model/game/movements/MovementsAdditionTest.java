@@ -17,7 +17,7 @@ public class MovementsAdditionTest implements MovementsFixture {
     private static final Integer ONE_TO_MAXIMUM = MAXIMUM - 1;
 
     @Test
-    public void movementsAreAddedAndNoLimitIsReached () {
+    public void movementsAreAddedAndNoLimitIsReached() {
         // given
         Movements movements = createLimitedSteps(MAXIMUM);
 
@@ -29,7 +29,7 @@ public class MovementsAdditionTest implements MovementsFixture {
     }
 
     @Test
-    public void movementsAreAddedAndLimitIsReached () {
+    public void movementsAreAddedAndLimitIsReached() {
         // given
         Movements movements = createLimitedSteps(MAXIMUM);
 

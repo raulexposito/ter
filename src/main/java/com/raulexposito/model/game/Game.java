@@ -16,55 +16,63 @@ import static com.raulexposito.model.board.Piece.CROSS;
 
 public class Game {
 
-	// ------------------------------------------------------------------------
-	// CONSTANT VALUES
-	// ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // CONSTANT VALUES
+    // ------------------------------------------------------------------------
 
-	private static final Integer MAX_ATTEMPTS = 20;
-	private static final Integer MAX_STEPS = 1000;
+    private static final Integer MAX_ATTEMPTS = 20;
+    private static final Integer MAX_STEPS = 1000;
 
-	// ------------------------------------------------------------------------
-	// ATTRIBUTES
-	// ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // ATTRIBUTES
+    // ------------------------------------------------------------------------
 
- 	private final Map<Piece, Player> players = new HashMap<>();
-	private final LimitsReachedChecker checker = new LimitsReachedChecker();
+    private final Map<Piece, Player> players = new HashMap<>();
+    private final LimitsReachedChecker checker = new LimitsReachedChecker();
 
-	// ------------------------------------------------------------------------
-	// CONSTRUCTOR
-	// ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // CONSTRUCTOR
+    // ------------------------------------------------------------------------
 
-	public Game(Player cross, Player circle) {
-	 	this.players.put(CROSS, cross);
-		this.players.put(CIRCLE, circle);
-	 }
+    public Game(Player cross, Player circle) {
+        this.players.put(CROSS, cross);
+        this.players.put(CIRCLE, circle);
+    }
 
-	// ------------------------------------------------------------------------
-	// BUSINESS LOGIC
-	// ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // BUSINESS LOGIC
+    // ------------------------------------------------------------------------
 
-	public Result play() {
-		return play(Board.empty(), Movements.upTo(MAX_STEPS), CROSS, Counter.upTo(MAX_ATTEMPTS));
-	}
+    public Result play() {
+        return play(Board.empty(), Movements.upTo(MAX_STEPS), CROSS, Counter.upTo(MAX_ATTEMPTS));
+    }
 
-	// ------------------------------------------------------------------------
-	// PRIVATE METHODS
-	// ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // PRIVATE METHODS
+    // ------------------------------------------------------------------------
 
-	private Result play (Board board, Movements movements, Piece piece, Counter attempts) {
-		return checker.limitsReached(piece, movements, attempts).orElseGet(() -> {
-			final Movement movement = players.get(piece).move(board);
-			final Movements currentMovements = movements.add(movement);
+    private Result play(Board board, Movements movements, Piece piece, Counter attempts) {
+        return checker.limitsReached(piece, movements, attempts, crossPlayer(), circlePlayer()).orElseGet(() -> {
+            final Movement movement = players.get(piece).move(board);
+            final Movements currentMovements = movements.add(movement);
 
-			if (movement.isVictory()) {
-				return new Victory(currentMovements, piece);
-			}
+            if (movement.isVictory()) {
+                return new Victory(currentMovements, piece, crossPlayer(), circlePlayer());
+            }
 
-			if (movement.isFailed()) {
-				return play(board, movements, piece, attempts.increase());
-			}
+            if (movement.isFailed()) {
+                return play(board, movements, piece, attempts.increase());
+            }
 
-			return play(movement.getBoard(), currentMovements, piece.getOpposite(), attempts.reset());
-		});
-	}
+            return play(movement.getBoard(), currentMovements, piece.getOpposite(), attempts.reset());
+        });
+    }
+
+    private Player crossPlayer() {
+        return players.get(CROSS);
+    }
+
+    private Player circlePlayer() {
+        return players.get(CIRCLE);
+    }
 }

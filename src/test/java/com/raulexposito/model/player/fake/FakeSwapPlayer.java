@@ -10,8 +10,8 @@ public class FakeSwapPlayer extends Player {
     private final Placement current;
     private final Placement candidate;
 
-    public FakeSwapPlayer (Piece piece, Placement current, Placement candidate) {
-        super(piece);
+    public FakeSwapPlayer(Piece piece, Placement current, Placement candidate) {
+        super(piece, "FakeSwapPlayer");
         this.current = current;
         this.candidate = candidate;
     }

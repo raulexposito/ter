@@ -9,17 +9,17 @@ public interface CounterFixture {
 
     Integer TOP = 10;
 
-    default Counter createCounter(){
+    default Counter createCounter() {
         return Counter.upTo(TOP);
     }
 
-    default Counter createReachedCounter () {
+    default Counter createReachedCounter() {
         Counter movements = mock(Counter.class);
         when(movements.limitReached()).thenReturn(true);
         return movements;
     }
 
-    default Counter increase (Counter counter, Integer times) {
+    default Counter increase(Counter counter, Integer times) {
         for (int i = 0; i < times; i++) {
             counter = counter.increase();
         }

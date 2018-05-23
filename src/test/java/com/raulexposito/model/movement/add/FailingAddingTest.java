@@ -19,8 +19,10 @@ public class FailingAddingTest implements AddCheckerFixture, BoardFixture {
         AddChecker addChecker = createAddChecker();
         Board board = createBoard()
                 .add(CIRCLE, CENTER);
+
         // when
         Execution result = addChecker.check(board, CROSS, CENTER);
+
         // then
         Assert.assertTrue(result.isFailed());
     }
@@ -33,8 +35,10 @@ public class FailingAddingTest implements AddCheckerFixture, BoardFixture {
                 .add(CIRCLE, TOP_LEFT)
                 .add(CIRCLE, TOP_CENTER)
                 .add(CIRCLE, TOP_RIGHT);
+
         // when
         Execution result = addChecker.check(board, CIRCLE, CENTER);
+
         // then
         Assert.assertEquals(Long.valueOf(3), board.howMany(CIRCLE));
         Assert.assertTrue(result.isFailed());

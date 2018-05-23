@@ -18,8 +18,10 @@ public class AdditionIsVictoryTest implements BoardFixture {
         Board board = createBoard()
                 .add(CIRCLE, TOP_LEFT)
                 .add(CIRCLE, TOP_CENTER);
+
         // when
         Movement movement = new Add(board, CIRCLE, TOP_RIGHT);
+
         // then
         Assert.assertTrue(movement.isVictory());
     }

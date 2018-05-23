@@ -7,10 +7,21 @@ import com.raulexposito.model.movement.check.SwapChecker;
 
 public class Swap extends Movement {
 
-	private static final SwapChecker CHECKER = new SwapChecker();
+    private static final SwapChecker CHECKER = new SwapChecker();
 
-	public Swap(Board board, Piece piece, Placement current, Placement candidate) {
-		super(CHECKER.check(board, piece, current, candidate), board.swap(
-				current, candidate));
-	}
+    private final Placement current;
+
+    private final Placement candidate;
+
+    public Swap(Board board, Piece piece, Placement current, Placement candidate) {
+        super(CHECKER.check(board, piece, current, candidate), piece, board.swap(
+                current, candidate));
+        this.current = current;
+        this.candidate = candidate;
+    }
+
+    @Override
+    public String paramsAsJSON() {
+        return "\"from\"" + ":" + "\"" + current + "\", \"to\"" + ":" + "\"" + candidate + "\"";
+    }
 }

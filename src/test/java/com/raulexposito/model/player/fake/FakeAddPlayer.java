@@ -9,8 +9,8 @@ public class FakeAddPlayer extends Player {
 
     private final Placement placement;
 
-    public FakeAddPlayer (Piece piece, Placement placement) {
-        super(piece);
+    public FakeAddPlayer(Piece piece, Placement placement) {
+        super(piece, "FakeAddPlayer");
         this.placement = placement;
     }
 

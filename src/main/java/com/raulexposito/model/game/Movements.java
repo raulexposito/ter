@@ -51,9 +51,12 @@ public class Movements {
         return counter.limitReached();
     }
 
-    @Override
-    public String toString() {
-        return "\"movements\": [" + String.join(",", movements.stream().map(
-                e -> e.getBoard().toString()).collect(Collectors.toList())) + "]";
+    public String toJSON() {
+        return "[" + String.join(",", movements.stream().map(
+                Movement::toJSON).collect(Collectors.toList())) + "]";
+    }
+
+    public Integer length() {
+        return movements.size();
     }
 }

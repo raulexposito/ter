@@ -12,8 +12,10 @@ public class PieceTest {
     public void circlesOppositeIsCross() {
         // given
         Piece piece = CIRCLE;
+
         // when
         Piece opposite = piece.getOpposite();
+
         // then
         Assert.assertEquals(CROSS, opposite);
     }
@@ -22,10 +24,11 @@ public class PieceTest {
     public void crossOppositeIsCircle() {
         // given
         Piece piece = CROSS;
+
         // when
         Piece opposite = piece.getOpposite();
+
         // then
         Assert.assertEquals(CIRCLE, opposite);
     }
-
 }

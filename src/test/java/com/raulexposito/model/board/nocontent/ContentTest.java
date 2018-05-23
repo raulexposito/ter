@@ -13,8 +13,10 @@ public class ContentTest implements NoContentFixture {
     public void emptyContentCannotIncludeCirclePieces() {
         // given
         NoContent content = createNoContent();
+
         // when
         boolean result = content.hasPiece(CIRCLE);
+
         // then
         Assert.assertFalse(result);
     }
@@ -23,8 +25,10 @@ public class ContentTest implements NoContentFixture {
     public void emptyContentCannotIncludeCrossPieces() {
         // given
         NoContent content = createNoContent();
+
         // when
         boolean result = content.hasPiece(CROSS);
+
         // then
         Assert.assertFalse(result);
     }
