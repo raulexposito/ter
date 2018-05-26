@@ -1,8 +1,8 @@
 package com.raulexposito.model.board;
 
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
@@ -21,7 +21,7 @@ public class PieceCountingTest implements BoardFixture {
                 .add(CIRCLE, BOTTOM_CENTER);
 
         // then
-        Assert.assertEquals(Long.valueOf(3), board.howMany(CIRCLE));
+        assertThat(board.howMany(CIRCLE)).isEqualTo(3);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class PieceCountingTest implements BoardFixture {
                 .add(CROSS, CENTER);
 
         // then
-        Assert.assertEquals(Long.valueOf(1), board.howMany(CIRCLE));
-        Assert.assertEquals(Long.valueOf(3), board.howMany(CROSS));
+        assertThat(board.howMany(CIRCLE)).isEqualTo(1);
+        assertThat(board.howMany(CROSS)).isEqualTo(3);
     }
 }

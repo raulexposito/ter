@@ -4,9 +4,9 @@ import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import com.raulexposito.model.movement.check.AddChecker;
 import com.raulexposito.model.movement.execution.Execution;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
@@ -24,7 +24,7 @@ public class FailingAddingTest implements AddCheckerFixture, BoardFixture {
         Execution result = addChecker.check(board, CROSS, CENTER);
 
         // then
-        Assert.assertTrue(result.isFailed());
+        assertThat(result.isFailed()).isTrue();
     }
 
     @Test
@@ -40,7 +40,7 @@ public class FailingAddingTest implements AddCheckerFixture, BoardFixture {
         Execution result = addChecker.check(board, CIRCLE, CENTER);
 
         // then
-        Assert.assertEquals(Long.valueOf(3), board.howMany(CIRCLE));
-        Assert.assertTrue(result.isFailed());
+        assertThat(board.howMany(CIRCLE)).isEqualTo(3);
+        assertThat(result.isFailed()).isTrue();
     }
 }

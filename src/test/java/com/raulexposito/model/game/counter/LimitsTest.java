@@ -1,8 +1,9 @@
 package com.raulexposito.model.game.counter;
 
 import com.raulexposito.model.game.Counter;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class LimitsTest implements CounterFixture {
 
@@ -15,7 +16,7 @@ public class LimitsTest implements CounterFixture {
         counter = increase(counter, TOP);
 
         // then
-        Assert.assertTrue(counter.limitReached());
+        assertThat(counter.limitReached()).isTrue();
     }
 
     @Test
@@ -27,6 +28,6 @@ public class LimitsTest implements CounterFixture {
         counter = increase(counter, TOP - 1);
 
         // then
-        Assert.assertFalse(counter.limitReached());
+        assertThat(counter.limitReached()).isFalse();
     }
 }

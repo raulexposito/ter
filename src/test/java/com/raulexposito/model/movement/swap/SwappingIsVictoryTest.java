@@ -4,9 +4,9 @@ import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import com.raulexposito.model.movement.Movement;
 import com.raulexposito.model.movement.Swap;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.*;
 
@@ -24,6 +24,6 @@ public class SwappingIsVictoryTest implements BoardFixture {
         Movement movement = new Swap(board, CIRCLE, CENTER, TOP_RIGHT);
 
         // then
-        Assert.assertTrue(movement.isVictory());
+        assertThat(movement.isVictory()).isTrue();
     }
 }

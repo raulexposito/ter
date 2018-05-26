@@ -1,8 +1,9 @@
 package com.raulexposito.model.board.filled;
 
 import com.raulexposito.model.board.Content;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class CreationTest implements FilledFixture {
 
@@ -12,7 +13,7 @@ public class CreationTest implements FilledFixture {
         Content content = createCircleFilled();
 
         // then
-        Assert.assertFalse(content.isEmpty());
+        assertThat(content.isEmpty()).isFalse();
     }
 
     @Test
@@ -21,6 +22,6 @@ public class CreationTest implements FilledFixture {
         Content content = createCircleFilled();
 
         // then
-        Assert.assertTrue(content.isFilled());
+        assertThat(content.isFilled()).isTrue();
     }
 }

@@ -1,8 +1,8 @@
 package com.raulexposito.model.board;
 
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 
@@ -17,7 +17,7 @@ public class PieceTest {
         Piece opposite = piece.getOpposite();
 
         // then
-        Assert.assertEquals(CROSS, opposite);
+        assertThat(opposite).isEqualTo(CROSS);
     }
 
     @Test
@@ -29,6 +29,6 @@ public class PieceTest {
         Piece opposite = piece.getOpposite();
 
         // then
-        Assert.assertEquals(CIRCLE, opposite);
+        assertThat(opposite).isEqualTo(CIRCLE);
     }
 }

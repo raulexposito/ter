@@ -1,9 +1,9 @@
 package com.raulexposito.model.board.nocontent;
 
 import com.raulexposito.model.board.NoContent;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 
@@ -18,7 +18,7 @@ public class ContentTest implements NoContentFixture {
         boolean result = content.hasPiece(CIRCLE);
 
         // then
-        Assert.assertFalse(result);
+        assertThat(result).isFalse();
     }
 
     @Test
@@ -30,6 +30,6 @@ public class ContentTest implements NoContentFixture {
         boolean result = content.hasPiece(CROSS);
 
         // then
-        Assert.assertFalse(result);
+        assertThat(result).isFalse();
     }
 }

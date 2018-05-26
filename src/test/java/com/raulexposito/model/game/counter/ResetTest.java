@@ -1,8 +1,9 @@
 package com.raulexposito.model.game.counter;
 
 import com.raulexposito.model.game.Counter;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class ResetTest implements CounterFixture {
 
@@ -19,7 +20,7 @@ public class ResetTest implements CounterFixture {
         counter = countUntilPenultimate(counter);
 
         // then
-        Assert.assertFalse(counter.limitReached());
+        assertThat(counter.limitReached()).isFalse();
     }
 
     private Counter countUntilPenultimate(Counter counter) {

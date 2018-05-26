@@ -1,8 +1,9 @@
 package com.raulexposito.model.board.nocontent;
 
 import com.raulexposito.model.board.NoContent;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class CreationTest implements NoContentFixture {
 
@@ -12,7 +13,7 @@ public class CreationTest implements NoContentFixture {
         NoContent content = createNoContent();
 
         // then
-        Assert.assertTrue(content.isEmpty());
+        assertThat(content.isEmpty()).isTrue();
     }
 
     @Test
@@ -21,6 +22,6 @@ public class CreationTest implements NoContentFixture {
         NoContent content = createNoContent();
 
         // then
-        Assert.assertFalse(content.isFilled());
+        assertThat(content.isFilled()).isFalse();
     }
 }

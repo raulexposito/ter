@@ -8,11 +8,11 @@ import com.raulexposito.model.game.movements.MovementsFixture;
 import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.player.Player;
 import com.raulexposito.model.player.fake.DoNothingPlayer;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Optional;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 
@@ -31,10 +31,10 @@ public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, Counte
         Optional<Result> gameResult = checker.limitsReached(CROSS, movements, counter, crossPlayer, circlePlayer);
 
         // then
-        Assert.assertTrue(gameResult.isPresent());
-        Assert.assertTrue(gameResult.get().isDrawn());
-        Assert.assertFalse(gameResult.get().isVictory());
-        Assert.assertFalse(gameResult.get().getWinner().isPresent());
+        assertThat(gameResult.isPresent()).isTrue();
+        assertThat(gameResult.get().isDrawn()).isTrue();
+        assertThat(gameResult.get().isVictory()).isFalse();
+        assertThat(gameResult.get().getWinner().isPresent()).isFalse();
     }
 
     @Test
@@ -50,10 +50,10 @@ public class LimitsAreReachedTest implements LimitsReachedCheckerFixture, Counte
         Optional<Result> gameResult = checker.limitsReached(CROSS, movements, counter, crossPlayer, circlePlayer);
 
         // then
-        Assert.assertTrue(gameResult.isPresent());
-        Assert.assertFalse(gameResult.get().isDrawn());
-        Assert.assertTrue(gameResult.get().isVictory());
-        Assert.assertTrue(gameResult.get().getWinner().isPresent());
-        Assert.assertEquals(CIRCLE, gameResult.get().getWinner().get());
+        assertThat(gameResult.isPresent()).isTrue();
+        assertThat(gameResult.get().isDrawn()).isFalse();
+        assertThat(gameResult.get().isVictory()).isTrue();
+        assertThat(gameResult.get().getWinner().isPresent()).isTrue();
+        assertThat(gameResult.get().getWinner().get()).isEqualTo(CIRCLE);
     }
 }

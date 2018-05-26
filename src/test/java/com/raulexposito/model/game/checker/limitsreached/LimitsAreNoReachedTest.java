@@ -8,11 +8,11 @@ import com.raulexposito.model.game.movements.MovementsFixture;
 import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.player.Player;
 import com.raulexposito.model.player.fake.DoNothingPlayer;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Optional;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 
@@ -31,6 +31,6 @@ public class LimitsAreNoReachedTest implements LimitsReachedCheckerFixture, Coun
         Optional<Result> gameResult = checker.limitsReached(CROSS, movements, counter, crossPlayer, circlePlayer);
 
         // then
-        Assert.assertFalse(gameResult.isPresent());
+        assertThat(gameResult.isPresent()).isFalse();
     }
 }

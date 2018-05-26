@@ -5,9 +5,9 @@ import com.raulexposito.model.game.Game;
 import com.raulexposito.model.game.game.BottomRowPlayer;
 import com.raulexposito.model.game.game.TopRowPlayer;
 import com.raulexposito.model.player.Player;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 
@@ -24,10 +24,10 @@ public class ResultRenderingTest implements JsonReader {
         String json = game.play().toJSON();
 
         // then
-        Assert.assertTrue(contains(json, "result", "VICTORY"));
-        Assert.assertTrue(contains(json, "winner", "CROSS"));
-        Assert.assertTrue(contains(json, "cross", "TOPROWPLAYER"));
-        Assert.assertTrue(contains(json, "circle", "BOTTOMROWPLAYER"));
-        Assert.assertTrue(contains(json, "length", Double.valueOf(5)));
+        assertThat(theValue("result").of(json)).isEqualTo("VICTORY");
+        assertThat(theValue("winner").of(json)).isEqualTo("CROSS");
+        assertThat(theValue("cross").of(json)).isEqualTo("TOPROWPLAYER");
+        assertThat(theValue("circle").of(json)).isEqualTo("BOTTOMROWPLAYER");
+        assertThat(theNumericValue("length").of(json)).isEqualTo(5);
     }
 }

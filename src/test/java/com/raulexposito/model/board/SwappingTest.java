@@ -1,8 +1,8 @@
 package com.raulexposito.model.board;
 
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.*;
 
@@ -20,9 +20,9 @@ public class SwappingTest implements BoardFixture {
         board = board.swap(TOP_LEFT, CENTER);
 
         // then
-        Assert.assertTrue(board.isEmpty(TOP_LEFT));
-        Assert.assertTrue(board.isFilled(TOP_CENTER));
-        Assert.assertTrue(board.isFilled(TOP_RIGHT));
-        Assert.assertTrue(board.isFilled(CENTER));
+        assertThat(board.isEmpty(TOP_LEFT)).isTrue();
+        assertThat(board.isFilled(TOP_CENTER)).isTrue();
+        assertThat(board.isFilled(TOP_RIGHT)).isTrue();
+        assertThat(board.isFilled(CENTER)).isTrue();
     }
 }

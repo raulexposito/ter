@@ -3,8 +3,9 @@ package com.raulexposito.model.game.result.renderer;
 import com.raulexposito.helper.JsonReader;
 import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.game.result.VictoryFixture;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class VictoryResultRendererTest implements JsonReader, VictoryFixture {
 
@@ -18,6 +19,6 @@ public class VictoryResultRendererTest implements JsonReader, VictoryFixture {
         String json = renderer.toJSON();
 
         // then
-        Assert.assertTrue(contains(json, "result", "VICTORY"));
+        assertThat(theValue("result").of(json)).isEqualTo("VICTORY");
     }
 }

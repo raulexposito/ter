@@ -2,9 +2,9 @@ package com.raulexposito.model.game.checker.victory;
 
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
@@ -20,7 +20,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
         board = board.add(CIRCLE, CENTER);
 
         // then
-        Assert.assertFalse(createVictoryChecker(board).isVictory());
+        assertThat(createVictoryChecker(board).isVictory()).isFalse();
     }
 
     @Test
@@ -35,7 +35,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(CROSS, BOTTOM_LEFT);
 
         // then
-        Assert.assertFalse(createVictoryChecker(board).isVictory());
+        assertThat(createVictoryChecker(board).isVictory()).isFalse();
     }
 
     @Test
@@ -50,7 +50,7 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(CIRCLE, BOTTOM_LEFT);
 
         // then
-        Assert.assertFalse(createVictoryChecker(board).isVictory());
+        assertThat(createVictoryChecker(board).isVictory()).isFalse();
     }
 
     @Test
@@ -65,6 +65,6 @@ public class NoVictoryTest implements VictoryCheckerFixture, BoardFixture {
                 .add(CIRCLE, BOTTOM_RIGHT);
 
         // then
-        Assert.assertFalse(createVictoryChecker(board).isVictory());
+        assertThat(createVictoryChecker(board).isVictory()).isFalse();
     }
 }

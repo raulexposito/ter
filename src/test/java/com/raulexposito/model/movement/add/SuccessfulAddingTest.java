@@ -4,9 +4,9 @@ import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import com.raulexposito.model.movement.check.AddChecker;
 import com.raulexposito.model.movement.execution.Execution;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.CENTER;
 
@@ -22,6 +22,6 @@ public class SuccessfulAddingTest implements AddCheckerFixture, BoardFixture {
         Execution result = addChecker.check(board, CIRCLE, CENTER);
 
         // then
-        Assert.assertTrue(result.isValid());
+        assertThat(result.isValid()).isTrue();
     }
 }

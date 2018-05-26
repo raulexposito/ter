@@ -1,8 +1,8 @@
 package com.raulexposito.model.board;
 
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.CENTER;
@@ -15,8 +15,8 @@ public class EmptinessTest implements BoardFixture {
         Board board = createBoard();
 
         // then
-        Assert.assertEquals(Long.valueOf(0), board.howMany(CIRCLE));
-        Assert.assertEquals(Long.valueOf(0), board.howMany(CROSS));
+        assertThat(board.howMany(CIRCLE)).isEqualTo(0);
+        assertThat(board.howMany(CROSS)).isEqualTo(0);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class EmptinessTest implements BoardFixture {
         board = board.add(CIRCLE, CENTER);
 
         // then
-        Assert.assertEquals(Long.valueOf(1), board.howMany(CIRCLE));
-        Assert.assertEquals(Long.valueOf(0), board.howMany(CROSS));
+        assertThat(board.howMany(CIRCLE)).isEqualTo(1);
+        assertThat(board.howMany(CROSS)).isEqualTo(0);
     }
 }

@@ -6,8 +6,9 @@ import com.raulexposito.model.board.Piece;
 import com.raulexposito.model.player.Player;
 import com.raulexposito.model.player.PlayerFixture;
 import com.raulexposito.model.player.RandomPlayer;
-import org.junit.Assert;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class RandomPlayerTest implements PlayerFixture, BoardFixture {
 
@@ -21,7 +22,7 @@ public class RandomPlayerTest implements PlayerFixture, BoardFixture {
         board = move(board, randomPlayer, MAX_SAME_PIECES);
 
         // then
-        Assert.assertEquals(MAX_SAME_PIECES, board.howMany(Piece.CROSS));
+        assertThat(board.howMany(Piece.CROSS)).isEqualTo(MAX_SAME_PIECES);
     }
 
     @Test
@@ -34,6 +35,6 @@ public class RandomPlayerTest implements PlayerFixture, BoardFixture {
         board = move(board, randomPlayer, 500L);
 
         // then
-        Assert.assertEquals(MAX_SAME_PIECES, board.howMany(Piece.CROSS));
+        assertThat(board.howMany(Piece.CROSS)).isEqualTo(MAX_SAME_PIECES);
     }
 }

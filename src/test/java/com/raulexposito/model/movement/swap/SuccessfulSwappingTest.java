@@ -4,9 +4,9 @@ import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import com.raulexposito.model.movement.check.SwapChecker;
 import com.raulexposito.model.movement.execution.Execution;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.*;
 
@@ -25,7 +25,7 @@ public class SuccessfulSwappingTest implements SwapCheckerFixture, BoardFixture 
         Execution result = swapChecker.check(board, CIRCLE, TOP_LEFT, CENTER);
 
         // then
-        Assert.assertTrue(result.isValid());
+        assertThat(result.isValid()).isTrue();
     }
 
     @Test
@@ -41,6 +41,6 @@ public class SuccessfulSwappingTest implements SwapCheckerFixture, BoardFixture 
         Execution result = swapChecker.check(board, CIRCLE, CENTER, TOP_LEFT);
 
         // then
-        Assert.assertTrue(result.isValid());
+        assertThat(result.isValid()).isTrue();
     }
 }

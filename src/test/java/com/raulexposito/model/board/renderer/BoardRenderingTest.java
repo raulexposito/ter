@@ -3,10 +3,10 @@ package com.raulexposito.model.board.renderer;
 import com.raulexposito.helper.JsonReader;
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
-import com.raulexposito.model.board.NoContent;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
+import static com.raulexposito.model.board.NoContent.EMPTY;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
@@ -25,9 +25,9 @@ public class BoardRenderingTest implements BoardFixture, JsonReader {
         String json = board.toJSON();
 
         // then
-        Assert.assertTrue(contains(json, TOP_LEFT, CIRCLE));
-        Assert.assertTrue(contains(json, TOP_CENTER, CROSS));
-        Assert.assertTrue(contains(json, TOP_RIGHT, CIRCLE));
-        Assert.assertTrue(contains(json, CENTER, NoContent.EMPTY));
+        assertThat(thePiece(TOP_LEFT).of(json)).isEqualTo(CIRCLE);
+        assertThat(thePiece(TOP_CENTER).of(json)).isEqualTo(CROSS);
+        assertThat(thePiece(TOP_RIGHT).of(json)).isEqualTo(CIRCLE);
+        assertThat(theValue(CENTER).of(json)).isEqualTo(EMPTY);
     }
 }

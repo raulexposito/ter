@@ -4,9 +4,9 @@ import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import com.raulexposito.model.movement.check.SwapChecker;
 import com.raulexposito.model.movement.execution.Execution;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
@@ -25,8 +25,8 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         Execution result = swapChecker.check(board, CIRCLE, TOP_LEFT, CENTER);
 
         // then
-        Assert.assertEquals(Long.valueOf(2), board.howMany(CIRCLE));
-        Assert.assertTrue(result.isFailed());
+        assertThat(board.howMany(CIRCLE)).isEqualTo(2);
+        assertThat(result.isFailed()).isTrue();
     }
 
     @Test
@@ -45,7 +45,7 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         Execution result = swapChecker.check(board, CROSS, TOP_LEFT, BOTTOM_LEFT);
 
         // then
-        Assert.assertTrue(result.isFailed());
+        assertThat(result.isFailed()).isTrue();
     }
 
     @Test
@@ -61,7 +61,7 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         Execution result = swapChecker.check(board, CIRCLE, BOTTOM_LEFT, BOTTOM_RIGHT);
 
         // then
-        Assert.assertTrue(result.isFailed());
+        assertThat(result.isFailed()).isTrue();
     }
 
     @Test
@@ -77,6 +77,6 @@ public class FailingSwappingTest implements SwapCheckerFixture, BoardFixture {
         Execution result = swapChecker.check(board, CIRCLE, TOP_LEFT, TOP_RIGHT);
 
         // then
-        Assert.assertTrue(result.isFailed());
+        assertThat(result.isFailed()).isTrue();
     }
 }

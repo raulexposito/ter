@@ -1,9 +1,9 @@
 package com.raulexposito.model.board.filled;
 
 import com.raulexposito.model.board.Content;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 
@@ -18,7 +18,7 @@ public class ContentTest implements FilledFixture {
         boolean result = content.hasPiece(CIRCLE);
 
         // then
-        Assert.assertTrue(result);
+        assertThat(result).isTrue();
     }
 
     @Test
@@ -30,6 +30,6 @@ public class ContentTest implements FilledFixture {
         boolean result = content.hasPiece(CROSS);
 
         // then
-        Assert.assertTrue(result);
+        assertThat(result).isTrue();
     }
 }

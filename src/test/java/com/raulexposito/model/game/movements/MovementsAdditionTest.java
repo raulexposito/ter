@@ -3,9 +3,9 @@ package com.raulexposito.model.game.movements;
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.game.Movements;
 import com.raulexposito.model.movement.Swap;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.CENTER;
 import static com.raulexposito.model.board.Placement.TOP_LEFT;
@@ -25,7 +25,7 @@ public class MovementsAdditionTest implements MovementsFixture {
         movements = addMovements(ONE_TO_MAXIMUM, movements);
 
         // then
-        Assert.assertFalse(movements.limitReached());
+        assertThat(movements.limitReached()).isFalse();
     }
 
     @Test
@@ -37,7 +37,7 @@ public class MovementsAdditionTest implements MovementsFixture {
         movements = addMovements(MAXIMUM, movements);
 
         // then
-        Assert.assertTrue(movements.limitReached());
+        assertThat(movements.limitReached()).isTrue();
     }
 
     private Movements addMovements(Integer amount, Movements movements) {

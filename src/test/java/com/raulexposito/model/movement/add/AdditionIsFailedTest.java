@@ -4,9 +4,9 @@ import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import com.raulexposito.model.movement.Add;
 import com.raulexposito.model.movement.Movement;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.CENTER;
 
@@ -21,6 +21,6 @@ public class AdditionIsFailedTest implements BoardFixture {
         Movement movement = new Add(board, CIRCLE, CENTER);
 
         // then
-        Assert.assertTrue(movement.isFailed());
+        assertThat(movement.isFailed()).isTrue();
     }
 }
