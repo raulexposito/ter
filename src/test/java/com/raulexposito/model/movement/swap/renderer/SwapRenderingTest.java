@@ -1,6 +1,6 @@
 package com.raulexposito.model.movement.swap.renderer;
 
-import com.raulexposito.helper.JsonReader;
+import com.raulexposito.helper.json.JsonMapReader;
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import com.raulexposito.model.board.Placement;
@@ -15,7 +15,7 @@ import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.CENTER;
 import static com.raulexposito.model.board.Placement.TOP_LEFT;
 
-public class SwapRenderingTest implements BoardFixture, JsonReader {
+public class SwapRenderingTest implements BoardFixture, JsonMapReader {
 
     @Test
     public void jsonRepresentsContent() {

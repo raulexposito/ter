@@ -1,6 +1,7 @@
 package com.raulexposito.model.game.result;
 
-import com.raulexposito.helper.JsonReader;
+import com.raulexposito.helper.json.JsonNumericReader;
+import com.raulexposito.helper.json.JsonStringReader;
 import com.raulexposito.model.game.Game;
 import com.raulexposito.model.game.game.BottomRowPlayer;
 import com.raulexposito.model.game.game.TopRowPlayer;
@@ -11,7 +12,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 
-public class ResultRenderingTest implements JsonReader {
+public class ResultRenderingTest implements JsonStringReader, JsonNumericReader {
 
     @Test
     public void jsonRepresentsContent() {

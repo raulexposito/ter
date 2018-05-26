@@ -1,13 +1,13 @@
 package com.raulexposito.model.game.result.renderer;
 
-import com.raulexposito.helper.JsonReader;
+import com.raulexposito.helper.json.JsonStringReader;
 import com.raulexposito.model.game.result.Result;
 import com.raulexposito.model.game.result.VictoryFixture;
 import org.junit.Test;
 
 import static com.google.common.truth.Truth.assertThat;
 
-public class VictoryResultRendererTest implements JsonReader, VictoryFixture {
+public class VictoryResultRendererTest implements JsonStringReader, VictoryFixture {
 
     @Test
     public void drawnIsIncludedWithinResponse() {

@@ -1,6 +1,7 @@
 package com.raulexposito.model.board.renderer;
 
-import com.raulexposito.helper.JsonReader;
+import com.raulexposito.helper.json.JsonPieceReader;
+import com.raulexposito.helper.json.JsonStringReader;
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Piece.CROSS;
 import static com.raulexposito.model.board.Placement.*;
 
-public class BoardRenderingTest implements BoardFixture, JsonReader {
+public class BoardRenderingTest implements BoardFixture, JsonPieceReader, JsonStringReader {
 
     @Test
     public void jsonRepresentsContent() {

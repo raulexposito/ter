@@ -1,6 +1,6 @@
 package com.raulexposito.model.movement.add.renderer;
 
-import com.raulexposito.helper.JsonReader;
+import com.raulexposito.helper.json.JsonMapReader;
 import com.raulexposito.model.board.Board;
 import com.raulexposito.model.board.BoardFixture;
 import com.raulexposito.model.board.Placement;
@@ -14,7 +14,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.model.board.Piece.CIRCLE;
 import static com.raulexposito.model.board.Placement.CENTER;
 
-public class AddRenderingTest implements BoardFixture, JsonReader {
+public class AddRenderingTest implements BoardFixture, JsonMapReader {
 
     @Test
     public void jsonRepresentsContent() {
