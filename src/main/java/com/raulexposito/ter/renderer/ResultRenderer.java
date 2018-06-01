@@ -4,16 +4,32 @@ import com.raulexposito.ter.model.game.result.Result;
 
 public class ResultRenderer {
 
+	// ------------------------------------------------------------------------
+	// ATTRIBUTES
+	// ------------------------------------------------------------------------
+
 	private final Result result;
+
+	// ------------------------------------------------------------------------
+	// CONSTRUCTOR
+	// ------------------------------------------------------------------------
 
 	public ResultRenderer(Result result) {
 		this.result = result;
 	}
 
+	// ------------------------------------------------------------------------
+	// BUSINESS LOGIC
+	// ------------------------------------------------------------------------
+
 	public String toJSON() {
 		return "{" + addResult() + addWinner() + addCrossPlayer()
 				+ addCirclePlayer() + addLength() + addMovements() + "}";
 	}
+
+	// ------------------------------------------------------------------------
+	// PRIVATE METHODS
+	// ------------------------------------------------------------------------
 
 	private String addResult() {
 		return "\"result\":\""

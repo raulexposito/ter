@@ -3,7 +3,7 @@ package com.raulexposito.ter.model.game;
 public class Counter {
 
 	// ------------------------------------------------------------------------
-	// CONSTANTS
+	// CONSTANT VALUES
 	// ------------------------------------------------------------------------
 
 	private static final Integer INIT = 0;

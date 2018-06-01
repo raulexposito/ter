@@ -2,7 +2,15 @@ package com.raulexposito.ter.model.board;
 
 public class NoContent implements Content {
 
+    // ------------------------------------------------------------------------
+    // CONSTANT VALUES
+    // ------------------------------------------------------------------------
+
     public static final String EMPTY = "";
+
+    // ------------------------------------------------------------------------
+    // BUSINESS LOGIC
+    // ------------------------------------------------------------------------
 
     @Override
     public boolean isFilled() {

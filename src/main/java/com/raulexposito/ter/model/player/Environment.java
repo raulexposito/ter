@@ -11,7 +11,7 @@ import java.util.List;
 class Environment {
 
     // ------------------------------------------------------------------------
-    // CONSTANTS
+    // CONSTANT VALUES
     // ------------------------------------------------------------------------
 
     private static final Integer MAX_SAME_PIECES = 3;

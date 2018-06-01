@@ -8,9 +8,17 @@ import java.util.Optional;
 
 public class Drawn extends Result {
 
+    // ------------------------------------------------------------------------
+    // CONSTRUCTOR
+    // ------------------------------------------------------------------------
+
     public Drawn(Movements movements, Player cross, Player circle) {
         super(movements, cross, circle);
     }
+
+    // ------------------------------------------------------------------------
+    // BUSINESS LOGIC
+    // ------------------------------------------------------------------------
 
     @Override
     public boolean isDrawn() {

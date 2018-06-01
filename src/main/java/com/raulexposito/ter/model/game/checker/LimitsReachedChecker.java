@@ -12,6 +12,10 @@ import java.util.Optional;
 
 public class LimitsReachedChecker {
 
+    // ------------------------------------------------------------------------
+    // BUSINESS LOGIC
+    // ------------------------------------------------------------------------
+
     public Optional<Result> limitsReached(Piece piece, Movements movements, Counter attempts, Player cross, Player circle) {
         if (movements.limitReached()) {
             return Optional.of(new Drawn(movements, cross, circle));
