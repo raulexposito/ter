@@ -2,10 +2,9 @@ package com.raulexposito.ter.fixture.game;
 
 import com.raulexposito.ter.model.game.Movements;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 public interface MovementsFixture {
+
+    Integer NONE = 0;
 
     default Movements createUnlimitedSteps() {
         return Movements.upTo(Integer.MAX_VALUE);
@@ -16,8 +15,6 @@ public interface MovementsFixture {
     }
 
     default Movements createReachedSteps() {
-        Movements movements = mock(Movements.class);
-        when(movements.limitReached()).thenReturn(true);
-        return movements;
+        return Movements.upTo(NONE);
     }
 }

@@ -2,21 +2,18 @@ package com.raulexposito.ter.fixture.game;
 
 import com.raulexposito.ter.model.game.Counter;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 public interface CounterFixture {
 
     Integer TOP = 10;
+
+    Integer NONE = 0;
 
     default Counter createCounter() {
         return Counter.upTo(TOP);
     }
 
     default Counter createReachedCounter() {
-        Counter movements = mock(Counter.class);
-        when(movements.limitReached()).thenReturn(true);
-        return movements;
+        return Counter.upTo(NONE);
     }
 
     default Counter increase(Counter counter, Integer times) {
