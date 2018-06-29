@@ -6,6 +6,7 @@ import com.raulexposito.ter.model.player.Player;
 import com.raulexposito.ter.renderer.ResultRenderer;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public abstract class Result {
 
@@ -16,6 +17,7 @@ public abstract class Result {
     private final Movements movements;
     private final Player cross;
     private final Player circle;
+    private final UUID id;
 
     // ------------------------------------------------------------------------
     // CONSTRUCTOR
@@ -25,6 +27,7 @@ public abstract class Result {
         this.movements = movements;
         this.cross = cross;
         this.circle = circle;
+        this.id = UUID.randomUUID();
     }
 
     // ------------------------------------------------------------------------
@@ -51,6 +54,10 @@ public abstract class Result {
 
     public String getCirclePlayerName() {
         return circle.getName().toUpperCase();
+    }
+
+    public String getId() {
+        return id.toString();
     }
 
     public String getMovementsAsJSON() {

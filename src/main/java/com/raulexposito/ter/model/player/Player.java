@@ -45,6 +45,10 @@ public abstract class Player {
         return name;
     }
 
+    public boolean isPiece(Piece piece) {
+        return this.piece == piece;
+    }
+
     // ------------------------------------------------------------------------
     // PROTECTED METHODS
     // ------------------------------------------------------------------------

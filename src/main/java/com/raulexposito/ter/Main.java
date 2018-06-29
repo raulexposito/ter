@@ -1,7 +1,7 @@
 package com.raulexposito.ter;
 
-import com.raulexposito.ter.model.game.Game;
-import com.raulexposito.ter.model.game.result.Result;
+import com.raulexposito.ter.model.match.Match;
+import com.raulexposito.ter.model.match.Report;
 import com.raulexposito.ter.model.player.Player;
 import com.raulexposito.ter.model.player.RandomPlayer;
 
@@ -14,9 +14,8 @@ public class Main {
         final Player cross = new RandomPlayer(CROSS);
         final Player circle = new RandomPlayer(CIRCLE);
 
-        final Game game = new Game(cross, circle);
-
-        final Result result = game.play();
-        System.out.println(result.toJSON());
+        final Match match = new Match(cross, circle, 10);
+        final Report report = match.getReport();
+        System.out.println(report.toJSON());
     }
 }

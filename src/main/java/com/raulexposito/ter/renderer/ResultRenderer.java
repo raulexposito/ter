@@ -23,13 +23,17 @@ public class ResultRenderer {
 	// ------------------------------------------------------------------------
 
 	public String toJSON() {
-		return "{" + addResult() + addWinner() + addCrossPlayer()
+		return "{" + addId() + addResult() + addWinner() + addCrossPlayer()
 				+ addCirclePlayer() + addLength() + addMovements() + "}";
 	}
 
 	// ------------------------------------------------------------------------
 	// PRIVATE METHODS
 	// ------------------------------------------------------------------------
+
+	private String addId() {
+		return "\"id\":\"" + result.getId() + "\",";
+	}
 
 	private String addResult() {
 		return "\"result\":\""
