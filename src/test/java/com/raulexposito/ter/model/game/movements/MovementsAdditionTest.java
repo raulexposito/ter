@@ -20,7 +20,7 @@ public class MovementsAdditionTest implements MovementsFixture {
     @Test
     public void movementsAreAddedAndNoLimitIsReached() {
         // given
-        Movements movements = createLimitedSteps(MAXIMUM);
+        Movements movements = createLimitedMovements(MAXIMUM);
 
         // when
         movements = addMovements(ONE_TO_MAXIMUM, movements);
@@ -32,7 +32,7 @@ public class MovementsAdditionTest implements MovementsFixture {
     @Test
     public void movementsAreAddedAndLimitIsReached() {
         // given
-        Movements movements = createLimitedSteps(MAXIMUM);
+        Movements movements = createLimitedMovements(MAXIMUM);
 
         // when
         movements = addMovements(MAXIMUM, movements);

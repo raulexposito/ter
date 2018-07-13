@@ -70,7 +70,7 @@
                 <executions>
                     <execution>
                         <id>formatter</id>
-                        <phase>compile</phase>
+                        <phase>prepare-package</phase>
                         <goals>
                             <goal>format</goal>
                         </goals>
@@ -92,7 +92,7 @@
                 <executions>
                     <execution>
                         <id>analyze</id>
-                        <phase>compile</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
@@ -149,7 +149,6 @@
                             <artifactSet>
                                 <!-- https://maven.apache.org/plugins/maven-shade-plugin/examples/includes-excludes.html -->
                                 <excludes>
-                                    <exclude>org.mockito:mockito-core</exclude>
                                     <exclude>com.google.truth:truth</exclude>
                                 </excludes>
                             </artifactSet>

@@ -2,6 +2,7 @@ package com.raulexposito.ter.model.game.result;
 
 import com.raulexposito.ter.model.board.Piece;
 import com.raulexposito.ter.model.game.Movements;
+import com.raulexposito.ter.model.game.Step;
 import com.raulexposito.ter.model.player.Player;
 import com.raulexposito.ter.renderer.ResultRenderer;
 
@@ -23,8 +24,8 @@ public abstract class Result {
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    Result(Movements movements, Player cross, Player circle) {
-        this.movements = movements;
+    Result(Step step, Player cross, Player circle) {
+        this.movements = step.getMovements();
         this.cross = cross;
         this.circle = circle;
         this.id = UUID.randomUUID();

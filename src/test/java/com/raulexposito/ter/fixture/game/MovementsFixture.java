@@ -6,15 +6,15 @@ public interface MovementsFixture {
 
     Integer NONE = 0;
 
-    default Movements createUnlimitedSteps() {
+    default Movements createUnlimitedMovements() {
         return Movements.upTo(Integer.MAX_VALUE);
     }
 
-    default Movements createLimitedSteps(Integer maxSteps) {
-        return Movements.upTo(maxSteps);
+    default Movements createLimitedMovements(Integer maxMovements) {
+        return Movements.upTo(maxMovements);
     }
 
-    default Movements createReachedSteps() {
+    default Movements createReachedMovements() {
         return Movements.upTo(NONE);
     }
 }

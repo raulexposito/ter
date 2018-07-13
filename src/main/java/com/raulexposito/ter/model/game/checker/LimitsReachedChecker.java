@@ -1,8 +1,6 @@
 package com.raulexposito.ter.model.game.checker;
 
-import com.raulexposito.ter.model.board.Piece;
-import com.raulexposito.ter.model.game.Counter;
-import com.raulexposito.ter.model.game.Movements;
+import com.raulexposito.ter.model.game.Step;
 import com.raulexposito.ter.model.game.result.Drawn;
 import com.raulexposito.ter.model.game.result.Result;
 import com.raulexposito.ter.model.game.result.Victory;
@@ -16,13 +14,13 @@ public class LimitsReachedChecker {
     // BUSINESS LOGIC
     // ------------------------------------------------------------------------
 
-    public Optional<Result> limitsReached(Piece piece, Movements movements, Counter attempts, Player cross, Player circle) {
-        if (movements.limitReached()) {
-            return Optional.of(new Drawn(movements, cross, circle));
+    public Optional<Result> limitReached(Step step, Player cross, Player circle) {
+        if (step.isMovementsLimitReached()) {
+            return Optional.of(new Drawn(step, cross, circle));
         }
 
-        if (attempts.limitReached()) {
-            return Optional.of(new Victory(movements, piece.getOpposite(), cross, circle));
+        if (step.isAttemptsLimitReached()) {
+            return Optional.of(new Victory(step, step.getOppositePiece(), cross, circle));
         }
 
         return Optional.empty();

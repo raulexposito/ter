@@ -1,8 +1,10 @@
 package com.raulexposito.ter.model.game.checker.limitsreachedchecker;
 
+import com.raulexposito.ter.fixture.game.StepFixture;
 import com.raulexposito.ter.fixture.game.checker.LimitsReachedCheckerFixture;
 import com.raulexposito.ter.model.game.Counter;
 import com.raulexposito.ter.model.game.Movements;
+import com.raulexposito.ter.model.game.Step;
 import com.raulexposito.ter.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.ter.fixture.game.CounterFixture;
 import com.raulexposito.ter.fixture.game.MovementsFixture;
@@ -17,19 +19,20 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.raulexposito.ter.model.board.Piece.CIRCLE;
 import static com.raulexposito.ter.model.board.Piece.CROSS;
 
-public class LimitsAreNoReachedTest implements LimitsReachedCheckerFixture, CounterFixture, MovementsFixture {
+public class LimitsAreNoReachedTest implements LimitsReachedCheckerFixture, CounterFixture, MovementsFixture, StepFixture {
 
     @Test
     public void noLimitIsReached() {
         // given
         LimitsReachedChecker checker = createLimitsReachedChecker();
+        Movements movements = createUnlimitedMovements();
         Counter counter = createCounter();
-        Movements movements = createUnlimitedSteps();
+        Step step = createStep(movements, counter);
         Player crossPlayer = new FakeOnlyCenterPlayer(CROSS);
         Player circlePlayer = new FakeOnlyCenterPlayer(CIRCLE);
 
         // when
-        Optional<Result> gameResult = checker.limitsReached(CROSS, movements, counter, crossPlayer, circlePlayer);
+        Optional<Result> gameResult = checker.limitReached(step, crossPlayer, circlePlayer);
 
         // then
         assertThat(gameResult.isPresent()).isFalse();

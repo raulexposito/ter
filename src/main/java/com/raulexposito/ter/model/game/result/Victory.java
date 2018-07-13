@@ -1,7 +1,7 @@
 package com.raulexposito.ter.model.game.result;
 
 import com.raulexposito.ter.model.board.Piece;
-import com.raulexposito.ter.model.game.Movements;
+import com.raulexposito.ter.model.game.Step;
 import com.raulexposito.ter.model.player.Player;
 
 import java.util.Optional;
@@ -18,8 +18,8 @@ public class Victory extends Result {
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public Victory(Movements movements, Piece winner, Player cross, Player circle) {
-        super(movements, cross, circle);
+    public Victory(Step step, Piece winner, Player cross, Player circle) {
+        super(step, cross, circle);
         this.winner = winner;
     }
 

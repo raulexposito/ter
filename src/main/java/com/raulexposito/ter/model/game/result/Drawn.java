@@ -1,7 +1,7 @@
 package com.raulexposito.ter.model.game.result;
 
 import com.raulexposito.ter.model.board.Piece;
-import com.raulexposito.ter.model.game.Movements;
+import com.raulexposito.ter.model.game.Step;
 import com.raulexposito.ter.model.player.Player;
 
 import java.util.Optional;
@@ -12,8 +12,8 @@ public class Drawn extends Result {
     // CONSTRUCTOR
     // ------------------------------------------------------------------------
 
-    public Drawn(Movements movements, Player cross, Player circle) {
-        super(movements, cross, circle);
+    public Drawn(Step step, Player cross, Player circle) {
+        super(step, cross, circle);
     }
 
     // ------------------------------------------------------------------------

@@ -1,6 +1,5 @@
 package com.raulexposito.ter.model.game;
 
-import com.raulexposito.ter.model.board.Board;
 import com.raulexposito.ter.model.board.Piece;
 import com.raulexposito.ter.model.game.checker.LimitsReachedChecker;
 import com.raulexposito.ter.model.game.result.Result;
@@ -20,8 +19,8 @@ public class Game {
     // CONSTANT VALUES
     // ------------------------------------------------------------------------
 
+    private static final Integer MAX_MOVEMENTS = 1000;
     private static final Integer MAX_ATTEMPTS = 20;
-    private static final Integer MAX_STEPS = 1000;
 
     // ------------------------------------------------------------------------
     // ATTRIBUTES
@@ -44,27 +43,26 @@ public class Game {
     // ------------------------------------------------------------------------
 
     public Result play() {
-        return play(Board.empty(), Movements.upTo(MAX_STEPS), CROSS, Counter.upTo(MAX_ATTEMPTS));
+        return play(new Step(Movements.upTo(MAX_MOVEMENTS), Counter.upTo(MAX_ATTEMPTS)));
     }
 
     // ------------------------------------------------------------------------
     // PRIVATE METHODS
     // ------------------------------------------------------------------------
 
-    private Result play(Board board, Movements movements, Piece piece, Counter attempts) {
-        return checker.limitsReached(piece, movements, attempts, crossPlayer(), circlePlayer()).orElseGet(() -> {
-            final Movement movement = players.get(piece).move(board);
-            final Movements currentMovements = movements.add(movement);
+    private Result play(Step step) {
+        return checker.limitReached(step, crossPlayer(), circlePlayer()).orElseGet(() -> {
+            final Movement movement = players.get(step.getCurrentPiece()).move(step.getBoard());
 
             if (movement.isVictory()) {
-                return new Victory(currentMovements, piece, crossPlayer(), circlePlayer());
+                return new Victory(step.add(movement), step.getCurrentPiece(), crossPlayer(), circlePlayer());
             }
 
             if (movement.isFailed()) {
-                return play(board, movements, piece, attempts.increase());
+                return play(step.retry());
             }
 
-            return play(movement.getBoard(), currentMovements, piece.getOpposite(), attempts.reset());
+            return play(step.next(movement));
         });
     }
 
